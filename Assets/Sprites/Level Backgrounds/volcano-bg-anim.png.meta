@@ -145,12 +145,12 @@ TextureImporter:
       name: volcano-bg-anim_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1026
+        x: 52
+        y: 1100
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: volcano-bg-anim_1
       rect:
         serializedVersion: 2
-        x: 513
-        y: 1026
+        x: 565
+        y: 1100
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: volcano-bg-anim_2
       rect:
         serializedVersion: 2
-        x: 1026
-        y: 1026
+        x: 1078
+        y: 1100
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,12 +208,12 @@ TextureImporter:
       name: volcano-bg-anim_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 513
+        x: 52
+        y: 587
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,12 +229,12 @@ TextureImporter:
       name: volcano-bg-anim_4
       rect:
         serializedVersion: 2
-        x: 513
-        y: 513
+        x: 565
+        y: 587
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,12 +250,12 @@ TextureImporter:
       name: volcano-bg-anim_5
       rect:
         serializedVersion: 2
-        x: 1026
-        y: 513
+        x: 1078
+        y: 587
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -271,12 +271,12 @@ TextureImporter:
       name: volcano-bg-anim_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 52
+        y: 74
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,6 +299,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      volcano-bg-anim_7: -372126241
       volcano-bg-anim_5: -757514992
       volcano-bg-anim_3: -669574473
       volcano-bg-anim_2: -1151083762

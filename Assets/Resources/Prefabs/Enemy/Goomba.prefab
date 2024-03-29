@@ -63,6 +63,9 @@ MonoBehaviour:
   collide: 1
   iceCarryable: 1
   flying: 0
+  Invincible: 0
+  FireImmune: 0
+  NoCoin: 0
   body: {fileID: 0}
   hitbox: {fileID: 0}
   speed: 0.875

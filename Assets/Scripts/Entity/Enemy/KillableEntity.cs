@@ -24,7 +24,7 @@ public abstract class KillableEntity : MonoBehaviourPun, IFreezableEntity, ICust
     public bool IsFlying => flying;
     public bool Active { get; set; } = true;
 
-    public bool dead, left = true, collide = true, iceCarryable = true, flying;
+    public bool dead, left = true, collide = true, iceCarryable = true, flying, Invincible, FireImmune, NoCoin;
     public Rigidbody2D body;
     public BoxCollider2D hitbox;
     protected Animator animator;
@@ -99,7 +99,7 @@ public abstract class KillableEntity : MonoBehaviourPun, IFreezableEntity, ICust
         Vector2 damageDirection = (player.body.position - body.position).normalized;
         bool attackedFromAbove = Vector2.Dot(damageDirection, Vector2.up) > 0.5f && !player.onGround;
 
-        if (!attackedFromAbove && player.state == Enums.PowerupState.BlueShell && player.crouching && !player.inShell) {
+        if (!attackedFromAbove && player.state == Enums.PowerupState.BlueShell && (player.crouching || player.groundpound) && !player.inShell) {
             photonView.RPC(nameof(SetLeft), RpcTarget.All, damageDirection.x > 0);
         } else if (player.invincible > 0 || player.inShell || player.sliding
             || (player.groundpound && player.state != Enums.PowerupState.MiniMushroom && attackedFromAbove)
@@ -187,7 +187,7 @@ public abstract class KillableEntity : MonoBehaviourPun, IFreezableEntity, ICust
         if (groundpound)
             Instantiate(Resources.Load("Prefabs/Particle/EnemySpecialKill"), body.position + Vector2.up * 0.5f, Quaternion.identity);
 
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && !NoCoin)
             PhotonNetwork.InstantiateRoomObject("Prefabs/LooseCoin", body.position + Vector2.up * 0.5f, Quaternion.identity);
 
         body.velocity = new(2f * (right ? 1 : -1), 2.5f);
