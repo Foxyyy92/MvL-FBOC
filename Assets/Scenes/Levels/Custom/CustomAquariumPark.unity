@@ -307,9 +307,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280217281}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.61, y: 9.21, z: 40}
-  m_LocalScale: {x: 4.5751557, y: 4.5751557, z: 3.431367}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 11.61, y: 9.52, z: 40}
+  m_LocalScale: {x: 5.0000005, y: 5.0000005, z: 5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 402974983}
   m_RootOrder: -2
@@ -918,22 +918,22 @@ PrefabInstance:
     - target: {fileID: 2500780753419200967, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: tension
-      value: 0.9
+      value: 3.07
       objectReference: {fileID: 0}
     - target: {fileID: 2500780753419200967, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: resistance
-      value: 0.0075
+      value: 0.0045
       objectReference: {fileID: 0}
     - target: {fileID: 2500780753419200967, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: widthTiles
-      value: 128
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 2500780753419200967, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: heightTiles
-      value: 10
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2500780753419200967, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
@@ -953,12 +953,17 @@ PrefabInstance:
     - target: {fileID: 3106545712320729601, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_Size.x
-      value: 64
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3106545712320729601, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_Size.y
-      value: 5.5
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106545712320729601, guid: 2dd296828f2080541ab2b41eeda650a7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3106545712320729601, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
@@ -1028,12 +1033,12 @@ PrefabInstance:
     - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_Size.x
-      value: 64
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_Size.y
-      value: 4.9
+      value: 10.4
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
@@ -1043,7 +1048,7 @@ PrefabInstance:
     - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_Offset.y
-      value: 2.3
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
@@ -1052,13 +1057,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 64
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972752, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 5.5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972753, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
@@ -1068,17 +1078,17 @@ PrefabInstance:
     - target: {fileID: 6004104070224972753, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1252
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972753, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.1375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972753, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.01
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6004104070224972753, guid: 2dd296828f2080541ab2b41eeda650a7,
         type: 3}
@@ -2284,10 +2294,8 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1806823004}
     m_ColliderPaths:
-    - - X: 151875008
-        Y: 50625000
-      - X: 153750000
-        Y: 51250000
+    - - X: 153750000
+        Y: 52500000
       - X: 153750000
         Y: 53125000
       - X: 150000000
@@ -2297,31 +2305,19 @@ CompositeCollider2D:
       - X: 96250000
         Y: 53125000
       - X: 96250000
-        Y: 51250000
+        Y: 52500000
       - X: 100000000
-        Y: 50000000
+        Y: 51250000
       - X: 150000000
-        Y: 50000000
-    - - X: 99999900
-        Y: 35000041
-      - X: 99999959
-        Y: 35000100
-      - X: 150000041
-        Y: 35000100
-      - X: 150000100
-        Y: 35000041
-      - X: 150000100
-        Y: 35000000
-      - X: 160000000
-        Y: 35000000
-      - X: 160000000
+        Y: 51250000
+    - - X: 160000000
         Y: 36875000
       - X: 90000000
         Y: 36875000
       - X: 90000000
-        Y: 35000000
-      - X: 99999900
-        Y: 35000000
+        Y: 36250000
+      - X: 160000000
+        Y: 36250000
     - - X: 200000000
         Y: 25000000
       - X: 185000000
@@ -2347,7 +2343,7 @@ CompositeCollider2D:
       - X: 65000000
         Y: 14375000
     - - X: 403750016
-        Y: 11250000
+        Y: 12500000
       - X: 403750016
         Y: 13125000
       - X: 400000000
@@ -2357,41 +2353,19 @@ CompositeCollider2D:
       - X: 226250000
         Y: 13125000
       - X: 226250000
-        Y: 11250000
-      - X: 228124992
-        Y: 10625000
+        Y: 12500000
       - X: 230000000
-        Y: 10000000
+        Y: 11250000
       - X: 400000000
-        Y: 10000000
-    - - X: 229999900
-        Y: -4999959
-      - X: 229999959
-        Y: -4999900
-      - X: 400000041
-        Y: -4999900
-      - X: 400000100
-        Y: -4999959
-      - X: 400000100
-        Y: -5000000
-      - X: 410000000
-        Y: -5000000
-      - X: 410000000
+        Y: 11250000
+    - - X: 410000000
         Y: -3125000
       - X: 220000000
         Y: -3125000
       - X: 220000000
-        Y: -5000000
-      - X: 229999900
-        Y: -5000000
-    - - X: 134999900
-        Y: -5000100
-      - X: 115000100
-        Y: -5000100
-      - X: 115000100
-        Y: -10000000
-      - X: 134999900
-        Y: -10000000
+        Y: -3750000
+      - X: 410000000
+        Y: -3750000
     - - X: 40000000
         Y: -28750000
       - X: 45000000
@@ -2416,25 +2390,18 @@ CompositeCollider2D:
         Y: -30625000
   m_CompositePaths:
     m_Paths:
-    - - {x: 15.187501, y: 5.0625}
-      - {x: 15.375, y: 5.125}
+    - - {x: 15.375, y: 5.25}
       - {x: 15.375, y: 5.3125}
       - {x: 15, y: 5.1875}
       - {x: 10, y: 5.1875}
       - {x: 9.625, y: 5.3125}
-      - {x: 9.625, y: 5.125}
-      - {x: 10, y: 5}
-      - {x: 15, y: 5}
-    - - {x: 9.99999, y: 3.500004}
-      - {x: 9.999996, y: 3.50001}
-      - {x: 15.000005, y: 3.50001}
-      - {x: 15.00001, y: 3.500004}
-      - {x: 15.00001, y: 3.5}
-      - {x: 16, y: 3.5}
-      - {x: 16, y: 3.6875}
+      - {x: 9.625, y: 5.25}
+      - {x: 10, y: 5.125}
+      - {x: 15, y: 5.125}
+    - - {x: 16, y: 3.6875}
       - {x: 9, y: 3.6875}
-      - {x: 9, y: 3.5}
-      - {x: 9.99999, y: 3.5}
+      - {x: 9, y: 3.625}
+      - {x: 16, y: 3.625}
     - - {x: 20, y: 2.5}
       - {x: 18.5, y: 2.5}
       - {x: 18.5, y: 2.4375}
@@ -2447,29 +2414,18 @@ CompositeCollider2D:
       - {x: 5, y: 1.5}
       - {x: 5, y: 1.4375}
       - {x: 6.5, y: 1.4375}
-    - - {x: 40.375004, y: 1.125}
+    - - {x: 40.375004, y: 1.25}
       - {x: 40.375004, y: 1.3125}
       - {x: 40, y: 1.1875}
       - {x: 23, y: 1.1875}
       - {x: 22.625, y: 1.3125}
-      - {x: 22.625, y: 1.125}
-      - {x: 22.8125, y: 1.0625}
-      - {x: 23, y: 1}
-      - {x: 40, y: 1}
-    - - {x: 22.99999, y: -0.49999592}
-      - {x: 22.999996, y: -0.49999002}
-      - {x: 40.000004, y: -0.49999002}
-      - {x: 40.00001, y: -0.49999592}
-      - {x: 40.00001, y: -0.5}
-      - {x: 41, y: -0.5}
-      - {x: 41, y: -0.3125}
+      - {x: 22.625, y: 1.25}
+      - {x: 23, y: 1.125}
+      - {x: 40, y: 1.125}
+    - - {x: 41, y: -0.3125}
       - {x: 22, y: -0.3125}
-      - {x: 22, y: -0.5}
-      - {x: 22.99999, y: -0.5}
-    - - {x: 13.49999, y: -0.50001}
-      - {x: 11.50001, y: -0.50001}
-      - {x: 11.50001, y: -1}
-      - {x: 13.49999, y: -1}
+      - {x: 22, y: -0.375}
+      - {x: 41, y: -0.375}
     - - {x: 4, y: -2.875}
       - {x: 4.5, y: -2.6875}
       - {x: 5, y: -2.5625}
@@ -3818,7 +3774,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 24, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -3828,7 +3784,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 25, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -3838,7 +3794,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 26, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -3848,7 +3804,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 27, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -25807,9 +25763,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912453046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.61, y: -1.12, z: 20}
-  m_LocalScale: {x: 3.5470312, y: 3.5470312, z: 3.5470312}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 11.61, y: -1.2899996, z: 20}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 402974983}
   m_RootOrder: -2

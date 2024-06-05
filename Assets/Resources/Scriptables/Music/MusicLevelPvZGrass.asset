@@ -15,4 +15,4 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 1e952ef14cf3cee48a847bff95a4e025, type: 3}
   fastClip: {fileID: 8300000, guid: 2717e6ed585577b44b5fc68cbe697a98, type: 3}
   loopStartSample: 0
-  loopEndSample: 0
+  loopEndSample: 51.69

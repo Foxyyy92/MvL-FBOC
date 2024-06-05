@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5478bfbe63c3c46b392d3ca752690c, type: 3}
   m_Name: MusicLevelTerminalVelocity
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 681bd3c382cf7f946afc282500708299, type: 3}
-  fastClip: {fileID: 8300000, guid: 681bd3c382cf7f946afc282500708299, type: 3}
+  clip: {fileID: 8300000, guid: 0cc8c352d25b3d14abcdaf9cab5b98a0, type: 3}
+  fastClip: {fileID: 8300000, guid: f936a565de13a1a43a816d459896479f, type: 3}
   loopStartSample: 10.97
-  loopEndSample: 131.65
+  loopEndSample: 132.65

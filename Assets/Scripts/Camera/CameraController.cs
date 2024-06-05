@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour {
     private Vector3 smoothDampVel, playerPos;
     private Camera targetCamera;
     private float startingZ, lastFloor;
+    private float RumbleLevel;
 
     public void Awake() {
         //only control the camera if we're the local player.
@@ -24,6 +25,8 @@ public class CameraController : MonoBehaviour {
         startingZ = targetCamera.transform.position.z;
         controller = GetComponent<PlayerController>();
         targetCamera.GetComponentsInChildren(secondaryPositioners);
+
+        RumbleLevel = GameManager.Instance.RumbleLevel;
     }
 
     public void LateUpdate() {
@@ -31,7 +34,10 @@ public class CameraController : MonoBehaviour {
         if (IsControllingCamera) {
 
             Vector3 shakeOffset = Vector3.zero;
-            if ((ScreenShake -= Time.deltaTime) > 0 && controller.onGround)
+            if (RumbleLevel != 0) {
+              ScreenShake = RumbleLevel;
+              shakeOffset = new Vector3((Random.value - 0.5f) * ScreenShake, (Random.value - 0.5f) * ScreenShake);
+            } else if ((ScreenShake -= Time.deltaTime) > 0 && controller.onGround)
                 shakeOffset = new Vector3((Random.value - 0.5f) * ScreenShake, (Random.value - 0.5f) * ScreenShake);
 
             targetCamera.transform.position = currentPosition + shakeOffset;
