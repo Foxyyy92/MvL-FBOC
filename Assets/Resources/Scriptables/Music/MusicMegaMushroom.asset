@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5478bfbe63c3c46b392d3ca752690c, type: 3}
   m_Name: MusicMegaMushroom
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: d5712596df4ea324c980712798d2035c, type: 3}
-  fastClip: {fileID: 8300000, guid: 64db66586972c3045899a4569bb94b26, type: 3}
+  clip: {fileID: 8300000, guid: 7f10470dfc58c6d4597e8a80e1251605, type: 3}
+  fastClip: {fileID: 8300000, guid: 8fba30df9223c0e40884974d8abe3fa6, type: 3}
   loopStartSample: 0
-  loopEndSample: -1
+  loopEndSample: 9.6

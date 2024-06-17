@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour, IOnEventCallback, IInRoomCallbacks, IC
     public bool loopingLevel = true;
     
 public float RumbleLevel = 0;
+
+public bool galaxyLevel = false;
+
     public Vector3 spawnpoint;
     public Tilemap tilemap;
     [ColorUsage(false)] public Color levelUIColor = new(24, 178, 170);
@@ -63,7 +66,7 @@ public float RumbleLevel = 0;
     public GameObject pauseUI, pausePanel, pauseButton, hostExitUI, hostExitButton;
     public bool gameover = false, musicEnabled = false;
     public readonly HashSet<Player> loadedPlayers = new();
-    public int starRequirement, timedGameDuration = -1, coinRequirement;
+    public int starRequirement, timedGameDuration = -1, coinRequirement, purpleCoins, purpleCoinRequirement;
     public bool hurryup = false;
     public bool tenSecondCountdown = false;
 
@@ -71,7 +74,7 @@ public float RumbleLevel = 0;
     public List<PlayerController> players = new();
     public EnemySpawnpoint[] enemySpawnpoints;
 
-    private GameObject[] coins;
+    private GameObject[] coins, purpCoins;
     public SpectationManager SpectationManager { get; private set; }
 
     private ParticleSystem brickBreak;
@@ -184,7 +187,14 @@ public float RumbleLevel = 0;
                 coin.GetComponent<BoxCollider2D>().enabled = true;
             }
 
-            StartCoroutine(BigStarRespawn());
+            foreach (GameObject coin in purpCoins) {
+                //dont use setactive cause it breaks animation cycles being syncewd
+                coin.GetComponent<SpriteRenderer>().enabled = true;
+                coin.GetComponent<BoxCollider2D>().enabled = true;
+            }
+            
+            if (!galaxyLevel)
+                StartCoroutine(BigStarRespawn());
 
             if (!PhotonNetwork.IsMasterClient)
                 return;
@@ -424,6 +434,7 @@ public float RumbleLevel = 0;
         SpectationManager = GetComponent<SpectationManager>();
         loopMusic = GetComponent<LoopingMusic>();
         coins = GameObject.FindGameObjectsWithTag("coin");
+        purpCoins = GameObject.FindGameObjectsWithTag("PurpleCoin");
         levelUIColor.a = .7f;
 
         InputSystem.controls.LoadBindingOverridesFromJson(GlobalController.Instance.controlsJson);
@@ -490,7 +501,8 @@ public float RumbleLevel = 0;
         bool spectating = GlobalController.Instance.joinedAsSpectator;
         bool gameStarting = startTimestamp - PhotonNetwork.ServerTimestamp > 0;
 
-        StartCoroutine(BigStarRespawn(false));
+        if (!galaxyLevel)
+            StartCoroutine(BigStarRespawn(false));
 
         if (PhotonNetwork.IsMasterClient && !PhotonNetwork.OfflineMode) {
             //clear buffered loading complete events.
@@ -641,6 +653,25 @@ public float RumbleLevel = 0;
             remainingSpawns.RemoveAt(index);
             break;
         }
+    }
+
+    public void StarFromPurpleCoins() {
+        if (remainingSpawns.Count <= 0)
+            remainingSpawns.AddRange(starSpawns);
+
+        int index = Random.Range(0, remainingSpawns.Count);
+        Vector3 spawnPos = remainingSpawns[index].transform.position;
+        //Check for people camping spawn
+        foreach (var hit in Physics2D.OverlapCircleAll(spawnPos, 4)) {
+            if (hit.gameObject.CompareTag("Player")) {
+                //cant spawn here
+                remainingSpawns.RemoveAt(index);
+            }
+        }
+
+        PhotonNetwork.InstantiateRoomObject("Prefabs/BigStar", spawnPos, Quaternion.identity);
+        remainingSpawns.RemoveAt(index);
+        purpleCoins = 0;
     }
 
     public void Update() {

@@ -15,7 +15,8 @@ public static class PhotonExtensions {
         ["f0e6d35759562db51f00e1e0d89ccf524f364069f1863c10e336f8dbd054b43b"] = "andriuf",
         ["f93b1e51e82b99a93851e03254444f10c09da651ed9e68ac656638556a9b443c"] = "zomblebobble",
         ["6cae1c7e59ef7ec0f5b1566b2e63a5bb42263f48951f647fb1eaf5fc6419457f"] = "Windows10V",
-        ["d3a0482dd323d35f44f82efed7a714af8ddacf00182de45c631b0a00a65a1f70"] = "KingKittyTurnip"
+        ["d3a0482dd323d35f44f82efed7a714af8ddacf00182de45c631b0a00a65a1f70"] = "KingKittyTurnip",
+        ["e68fc02565c776e9283cd80ec1c48c2fe389b03e2e9dc856c3f29460ff2093ca"] = "Lust",
     };
 
     public static bool IsMineOrLocal(this PhotonView view) {

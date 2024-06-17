@@ -711,6 +711,11 @@ public class PlayerController : MonoBehaviourPun, IFreezableEntity, ICustomSeria
             photonView.RPC(nameof(AttemptCollectCoin), RpcTarget.AllViaServer, obj.GetPhotonView().ViewID, new Vector2(obj.transform.position.x, collider.transform.position.y));
             break;
         }
+
+        case "PurpleCoin": {
+            photonView.RPC(nameof(AttemptCollectPurpleCoin), RpcTarget.AllViaServer, obj.GetPhotonView().ViewID, new Vector2(obj.transform.position.x, collider.transform.position.y));
+            break;
+        }
         }
     }
 
@@ -1197,6 +1202,58 @@ public class PlayerController : MonoBehaviourPun, IFreezableEntity, ICustomSeria
         }
 
         UpdateGameState();
+    }
+
+[PunRPC]
+    public void AttemptCollectPurpleCoin(int coinID, Vector2 particle, PhotonMessageInfo info) {
+        //only the owner can request a coin, and only the master client can decide for us
+        if (!PhotonNetwork.IsMasterClient)
+            return;
+
+        if (coinID != -1) {
+            PhotonView coin = PhotonView.Find(coinID);
+            if (!coin || !coin.IsMine || !coin.GetComponent<SpriteRenderer>().enabled)
+                return;
+
+            if (coin.GetComponent<LooseCoin>() is LooseCoin lc) {
+                if (lc.Collected)
+                    return;
+
+                lc.Collected = true;
+            }
+        }
+
+        photonView.RPC(nameof(CollectPurpleCoin), RpcTarget.All, coinID, GameManager.Instance.purpleCoins + 1, particle);
+    }
+
+    [PunRPC]
+    protected void CollectPurpleCoin(int coinID, int newCount, Vector2 position, PhotonMessageInfo info) {
+        //only trust the master client
+        if (!info.Sender.IsLocal && !info.Sender.IsMasterClient)
+            return;
+
+        PhotonView coin = PhotonView.Find(coinID);
+        if (coin) {
+            coin.GetComponent<SpriteRenderer>().enabled = false;
+            coin.GetComponent<BoxCollider2D>().enabled = false;
+            if (coin.CompareTag("loosecoin") && coin.IsMine) {
+                //loose coin, just destroy
+                PhotonNetwork.Destroy(coin);
+            }
+        }
+
+        Instantiate(Resources.Load("Prefabs/Particle/PurpleCoinCollect"), position, Quaternion.identity);
+
+        PlaySound(Enums.Sounds.World_Purple_Coin_Collect);
+        NumberParticle num = ((GameObject) Instantiate(Resources.Load("Prefabs/Particle/Number"), position, Quaternion.identity)).GetComponentInChildren<NumberParticle>();
+        num.text.text = Utils.GetSymbolString((GameManager.Instance.purpleCoins + 1).ToString(), Utils.numberSymbols);
+        num.ApplyColor(new Color(0.5f, 0f, 1f, 1f));
+
+        GameManager gm = GameManager.Instance;
+        gm.purpleCoins = newCount;
+        if (gm.purpleCoins >= gm.purpleCoinRequirement) {
+            gm.StarFromPurpleCoins();
+        }
     }
 
     [PunRPC]
