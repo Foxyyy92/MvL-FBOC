@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5478bfbe63c3c46b392d3ca752690c, type: 3}
   m_Name: MusicLevelPurpleCoins
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 16023bd6d2595ca47a15ace70cbbc341, type: 3}
-  fastClip: {fileID: 8300000, guid: 8c598621cb3762449b63cd1665aabd1c, type: 3}
+  clip: {fileID: 8300000, guid: 0e23f2ea453bbd24cbeb439ef3a8f8d6, type: 3}
+  fastClip: {fileID: 8300000, guid: 9baf58528f0e2184a83ecd4cfb6b86cc, type: 3}
   loopStartSample: 0
   loopEndSample: 89.6

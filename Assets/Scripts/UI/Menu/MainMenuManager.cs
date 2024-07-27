@@ -30,7 +30,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     public TMP_Dropdown levelDropdown, characterDropdown;
     public RoomIcon selectedRoomIcon, privateJoinRoom;
     public Button joinRoomBtn, createRoomBtn, startGameBtn;
-    public Toggle ndsResolutionToggle, fullscreenToggle, livesEnabled, powerupsEnabled, timeEnabled, drawTimeupToggle, fireballToggle, vsyncToggle, privateToggle, privateToggleRoom, aspectToggle, spectateToggle, scoreboardToggle, filterToggle;
+    public Toggle ndsResolutionToggle, fullscreenToggle, livesEnabled, powerupsEnabled, timeEnabled, drawTimeupToggle, purpleCoinsToggle, fireballToggle, vsyncToggle, privateToggle, privateToggleRoom, aspectToggle, spectateToggle, scoreboardToggle, filterToggle;
     public GameObject playersContent, playersPrefab, chatContent, chatPrefab;
     public TMP_InputField nicknameField, starsText, coinsText, livesField, timeField, lobbyJoinField, chatTextField;
     public Slider musicSlider, sfxSlider, masterSlider, lobbyPlayersSlider, changePlayersSlider;
@@ -51,7 +51,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
 
     public Selectable[] roomSettings;
 
-    public List<string> maps, debugMaps;
+    public List<string> maps, debugMaps, purpleCoinMaps;
 
     private bool pingsReceived, joinedLate;
     private List<string> formattedRegions;
@@ -216,6 +216,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         AttemptToUpdateProperty<bool>(updatedProperties, Enums.NetRoomProperties.NewPowerups, ChangeNewPowerups);
         AttemptToUpdateProperty<int>(updatedProperties, Enums.NetRoomProperties.Time, ChangeTime);
         AttemptToUpdateProperty<bool>(updatedProperties, Enums.NetRoomProperties.DrawTime, ChangeDrawTime);
+        AttemptToUpdateProperty<bool>(updatedProperties, Enums.NetRoomProperties.PurpleCoins, ChangePurpleCoins);
         AttemptToUpdateProperty<string>(updatedProperties, Enums.NetRoomProperties.HostName, ChangeLobbyHeader);
     }
 
@@ -346,8 +347,12 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
             Utils.GetCustomProperty(Enums.NetPlayerProperties.Spectator, out bool spectate, PhotonNetwork.LocalPlayer.CustomProperties);
             GlobalController.Instance.joinedAsSpectator = spectate || joinedLate;
             Utils.GetCustomProperty(Enums.NetRoomProperties.Level, out int level);
+            Utils.GetCustomProperty(Enums.NetRoomProperties.PurpleCoins, out bool purpleMaps);
             PhotonNetwork.IsMessageQueueRunning = false;
             SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+            if(purpleMaps){
+                level += maps.Count;
+            }
             SceneManager.LoadSceneAsync(level + 2, LoadSceneMode.Additive);
             break;
         }
@@ -829,6 +834,13 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         };
         PhotonNetwork.CurrentRoom.SetCustomProperties(properties);
     }
+
+     public void SetPurpleCoins(Toggle toggle) {
+        Hashtable properties = new() {
+            [Enums.NetRoomProperties.PurpleCoins] = toggle.isOn
+        };
+        PhotonNetwork.CurrentRoom.SetCustomProperties(properties);
+    }
     public void EnableLives(Toggle toggle) {
         Hashtable properties = new() {
             [Enums.NetRoomProperties.Lives] = toggle.isOn ? int.Parse(livesField.text) : -1
@@ -838,9 +850,41 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
 
     public void ChangeLevel(int index) {
         levelDropdown.SetValueWithoutNotify(index);
-        LocalChatMessage("Map set to: " + levelDropdown.options[index].text, Color.red);
+        LocalChatMessage("Map selected: " + levelDropdown.options[index].text, new Color(0.5f, 0f, 1f, 1f));
+        if (purpleCoinsToggle.isOn) {
+            Camera.main.transform.position = levelCameraPositions[index + maps.Count].transform.position;
+        } else {
         Camera.main.transform.position = levelCameraPositions[index].transform.position;
+        }
     }
+
+    public void ChangePurpleCoins(bool value) {
+        purpleCoinsToggle.SetIsOnWithoutNotify(value);
+        int index = levelDropdown.value;
+
+        levelDropdown.SetValueWithoutNotify(0);
+        levelDropdown.ClearOptions();
+        levelDropdown.AddOptions(maps);
+        levelDropdown.SetValueWithoutNotify(Mathf.Clamp(index, 0, maps.Count - 1));
+
+        if (value) {
+            levelDropdown.ClearOptions();
+            levelDropdown.AddOptions(purpleCoinMaps);
+        } else if (PhotonNetwork.IsMasterClient) {
+            Utils.GetCustomProperty(Enums.NetRoomProperties.Level, out int level);
+            if (level >= maps.Count) {
+                Hashtable props = new() {
+                  [Enums.NetRoomProperties.Level] = maps.Count - 1,
+                };
+
+                PhotonNetwork.CurrentRoom.SetCustomProperties(props);
+            }
+        }
+        Utils.GetCustomProperty(Enums.NetRoomProperties.Level, out int levelprev);
+        ChangeLevel(levelprev);
+        UpdateSettingEnableStates();
+    }   
+   
     public void SetLevelIndex() {
         if (!PhotonNetwork.IsMasterClient)
             return;
