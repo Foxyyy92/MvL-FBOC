@@ -13,16 +13,16 @@ public class UIUpdater : MonoBehaviour {
     public GameObject playerTrackTemplate, starTrackTemplate;
     public PlayerController player;
     public Sprite storedItemNull;
-    public TMP_Text uiStars, uiCoins, uiDebug, uiLives, uiCountdown;
+    public TMP_Text uiStars, uiCoins, uiDebug, uiLives, uiCountdown, uiPurpleCoins;
     public Image itemReserve, itemColor;
     public float pingSample = 0;
 
     private Material timerMaterial;
-    private GameObject starsParent, coinsParent, livesParent, timerParent;
+    private GameObject starsParent, coinsParent, livesParent, timerParent, purpleParent;
     private readonly List<Image> backgrounds = new();
     private bool uiHidden;
 
-    private int coins = -1, stars = -1, lives = -1, timer = -1;
+    private int coins = -1, stars = -1, lives = -1, timer = -1, purpleCoins = -1;
 
     public void Start() {
         Instance = this;
@@ -32,11 +32,13 @@ public class UIUpdater : MonoBehaviour {
         coinsParent = uiCoins.transform.parent.gameObject;
         livesParent = uiLives.transform.parent.gameObject;
         timerParent = uiCountdown.transform.parent.gameObject;
+        purpleParent = uiPurpleCoins.transform.parent.gameObject;
 
         backgrounds.Add(starsParent.GetComponentInChildren<Image>());
         backgrounds.Add(coinsParent.GetComponentInChildren<Image>());
         backgrounds.Add(livesParent.GetComponentInChildren<Image>());
         backgrounds.Add(timerParent.GetComponentInChildren<Image>());
+        backgrounds.Add(purpleParent.GetComponentInChildren<Image>());
 
         foreach (Image bg in backgrounds)
             bg.color = GameManager.Instance.levelUIColor;
@@ -75,6 +77,7 @@ public class UIUpdater : MonoBehaviour {
         livesParent.SetActive(!hidden);
         coinsParent.SetActive(!hidden);
         timerParent.SetActive(!hidden);
+        purpleParent.SetActive(!hidden);
     }
 
     private void UpdateStoredItemUI() {
@@ -104,6 +107,17 @@ public class UIUpdater : MonoBehaviour {
             }
         } else {
             livesParent.SetActive(false);
+        }
+
+        if (GameManager.Instance.galaxyLevel) {
+            purpleParent.SetActive(true);
+            GameManager gm = GameManager.Instance;
+            if (gm.purpleCoins != purpleCoins) {
+                purpleCoins = gm.purpleCoins;
+                uiPurpleCoins.text = Utils.GetSymbolString("Px" + purpleCoins + "/" + GameManager.Instance.purpleCoinRequirement); 
+            }
+        } else {
+            purpleParent.SetActive(false);
         }
 
         if (GameManager.Instance.timedGameDuration > 0) {

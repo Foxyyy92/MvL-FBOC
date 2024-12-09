@@ -852,7 +852,8 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         levelDropdown.SetValueWithoutNotify(index);
         LocalChatMessage("Map selected: " + levelDropdown.options[index].text, new Color(0.5f, 0f, 1f, 1f));
         if (purpleCoinsToggle.isOn) {
-            Camera.main.transform.position = levelCameraPositions[index + maps.Count].transform.position;
+            if ((index + maps.Count) <= (levelCameraPositions.Length - 1))
+                Camera.main.transform.position = levelCameraPositions[index + maps.Count].transform.position;
         } else {
         Camera.main.transform.position = levelCameraPositions[index].transform.position;
         }
