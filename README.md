@@ -3,11 +3,15 @@ A stupid mod that can be taken seriously now, has a lot of changes for some reas
 
 Yeah, that's FBOC. Pretty funny right...
 
-Includes the default and custom levels from the original MvL, and **FOUR** new! Castle Rooftop and Mountain made by me, Giddy Sky by FrostyCake and Mushroom Valley by BluCor and Among
+Includes the default and custom levels from the original MvL, and many new ones! Including both maps made by me (Labeled FC) and maps made by other people!
+Also reskins! Halfway through with all of them, more coming each update!
 
-Also reskins! Currently only Ice and Sky got reskinned, but more coming each update!
+All power-ups in here are the originals. Im too stupid to actually do custom stuff (it's the first time i use Unity give me a break!)
 
-All power-ups in here are the originals. Im to stupid to actually do custom stuff (it's the first time i use Unity give me a break!)
+# Featuring: Purple Coins!
+Including a new mode in 1.5, where there's Purple Coins on selected maps to make a different, new fresh challenge! Depending of the map, you need to fight while collecting coins to make the stars spawn, or work together to not let a single coin left behind!
+There's 5 Purple Coins maps in 1.5 as of now, but more will be added with time. It's recommended to play with more than 20 stars, as these matches may start slow, but become stupidly fast once you get the first stars.
+
 
 ## Discord
 [**Join the MvL discord**](https://discord.gg/dgKVaUKpj5) because why not? I'm releasing this over there so if you wanna say something just go over there if you aren't already for some reason...
