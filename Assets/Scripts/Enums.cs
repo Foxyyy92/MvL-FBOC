@@ -183,6 +183,7 @@ public static class Enums {
         public static string DrawTime { get; } = "Dt";
         public static string NewPowerups { get; } = "C";
         public static string PurpleCoins { get; } = "Pc";
+        public static string PurpleCoinRequirement { get; } = "Pcr";
         public static string GameStarted { get; } = "G";
         public static string HostName { get; } = "H";
         public static string Debug { get; } = "D";

@@ -87,20 +87,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomPurpleCoins1.unity
     guid: ebbd50bee063ba644b21f52ee2961477
   - enabled: 1
-    path: Assets/Scenes/Levels/Custom/CustomGiddySkyPurpleCoins.unity
-    guid: eaf55dabab3b1434383a06d35b81cc58
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomGiddySkyPurpleCoins.unity
+    guid: f022bb39e5ed4d14db389c80d0fc8fc2
   - enabled: 1
-    path: Assets/Scenes/Levels/10P/Mushroom Valley Purple Coins.unity
+    path: Assets/Scenes/Levels/Purple Coins Levels/Mushroom Valley Purple Coins.unity
     guid: 05606d36af2a4404c94565ff6e49e4f0
   - enabled: 1
-    path: Assets/Scenes/Levels/Foxyyy's Customs/CustomTetrisDSPurpCoins.unity
-    guid: c52b7963bdfd9704ba540e230625070c
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomTetrisDSPurpCoins.unity
+    guid: 8384165672b686b428bf3dc254baf8c9
   - enabled: 1
-    path: Assets/Scenes/Levels/Custom/Shark Zombie Old Purple Coins.unity
-    guid: 98c7933670c257a47a9040f67a581c23
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomAquariumParkPurpleCoins.unity
+    guid: e6f9b8836d2cf374da1ca60dfa68d588
   - enabled: 1
-    path: Assets/Scenes/Levels/Foxyyy's Customs/CustomTerVelPurpCoins.unity
-    guid: 5101ac21e17159346a1132bb74af8590
+    path: Assets/Scenes/Levels/Purple Coins Levels/Shark Zombie Old Purple Coins.unity
+    guid: 5155fca5c845dad45ae19ffefa2875a7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomTerVelPurpCoins.unity
+    guid: bd416063bf94e11458163c13330df242
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 49335f30d253220488d2d332ade6e901,
       type: 2}

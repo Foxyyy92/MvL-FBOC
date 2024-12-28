@@ -32,7 +32,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     public Button joinRoomBtn, createRoomBtn, startGameBtn;
     public Toggle ndsResolutionToggle, fullscreenToggle, livesEnabled, powerupsEnabled, timeEnabled, drawTimeupToggle, purpleCoinsToggle, fireballToggle, vsyncToggle, privateToggle, privateToggleRoom, aspectToggle, spectateToggle, scoreboardToggle, filterToggle;
     public GameObject playersContent, playersPrefab, chatContent, chatPrefab;
-    public TMP_InputField nicknameField, starsText, coinsText, livesField, timeField, lobbyJoinField, chatTextField;
+    public TMP_InputField nicknameField, starsText, coinsText, purpleCoinsField, livesField, timeField, lobbyJoinField, chatTextField;
     public Slider musicSlider, sfxSlider, masterSlider, lobbyPlayersSlider, changePlayersSlider;
     public GameObject mainMenuSelected, optionsSelected, lobbySelected, currentLobbySelected, createLobbySelected, creditsSelected, controlsSelected, privateSelected, reconnectSelected, updateBoxSelected;
     public GameObject errorBox, errorButton, rebindPrompt, reconnectBox;
@@ -217,6 +217,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         AttemptToUpdateProperty<int>(updatedProperties, Enums.NetRoomProperties.Time, ChangeTime);
         AttemptToUpdateProperty<bool>(updatedProperties, Enums.NetRoomProperties.DrawTime, ChangeDrawTime);
         AttemptToUpdateProperty<bool>(updatedProperties, Enums.NetRoomProperties.PurpleCoins, ChangePurpleCoins);
+        AttemptToUpdateProperty<int>(updatedProperties, Enums.NetRoomProperties.PurpleCoinRequirement, ChangePurpleCoinRequirement);
         AttemptToUpdateProperty<string>(updatedProperties, Enums.NetRoomProperties.HostName, ChangeLobbyHeader);
     }
 
@@ -871,6 +872,14 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         if (value) {
             levelDropdown.ClearOptions();
             levelDropdown.AddOptions(purpleCoinMaps);
+            Utils.GetCustomProperty(Enums.NetRoomProperties.Level, out int level);
+            if (level > purpleCoinMaps.Count - 1) {
+                Hashtable props = new() {
+                  [Enums.NetRoomProperties.Level] = purpleCoinMaps.Count - 1,
+                };
+
+                PhotonNetwork.CurrentRoom.SetCustomProperties(props);
+            }
         } else if (PhotonNetwork.IsMasterClient) {
             Utils.GetCustomProperty(Enums.NetRoomProperties.Level, out int level);
             if (level >= maps.Count) {
@@ -976,6 +985,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
 
         livesField.interactable = PhotonNetwork.IsMasterClient && livesEnabled.isOn;
         timeField.interactable = PhotonNetwork.IsMasterClient && timeEnabled.isOn;
+        purpleCoinsField.interactable = PhotonNetwork.IsMasterClient && purpleCoinsToggle.isOn;
         drawTimeupToggle.interactable = PhotonNetwork.IsMasterClient && timeEnabled.isOn;
 
         Utils.GetCustomProperty(Enums.NetRoomProperties.Debug, out bool debug);
@@ -1375,7 +1385,27 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         PhotonNetwork.CurrentRoom.SetCustomProperties(table);
         //ChangeCoinRequirement(newValue);
     }
+    public void ChangePurpleCoinRequirement(int purpcoins) {
+        purpleCoinsField.text = purpcoins.ToString();
+    }
+    public void SetPurpleCoinRequirement(TMP_InputField input) {
+        if (!PhotonNetwork.IsMasterClient)
+            return;
 
+        int.TryParse(input.text, out int newValue);
+        if (newValue < 1) {
+            newValue = 5;
+            input.text = newValue.ToString();
+        }
+        if (newValue == (int) PhotonNetwork.CurrentRoom.CustomProperties[Enums.NetRoomProperties.PurpleCoinRequirement])
+            return;
+
+        Hashtable table = new() {
+            [Enums.NetRoomProperties.PurpleCoinRequirement] = newValue
+        };
+        PhotonNetwork.CurrentRoom.SetCustomProperties(table);
+        //ChangePurpleCoinRequirement(newValue);
+    }
     public void CopyRoomCode() {
         TextEditor te = new();
         te.text = PhotonNetwork.CurrentRoom.Name;

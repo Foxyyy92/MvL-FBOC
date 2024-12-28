@@ -31,6 +31,7 @@ namespace NSMB.Utils {
             [Enums.NetRoomProperties.DrawTime] = false,
             [Enums.NetRoomProperties.NewPowerups] = true,
             [Enums.NetRoomProperties.PurpleCoins] = false,
+            [Enums.NetRoomProperties.PurpleCoinRequirement] = 15,
             [Enums.NetRoomProperties.GameStarted] = false,
             [Enums.NetRoomProperties.HostName] = "",
             [Enums.NetRoomProperties.Debug] = false,

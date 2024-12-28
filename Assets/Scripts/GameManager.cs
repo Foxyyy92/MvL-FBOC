@@ -67,6 +67,7 @@ public bool galaxyLevel = false;
     public bool gameover = false, musicEnabled = false;
     public readonly HashSet<Player> loadedPlayers = new();
     public int starRequirement, timedGameDuration = -1, coinRequirement, purpleCoins, purpleCoinRequirement;
+    public bool forcePurpCoinRequirement;
     public bool hurryup = false;
     public bool tenSecondCountdown = false;
 
@@ -435,6 +436,12 @@ public bool galaxyLevel = false;
         loopMusic = GetComponent<LoopingMusic>();
         coins = GameObject.FindGameObjectsWithTag("coin");
         purpCoins = GameObject.FindGameObjectsWithTag("PurpleCoin");
+        if (!forcePurpCoinRequirement) {
+            Utils.GetCustomProperty(Enums.NetRoomProperties.PurpleCoinRequirement, out int purps);
+            purpleCoinRequirement = purps;
+            if (purpleCoinRequirement > purpCoins.Length)
+                purpleCoinRequirement = purpCoins.Length; 
+        }
         levelUIColor.a = .7f;
 
         InputSystem.controls.LoadBindingOverridesFromJson(GlobalController.Instance.controlsJson);
