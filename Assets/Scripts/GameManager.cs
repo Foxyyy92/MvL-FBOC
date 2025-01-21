@@ -436,12 +436,7 @@ public bool galaxyLevel = false;
         loopMusic = GetComponent<LoopingMusic>();
         coins = GameObject.FindGameObjectsWithTag("coin");
         purpCoins = GameObject.FindGameObjectsWithTag("PurpleCoin");
-        if (!forcePurpCoinRequirement) {
-            Utils.GetCustomProperty(Enums.NetRoomProperties.PurpleCoinRequirement, out int purps);
-            purpleCoinRequirement = purps;
-            if (purpleCoinRequirement > purpCoins.Length)
-                purpleCoinRequirement = purpCoins.Length; 
-        }
+        
         levelUIColor.a = .7f;
 
         InputSystem.controls.LoadBindingOverridesFromJson(GlobalController.Instance.controlsJson);
@@ -464,6 +459,12 @@ public bool galaxyLevel = false;
         starSpawns = GameObject.FindGameObjectsWithTag("StarSpawn");
         Utils.GetCustomProperty(Enums.NetRoomProperties.StarRequirement, out starRequirement);
         Utils.GetCustomProperty(Enums.NetRoomProperties.CoinRequirement, out coinRequirement);
+        if (!forcePurpCoinRequirement) {
+            Utils.GetCustomProperty(Enums.NetRoomProperties.PurpleCoinRequirement, out int purps);
+            purpleCoinRequirement = purps;
+            if (purpleCoinRequirement > purpCoins.Length)
+                purpleCoinRequirement = purpCoins.Length; 
+        }
 
         SceneManager.SetActiveScene(gameObject.scene);
 
@@ -808,7 +809,7 @@ public bool galaxyLevel = false;
                 mega = true;
             if (player.invincible > 0)
                 invincible = true;
-            if ((player.stars + 1f) / starRequirement >= 0.95f || hurryup != false)
+            if ((player.stars + 1f) / starRequirement >= 0.90f || hurryup != false)
                 speedup = true;
             if (player.lives == 1 && players.Count <= 2)
                 speedup = true;

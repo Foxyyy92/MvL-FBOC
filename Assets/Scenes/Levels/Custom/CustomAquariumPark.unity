@@ -644,7 +644,7 @@ PrefabInstance:
     - target: {fileID: 3474641543873908501, guid: 43d56bd18d06e9b4abe323618a20a228,
         type: 3}
       propertyPath: m_fontSize
-      value: 64.7
+      value: 76.7
       objectReference: {fileID: 0}
     - target: {fileID: 5500062339093502114, guid: 43d56bd18d06e9b4abe323618a20a228,
         type: 3}
@@ -666,6 +666,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraMinY
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500062339093502114, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: randomMusic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5500062339093502114, guid: 43d56bd18d06e9b4abe323618a20a228,
         type: 3}
@@ -743,6 +748,17 @@ PrefabInstance:
       propertyPath: spawnBigPowerups
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5500062339093502114, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: randomSongs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500062339093502114, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: randomSongs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d5a89314e4e807a48a636d030363dfda,
+        type: 2}
     - target: {fileID: 5500062339093502118, guid: 43d56bd18d06e9b4abe323618a20a228,
         type: 3}
       propertyPath: m_Name
@@ -856,6 +872,31 @@ PrefabInstance:
     - target: {fileID: 8269335907638334250, guid: 43d56bd18d06e9b4abe323618a20a228,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573902119918697254, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573902119918697254, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573902119918697254, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060135030118423222, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: randomMusic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060135030118423222, guid: 43d56bd18d06e9b4abe323618a20a228,
+        type: 3}
+      propertyPath: randomSongs.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

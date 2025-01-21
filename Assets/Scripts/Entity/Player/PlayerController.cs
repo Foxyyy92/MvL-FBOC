@@ -1686,6 +1686,7 @@ public class PlayerController : MonoBehaviourPun, IFreezableEntity, ICustomSeria
         hitInvincibilityCounter = state != Enums.PowerupState.MegaMushroom ? 2f : 0f;
         bounce = false;
         knockback = false;
+        fireballKnockback = false;
         body.velocity = new(0, body.velocity.y);
         facingRight = initialKnockbackFacingRight;
     }

@@ -14,9 +14,12 @@ public static class PhotonExtensions {
         ["ea2f23d83904ba5f6646f58b1b926f57166e8898711cea4400c2e7777dfeee7d"] = "Zogistra",
         ["f0e6d35759562db51f00e1e0d89ccf524f364069f1863c10e336f8dbd054b43b"] = "andriuf",
         ["f93b1e51e82b99a93851e03254444f10c09da651ed9e68ac656638556a9b443c"] = "zomblebobble",
-        ["6cae1c7e59ef7ec0f5b1566b2e63a5bb42263f48951f647fb1eaf5fc6419457f"] = "Windows10V",
+        ["3b02afb97260d991405e79649235c2e4297d8455967488c73ebce4142ccb40af"] = "Windows10V",
         ["d3a0482dd323d35f44f82efed7a714af8ddacf00182de45c631b0a00a65a1f70"] = "KingKittyTurnip",
-        ["e68fc02565c776e9283cd80ec1c48c2fe389b03e2e9dc856c3f29460ff2093ca"] = "Lust",
+        ["fb52464942771a8b7365a843fba0bb888886c1b7e6dfeff40eb170d64ef62592"] = "Lust",
+        ["53f3fba59ea20b1c90d4adcb8108becfb278e60fd5ff4a340e8d95bdcb294bbf"] = "IvythePoS",
+        ["b67cac6f3df9446a4dda9c8dc24a3354b5b0e00e53ff864af273c8eb434f0180"] = "Lee",
+        ["9583e702d5fc0d02acedb6e86a998ba24838ab66ac0300ad95717c8e231949f3"] = "Mangleee",
     };
 
     public static bool IsMineOrLocal(this PhotonView view) {
