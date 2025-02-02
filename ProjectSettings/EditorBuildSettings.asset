@@ -113,6 +113,23 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Purple Coins Levels/CustomRooftopPurpleCoins.unity
     guid: ea3a806b86f4091479dcd14e3eb8227b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Vanilla/DefaultGrassLevel Purple
+      Coins.unity
+    guid: da66b49292ac08a45b0630940c5bfc51
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Vanilla/DefaultBrickLevel Purple
+      Coins.unity
+    guid: f1dd2891a63e29843b8648210a6789c7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Vanilla/DefaultSnow Purple Coins.unity
+    guid: 6ef81cbc9a3392d4892b0a46403c695f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Vanilla/CustomSky Purple Coins.unity
+    guid: baa8729b999b8b24fa5b4deba523fda9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Vanilla/CustomJungle Purple Coins.unity
+    guid: 95298d5138967b243b51ba47044e6636
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 49335f30d253220488d2d332ade6e901,
       type: 2}
