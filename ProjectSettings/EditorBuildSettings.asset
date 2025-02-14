@@ -56,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomUnknown.unity
     guid: bd2e174934f4f5742a2fe631c8e86d83
+  - enabled: 1
+    path: Assets/Scenes/Levels/Foxyyy's Customs/CustomGhostHouse.unity
+    guid: e7f74416e1f70274c9188d89a73c8ff8
   - enabled: 0
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomBetaCastle.unity
     guid: 6098198bd985f3546a77192113e73277
@@ -66,11 +69,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Custom/CustomGiddySky.unity
     guid: 0027f0fa9c5f2774cbc94b6d31203b3c
   - enabled: 1
-    path: Assets/Scenes/Levels/10P/Mushroom Valley.unity
-    guid: e1e0b6cc96f495a4599aabc50527c4bc
+    path: Assets/Scenes/Levels/Frosted/Green Grounds.unity
+    guid: d5747cf17acd94540a019cdabe66608e
   - enabled: 1
     path: Assets/Scenes/Levels/Custom/SunsetBeach.unity
     guid: 67dc4b32bb8c38343be21542557a38fe
+  - enabled: 0
+    path: Assets/Scenes/Levels/10P/OLD Mushroom Valley.unity
+    guid: e1e0b6cc96f495a4599aabc50527c4bc
+  - enabled: 1
+    path: Assets/Scenes/Levels/10P/Mushroom Valley.unity
+    guid: e87c0eaaedd30bb4688094ba4aff810b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Frosted/Sunset Evening.unity
+    guid: cc61231d59c8a3a4b8cafcc11998784c
   - enabled: 1
     path: Assets/Scenes/Levels/Custom/CustomAquariumPark.unity
     guid: 37899d6aecc5b9940ad1ac866dfc87fa
@@ -83,36 +95,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Joke/JokeGiddyHell.unity
     guid: 20f419284df02b748a39365cac17c668
-  - enabled: 1
-    path: Assets/Scenes/Levels/Foxyyy's Customs/CustomGhostHouse.unity
-    guid: e7f74416e1f70274c9188d89a73c8ff8
   - enabled: 0
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomPurpleCoins1.unity
     guid: ebbd50bee063ba644b21f52ee2961477
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/CustomGiddySkyPurpleCoins.unity
-    guid: f022bb39e5ed4d14db389c80d0fc8fc2
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/Mushroom Valley Purple Coins.unity
-    guid: 05606d36af2a4404c94565ff6e49e4f0
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/CustomTetrisDSPurpCoins.unity
-    guid: 8384165672b686b428bf3dc254baf8c9
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/CustomAquariumParkPurpleCoins.unity
-    guid: e6f9b8836d2cf374da1ca60dfa68d588
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/Shark Zombie Old Purple Coins.unity
-    guid: 5155fca5c845dad45ae19ffefa2875a7
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/CustomTerVelPurpCoins.unity
-    guid: bd416063bf94e11458163c13330df242
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/CustomGhostHousePurpleCoins.unity
-    guid: 93317c65515bc7a43b1c1b4c0a230cdd
-  - enabled: 1
-    path: Assets/Scenes/Levels/Purple Coins Levels/CustomRooftopPurpleCoins.unity
-    guid: ea3a806b86f4091479dcd14e3eb8227b
   - enabled: 1
     path: Assets/Scenes/Levels/Purple Coins Levels/Vanilla/DefaultGrassLevel Purple
       Coins.unity
@@ -145,6 +130,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Purple Coins Levels/Vanilla/CustomDesert Purple Coins.unity
     guid: e6308fd8ec3cd4947ac99fd260c04f30
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomRooftopPurpleCoins.unity
+    guid: ea3a806b86f4091479dcd14e3eb8227b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomTetrisDSPurpCoins.unity
+    guid: 8384165672b686b428bf3dc254baf8c9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomTerVelPurpCoins.unity
+    guid: bd416063bf94e11458163c13330df242
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomGhostHousePurpleCoins.unity
+    guid: 93317c65515bc7a43b1c1b4c0a230cdd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomGiddySkyPurpleCoins.unity
+    guid: f022bb39e5ed4d14db389c80d0fc8fc2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Mushroom Valley Purple Coins.unity
+    guid: 05606d36af2a4404c94565ff6e49e4f0
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Sky Spleef Purple Coins.unity
+    guid: d8538a971fa3c534c99342ad2efb4b71
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/CustomAquariumParkPurpleCoins.unity
+    guid: e6f9b8836d2cf374da1ca60dfa68d588
+  - enabled: 1
+    path: Assets/Scenes/Levels/Purple Coins Levels/Shark Zombie Old Purple Coins.unity
+    guid: 5155fca5c845dad45ae19ffefa2875a7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 49335f30d253220488d2d332ade6e901,
       type: 2}

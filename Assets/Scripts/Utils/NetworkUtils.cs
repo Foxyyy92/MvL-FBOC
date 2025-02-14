@@ -56,6 +56,8 @@ namespace NSMB.Utils {
         Enums.NetRoomProperties.NewPowerups,
         Enums.NetRoomProperties.GameStarted,
         Enums.NetRoomProperties.HostName,
+        Enums.NetRoomProperties.PurpleCoins,
+        Enums.NetRoomProperties.PurpleCoinRequirement,
     };
 
         public static readonly RegionPingComparer PingComparer = new();

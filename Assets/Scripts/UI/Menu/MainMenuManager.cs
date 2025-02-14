@@ -95,6 +95,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
             Utils.GetCustomProperty(Enums.NetRoomProperties.Lives, out int lives, room.CustomProperties);
             Utils.GetCustomProperty(Enums.NetRoomProperties.StarRequirement, out int stars, room.CustomProperties);
             Utils.GetCustomProperty(Enums.NetRoomProperties.CoinRequirement, out int coins, room.CustomProperties);
+            Utils.GetCustomProperty(Enums.NetRoomProperties.PurpleCoinRequirement, out int purps, room.CustomProperties);
 
             bool valid = true;
             valid &= room.IsVisible && room.IsOpen;
@@ -103,6 +104,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
             valid &= lives <= 99;
             valid &= stars >= 1 && stars <= 99;
             valid &= coins >= 1 && coins <= 99;
+            valid &= purps >= 1 && purps <= 99;
             //valid &= host.IsValidUsername();
 
             if (!valid) {
