@@ -16,8 +16,8 @@ MonoBehaviour:
     Path: QuantumUser/Resources/AssetObjects/Music/MusicLevelVolcano
     Guid:
       Value: 458588638148856391
-  clip: {fileID: 8300000, guid: 65c5825aa28115140842259cf6b54e22, type: 3}
-  loopStartSeconds: 2.966
-  loopEndSeconds: 80.0025
-  fastClip: {fileID: 8300000, guid: 80e50dd3f83d45f409cabbcd29186722, type: 3}
-  speedupFactor: 1.111111
+  clip: {fileID: 8300000, guid: f262bf6b75c4c4245b9005b07447924e, type: 3}
+  fastClip: {fileID: 8300000, guid: 4c8cead27241c2e438690ebe59cc7c12, type: 3}
+  loopStartSeconds: 1.37
+  loopEndSeconds: 39.77
+  speedupFactor: 1.25

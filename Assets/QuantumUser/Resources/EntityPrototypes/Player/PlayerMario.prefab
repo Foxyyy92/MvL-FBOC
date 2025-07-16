@@ -9313,9 +9313,29 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 3043000598366948109, guid: dc7af7b0fd5d0db4a9cc7ae204d4d781,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fe55c9f2059d4b746b0316bf31fe2bc5, type: 2}
     - target: {fileID: 4525942050931745464, guid: dc7af7b0fd5d0db4a9cc7ae204d4d781,
         type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525942050931745464, guid: dc7af7b0fd5d0db4a9cc7ae204d4d781,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525942050931745464, guid: dc7af7b0fd5d0db4a9cc7ae204d4d781,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.80268246
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525942050931745464, guid: dc7af7b0fd5d0db4a9cc7ae204d4d781,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8637801004503930677, guid: dc7af7b0fd5d0db4a9cc7ae204d4d781,
