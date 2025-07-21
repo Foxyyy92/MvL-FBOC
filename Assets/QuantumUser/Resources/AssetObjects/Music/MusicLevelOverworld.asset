@@ -16,8 +16,12 @@ MonoBehaviour:
     Path: QuantumUser/Resources/AssetObjects/Music/MusicLevelOverworld
     Guid:
       Value: 369157696319829885
-  clip: {fileID: 8300000, guid: ec764837430bb2a4197470646d08e6a4, type: 3}
+  FrontRunning: {fileID: 8300000, guid: ec764837430bb2a4197470646d08e6a4, type: 3}
+  fastFrontRunning: {fileID: 8300000, guid: c7c3b45462ac6724f91482851b8af0a7, type: 3}
+  Normal: {fileID: 8300000, guid: ec764837430bb2a4197470646d08e6a4, type: 3}
+  fastNormal: {fileID: 8300000, guid: c7c3b45462ac6724f91482851b8af0a7, type: 3}
+  UnderWater: {fileID: 0}
+  fastUnderWater: {fileID: 0}
   loopStartSeconds: 3.643
   loopEndSeconds: 41.843
-  fastClip: {fileID: 8300000, guid: c7c3b45462ac6724f91482851b8af0a7, type: 3}
   speedupFactor: 1.25

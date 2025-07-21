@@ -45,8 +45,14 @@ namespace NSMB.Sound {
         }
 
         private void PreloadMusic(LoopingMusicData musicData) {
-            PreloadClip(musicData.clip);
-            PreloadClip(musicData.fastClip);
+            PreloadClip(musicData.Normal);
+            PreloadClip(musicData.fastNormal);
+            PreloadClip(musicData.FrontRunning);
+            PreloadClip(musicData.fastFrontRunning);
+            if (musicData.UnderWater != null) {
+                PreloadClip(musicData.UnderWater);
+                PreloadClip(musicData.fastUnderWater);
+            }
         }
 
         private void PreloadClip(AudioClip clip) {

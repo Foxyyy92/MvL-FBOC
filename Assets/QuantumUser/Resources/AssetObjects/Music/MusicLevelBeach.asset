@@ -16,8 +16,12 @@ MonoBehaviour:
     Path: QuantumUser/Resources/AssetObjects/Music/MusicLevelBeach
     Guid:
       Value: 327903093328006158
-  clip: {fileID: 8300000, guid: 9c3d0e0222febb348abde568c9c0f9be, type: 3}
+  FrontRunning: {fileID: 8300000, guid: 9c3d0e0222febb348abde568c9c0f9be, type: 3}
+  fastFrontRunning: {fileID: 8300000, guid: a23c1f873795bad4080b9bdc8d53b0c3, type: 3}
+  Normal: {fileID: 8300000, guid: 9c3d0e0222febb348abde568c9c0f9be, type: 3}
+  fastNormal: {fileID: 8300000, guid: a23c1f873795bad4080b9bdc8d53b0c3, type: 3}
+  UnderWater: {fileID: 0}
+  fastUnderWater: {fileID: 0}
   loopStartSeconds: 3
   loopEndSeconds: 75
-  fastClip: {fileID: 8300000, guid: a23c1f873795bad4080b9bdc8d53b0c3, type: 3}
   speedupFactor: 1.25

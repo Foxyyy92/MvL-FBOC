@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CustomGiddySkyMap_mesh
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Resources/AssetObjects/Maps/GriddySky/CustomGiddySkyMap_mesh
+    Path: QuantumUser/Resources/AssetObjects/Maps/GiddySky/CustomGiddySkyMap_mesh
     Guid:
       Value: 509212642169994435
   Data: 0000000000000000

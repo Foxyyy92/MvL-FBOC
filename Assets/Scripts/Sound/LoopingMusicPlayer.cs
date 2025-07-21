@@ -1,3 +1,5 @@
+using NSMB.UI.Options.Loaders;
+using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 
 namespace NSMB.Sound {
@@ -73,19 +75,41 @@ namespace NSMB.Sound {
                 }
 
                 float time = audioSource.time;
-                audioSource.clip = (_fastMusic && CurrentMusicSong.fastClip) ? CurrentMusicSong.fastClip : CurrentMusicSong.clip;
+                audioSource.clip = GetMusicType(CurrentMusicSong, _fastMusic);
                 audioSource.Play();
                 audioSource.time = time * scaleFactor;
 
                 Update();
             }
-            get => _fastMusic && CurrentMusicSong && CurrentMusicSong.fastClip;
+            get => _fastMusic && CurrentMusicSong && (CurrentMusicSong.fastNormal || CurrentMusicSong.fastFrontRunning || CurrentMusicSong.fastUnderWater);
+        }
+        private bool _Frontrunning;
+        public bool Frontrunning {
+            set {
+                if (_Frontrunning == value) {
+                    return;
+                }
+
+                _Frontrunning = value;
+
+                if (!CurrentMusicSong) {
+                    return;
+                }
+
+                float time = audioSource.time;
+                audioSource.clip = GetMusicType(CurrentMusicSong, _fastMusic);
+                audioSource.Play();
+                audioSource.time = time;
+
+                Update();
+            }
+            get => _Frontrunning && CurrentMusicSong && (CurrentMusicSong.fastNormal || CurrentMusicSong.fastFrontRunning || CurrentMusicSong.fastUnderWater);
         }
 
 
         public void SetSoundData(LoopingMusicData data) {
             currentAudio = data;
-            audioSource.clip = (_fastMusic && data.fastClip) ? data.fastClip : data.clip;
+            audioSource.clip = GetMusicType(data, _fastMusic);
         }
 
         public void Play(LoopingMusicData song, bool restartIfAlreadyPlaying = false) {
@@ -96,11 +120,24 @@ namespace NSMB.Sound {
             currentAudio = song;
             audioSource.loop = true;
             if (CurrentMusicSong) {
-                audioSource.clip = (_fastMusic && CurrentMusicSong.fastClip) ? CurrentMusicSong.fastClip : CurrentMusicSong.clip;
+                audioSource.clip = GetMusicType(CurrentMusicSong, _fastMusic);
             } else {
-                audioSource.clip = song.clip;
+                audioSource.clip = GetMusicType(CurrentMusicSong, false);
             }
             audioSource.Play();
+        }
+
+        public AudioClip GetMusicType(LoopingMusicData song, bool allowfast) {
+            if (_Frontrunning) {
+                //Frontrunning
+                return (allowfast && song.fastFrontRunning) ? song.fastFrontRunning : song.FrontRunning;
+            } else if (false && song.UnderWater != null) {
+                //Underwater
+                return (allowfast && song.fastUnderWater) ? song.fastUnderWater : song.UnderWater;
+            } else {
+                //Normal
+                return (allowfast && song.fastNormal) ? song.fastNormal : song.Normal;
+            }
         }
     }
 }

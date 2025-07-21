@@ -57,12 +57,15 @@ namespace NSMB.Sound {
                 return;
             }
 
+            bool FrontRunning = false;
+            bool UnderWater = false;
             bool invincible = false;
             bool mega = false;
             bool speedup = false;
 
             var allPlayers = f.Filter<MarioPlayer>();
             allPlayers.UseCulling = false;
+            var gamemode = f.FindAsset(f.Global->Rules.Gamemode);
 
             int playersWithOneLife = 0;
             while (allPlayers.NextUnsafe(out EntityRef entity, out MarioPlayer* mario)) {
@@ -88,11 +91,11 @@ namespace NSMB.Sound {
                 speedup |= rules.IsLivesEnabled && mario->Lives == 1;
                 mega |= Settings.Instance.audioSpecialPowerupMusic.HasFlag(Enums.SpecialPowerupMusic.MegaMushroom) && mario->MegaMushroomFrames > 0;
                 invincible |= Settings.Instance.audioSpecialPowerupMusic.HasFlag(Enums.SpecialPowerupMusic.Starman) && mario->IsStarmanInvincible;
+                FrontRunning |= (gamemode is StarChasersGamemode ? (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.StarChasers->Stars && mario->GamemodeData.StarChasers->Stars != 0) : (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.CoinRunners->ObjectiveCoins && mario->GamemodeData.CoinRunners->ObjectiveCoins != 0));
             }
 
             speedup |= rules.IsTimerEnabled && f.Global->Timer <= 60;
 
-            var gamemode = f.FindAsset(f.Global->Rules.Gamemode);
             if (gamemode is StarChasersGamemode) {
                 speedup |= gamemode.GetFirstPlaceObjectiveCount(f) >= rules.StarsToWin - 1;
             }
@@ -114,6 +117,7 @@ namespace NSMB.Sound {
             }
 
             musicPlayer.FastMusic = speedup;
+            musicPlayer.Frontrunning = FrontRunning;
         }
 
         private void OnGameEnded(EventGameEnded e) {
