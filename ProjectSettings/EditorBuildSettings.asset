@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Customs/CustomGiddySky.unity
     guid: 90b13cb3c91871744859d34986dbad80
+  - enabled: 1
+    path: Assets/Scenes/Levels/TetrisMadness.unity
+    guid: 2cfdc162371c41242aac9b6084fca4f2
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b02bce592fba21b4982d8cf5e36a1459,
       type: 2}

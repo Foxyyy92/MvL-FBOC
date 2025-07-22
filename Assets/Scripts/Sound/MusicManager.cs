@@ -97,7 +97,7 @@ namespace NSMB.Sound {
             speedup |= rules.IsTimerEnabled && f.Global->Timer <= 60;
 
             if (gamemode is StarChasersGamemode) {
-                speedup |= gamemode.GetFirstPlaceObjectiveCount(f) >= rules.StarsToWin - 1;
+                speedup |= gamemode.GetFirstPlaceObjectiveCount(f) >= rules.StarsToWin * 0.8;
             }
 
             if (!speedup && rules.IsLivesEnabled) {
