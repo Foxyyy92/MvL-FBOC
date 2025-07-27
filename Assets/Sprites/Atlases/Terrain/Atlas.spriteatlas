@@ -63,6 +63,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 34660a1de22c6a34aac084333e781433, type: 3}
     - {fileID: 2800000, guid: 01739c641144da24c80d500fb492af79, type: 3}
     - {fileID: 2800000, guid: c5ce3e8a49a12a6448d6ab34f634e29c, type: 3}
+    - {fileID: 2800000, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -261,6 +262,13 @@ SpriteAtlas:
     - 437a8c91bf200d54b838bc8c861ba57c: 283650879008169316
     - 437a8c91bf200d54b838bc8c861ba57c: -4555241164079809555
     - 437a8c91bf200d54b838bc8c861ba57c: 3041975717006362952
+    - e46edee1d890fc14db87a6055962a37f: 125360517909305836
+    - e46edee1d890fc14db87a6055962a37f: -914519751
+    - e46edee1d890fc14db87a6055962a37f: 1411124257
+    - e46edee1d890fc14db87a6055962a37f: -82496942
+    - e46edee1d890fc14db87a6055962a37f: -12380274
+    - e46edee1d890fc14db87a6055962a37f: -1535611221
+    - e46edee1d890fc14db87a6055962a37f: 1831818557
     - 02501bf114d1a0a4f98fa72f08e7c70c: 4953176014388010707
     - 02501bf114d1a0a4f98fa72f08e7c70c: -2409467939832598147
     - 02501bf114d1a0a4f98fa72f08e7c70c: 1290563008405666652
@@ -1134,6 +1142,13 @@ SpriteAtlas:
   - {fileID: 283650879008169316, guid: 437a8c91bf200d54b838bc8c861ba57c, type: 3}
   - {fileID: -4555241164079809555, guid: 437a8c91bf200d54b838bc8c861ba57c, type: 3}
   - {fileID: 3041975717006362952, guid: 437a8c91bf200d54b838bc8c861ba57c, type: 3}
+  - {fileID: 125360517909305836, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
+  - {fileID: -914519751, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
+  - {fileID: 1411124257, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
+  - {fileID: -82496942, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
+  - {fileID: -12380274, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
+  - {fileID: -1535611221, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
+  - {fileID: 1831818557, guid: e46edee1d890fc14db87a6055962a37f, type: 3}
   - {fileID: 4953176014388010707, guid: 02501bf114d1a0a4f98fa72f08e7c70c, type: 3}
   - {fileID: -2409467939832598147, guid: 02501bf114d1a0a4f98fa72f08e7c70c, type: 3}
   - {fileID: 1290563008405666652, guid: 02501bf114d1a0a4f98fa72f08e7c70c, type: 3}
@@ -2006,6 +2021,13 @@ SpriteAtlas:
   - squishy_6
   - squishy_7
   - squishy_8
+  - Tetriminos_0
+  - Tetriminos_1
+  - Tetriminos_2
+  - Tetriminos_3
+  - Tetriminos_4
+  - Tetriminos_5
+  - Tetriminos_6
   - Tileset 0 (Jyotyu)_9
   - Tileset 0 (Jyotyu)_8
   - Tileset 0 (Jyotyu)_7

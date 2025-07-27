@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 namespace NSMB.Networking {
     public class UpdateChecker {
 
-        private static readonly string ApiURL = "http://api.github.com/repos/ipodtouch0218/NSMB-MarioVsLuigi/releases/latest";
+        private static readonly string ApiURL = "http://api.github.com/repos/Foxyyy92/MvL-FBOC/releases/latest";
 
         /// <summary>
         /// Returns if we're up to date, OR newer, compared to the latest GitHub release version number
@@ -17,7 +17,7 @@ namespace NSMB.Networking {
             // Get http results from the GitHub API
             HttpWebRequest request = (HttpWebRequest) WebRequest.Create(ApiURL);
             request.Accept = "application/json";
-            request.UserAgent = "ipodtouch0218/NSMB-MarioVsLuigi";
+            request.UserAgent = "Foxyyy92/MvL-FBOC";
 
             HttpWebResponse response = (HttpWebResponse) await request.GetResponseAsync();
 

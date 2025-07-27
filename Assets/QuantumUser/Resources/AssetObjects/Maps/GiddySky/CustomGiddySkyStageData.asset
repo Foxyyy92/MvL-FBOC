@@ -32,14 +32,14 @@ MonoBehaviour:
     Y: -13
   TilemapWorldPosition:
     X:
-      RawValue: -65536
+      RawValue: -950272
     Y:
       RawValue: 196608
   IsWrappingLevel: 1
   ExtendCeilingHitboxes: 0
   Spawnpoint:
     X:
-      RawValue: 478413
+      RawValue: -406323
     Y:
       RawValue: 281805
   SpawnpointArea:
@@ -33708,42 +33708,42 @@ MonoBehaviour:
     Flags: 0
   BigStarSpawnpoints:
   - X:
-      RawValue: 2293760
+      RawValue: 1409024
     Y:
       RawValue: 98304
   - X:
-      RawValue: 2588672
+      RawValue: 1703936
     Y:
       RawValue: 98304
   - X:
-      RawValue: 1048444
+      RawValue: 163708
     Y:
       RawValue: 360448
   - X:
-      RawValue: 1146880
+      RawValue: 262144
     Y:
       RawValue: 32768
   - X:
-      RawValue: 1933312
+      RawValue: 1048576
     Y:
       RawValue: 557056
   - X:
-      RawValue: 1146683
+      RawValue: 261947
     Y:
       RawValue: 655425
   - X:
-      RawValue: 589824
+      RawValue: -294912
     Y:
       RawValue: 819200
   - X:
-      RawValue: -786432
+      RawValue: -1671168
     Y:
       RawValue: 655360
   - X:
-      RawValue: 360316
+      RawValue: -524419
     Y:
       RawValue: 819200
   - X:
-      RawValue: -688128
+      RawValue: -1572864
     Y:
       RawValue: 0

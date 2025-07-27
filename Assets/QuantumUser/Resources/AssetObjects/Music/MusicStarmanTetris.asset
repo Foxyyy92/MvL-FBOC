@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075af0e881e112348abe562216ddc298, type: 3}
+  m_Name: MusicStarmanTetris
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: QuantumUser/Resources/AssetObjects/Music/MusicStarmanTetris
+    Guid:
+      Value: 359284603104053751
+  FrontRunning: {fileID: 8300000, guid: 6ebff040ede140642a5aea70efd9ac3a, type: 3}
+  fastFrontRunning: {fileID: 8300000, guid: 0633fba5453928b41b92757322ea3675, type: 3}
+  Normal: {fileID: 8300000, guid: 6ebff040ede140642a5aea70efd9ac3a, type: 3}
+  fastNormal: {fileID: 8300000, guid: 0633fba5453928b41b92757322ea3675, type: 3}
+  UnderWater: {fileID: 0}
+  fastUnderWater: {fileID: 0}
+  loopStartSeconds: 0
+  loopEndSeconds: 37.4
+  speedupFactor: 1.25
