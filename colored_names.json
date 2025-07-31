@@ -1,6 +1,5 @@
 {
-  "userColors": {
-    "8ae3fa57-014a-4e27-8331-5431aa5dea9d": "#FF0000",
-    "gonnatestthislater": "0.0,1.0,0.0,0.5,1.0,0.0,0.0,0.5,1.0,0.0,0.0,0.5" 
-  }
+  "8ae3fa57-014a-4e27-8331-5431aa5dea9d": "#FF0000",
+  "GRADIENTEXAMPLE": "1,0,0, 0,1,0, 0,0,1, 1,1,0", 
+  "ANOTHEREXAMPLE": "#00FFCC"
 }
