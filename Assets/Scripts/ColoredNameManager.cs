@@ -22,7 +22,7 @@ public static class ColoredNameManager
     /// The colors above are red on "REDSTATICEXAMPLE" and a rainbow gradient on "GRADIENTEXAMPLE"
     /// </summary>
     private const string JsonUrl =
-        "hattps://raw.githubusercontent.com/ArianLust/NSMB-MarioVsLuigi/FBOC-PR/colored_names.json";
+        "https://raw.githubusercontent.com/Foxyyy92/MvL-FBOC/you-know-what-that-means/colored_names.json";
 
     private static Dictionary<string, NicknameColor> _map;
     private static Task _initTask;
