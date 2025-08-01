@@ -27,55 +27,43 @@ public static class ColoredNameManager
     private static Dictionary<string, NicknameColor> _map;
     private static Task _initTask;
 
-    public static Task InitializeAsync()
-    {
+    public static Task InitializeAsync() {
         return _initTask ??= LoadAndParseJsonAsync();
     }
-    public static bool TryGetColor(Quantum.RuntimePlayer player, out NicknameColor color)
-    {
-        if (player != null && player.UseColoredNickname && _map != null)
-        {
-            string hashedId = ComputeSha256Hash(player.UserId);
-            if (_map.TryGetValue(hashedId, out color))
-                return true;
-        }
 
+    public static bool TryGetColor(RuntimePlayer player, out NicknameColor color) {
         color = default;
-        return false;
+
+        if (player == null || !player.UseColoredNickname || string.IsNullOrEmpty(player.UserId) || _map == null)
+            return false;
+
+        string hashedId = ComputeSha256Hash(player.UserId);
+        return _map.TryGetValue(hashedId, out color);
     }
 
-    private static async Task LoadAndParseJsonAsync()
-    {
-        try
-        {
+    private static async Task LoadAndParseJsonAsync() {
+        try {
             using var http = new HttpClient();
             string json = await http.GetStringAsync(JsonUrl).ConfigureAwait(false);
 
-            var raw = JsonConvert
-              .DeserializeObject<Dictionary<string, string>>(json);
-
+            var raw = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
 
             _map = new Dictionary<string, NicknameColor>(raw.Count);
-            foreach (var kv in raw)
-            {
-                string hashedKey = ComputeSha256Hash(kv.Key);
+            foreach (var kv in raw) {
                 var nc = NicknameColor.Parse(kv.Value.AsSpan());
-                _map[hashedKey] = nc;
+                _map[kv.Key] = nc;
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             UnityEngine.Debug.LogWarning($"Failed to load colored_names.json: {e}");
         }
     }
-    public static string ComputeSha256Hash(string rawData) {
-    using (SHA256 sha256Hash = SHA256.Create()) {
-        byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-        var builder = new StringBuilder();
-        foreach (byte b in bytes) {
+
+    private static string ComputeSha256Hash(string input) {
+        using var sha256 = SHA256.Create();
+        byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+        var builder = new StringBuilder(bytes.Length * 2);
+        foreach (byte b in bytes)
             builder.Append(b.ToString("x2"));
-        }
         return builder.ToString();
     }
-}
 }
