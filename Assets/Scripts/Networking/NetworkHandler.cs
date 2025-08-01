@@ -126,6 +126,7 @@ namespace NSMB.Networking {
             region ??= Instance.lastRegion;
             Instance.lastRegion = region;
             Client.AuthValues = await AuthenticationHandler.Authenticate();
+            await ColoredNameManager.InitializeAsync();
 
             if (Client == null) {
                 return false;

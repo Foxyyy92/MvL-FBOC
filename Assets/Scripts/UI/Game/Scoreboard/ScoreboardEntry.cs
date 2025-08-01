@@ -44,14 +44,23 @@ namespace NSMB.UI.Game.Scoreboard {
 
             informationIndex = index;
             ref PlayerInformation info = ref f.Global->PlayerInfo[index];
+
             cachedNickname = info.Nickname.ToString().ToValidNickname(f, info.PlayerRef);
-            nicknameColor = NicknameColor.Parse(info.NicknameColor.ToString());
+            RuntimePlayer runtimePlayer = QuantumRunner.DefaultGame.Frames.Predicted.GetPlayerData(info.PlayerRef);
+            string userId = runtimePlayer?.UserId;
+
+            if (!string.IsNullOrEmpty(userId) && ColoredNameManager.TryGetColor(userId, out nicknameColor)) {
+            } else {
+                nicknameColor = NicknameColor.White;
+            }
+
             nicknameText.color = nicknameColor.Sample();
             nicknameMayHaveChanged = true;
 
             UpdateEntry(f);
             gameObject.SetActive(true);
         }
+
 
         public void Update() {
             if (!nicknameColor.Constant) {

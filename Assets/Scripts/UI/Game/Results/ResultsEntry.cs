@@ -33,8 +33,17 @@ namespace NSMB.UI.Game.Results {
             if (occupied) {
                 player = info.Value.PlayerRef;
 
-                usernameText.text = info.Value.Nickname.ToString().ToValidNickname(f, player);
-                nicknameColor = NicknameColor.Parse(info.Value.NicknameColor.ToString());
+                string cleanNickname = info.Value.Nickname.ToString().ToValidNickname(f, player);
+                RuntimePlayer runtimePlayer = QuantumRunner.DefaultGame.Frames.Predicted.GetPlayerData(info.Value.PlayerRef);
+                string userId = runtimePlayer?.UserId;
+
+                usernameText.text = cleanNickname; //idk why this doesnt work without it sob
+
+                if (!string.IsNullOrEmpty(userId) && ColoredNameManager.TryGetColor(userId, out nicknameColor)) {
+                } else {
+                    nicknameColor = NicknameColor.White;
+                }
+
                 usernameText.color = nicknameColor.Sample();
                 characterIcon.sprite = f.FindAsset(f.SimulationConfig.CharacterDatas[info.Value.Character]).ReadySprite;
 
