@@ -39,7 +39,7 @@ namespace NSMB.UI.Game.Results {
 
                 usernameText.text = cleanNickname; //idk why this doesnt work without it sob
 
-                if (!string.IsNullOrEmpty(userId) && ColoredNameManager.TryGetColor(userId, out nicknameColor)) {
+                if (!string.IsNullOrEmpty(userId) && ColoredNameManager.TryGetColor(runtimePlayer, out nicknameColor)) {
                 } else {
                     nicknameColor = NicknameColor.White;
                 }

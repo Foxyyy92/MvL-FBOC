@@ -4,6 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using NSMB.Utilities;
+using Quantum;
+using System.Security.Cryptography;
+using System.Text;
 
 public static class ColoredNameManager
 {
@@ -16,21 +19,26 @@ public static class ColoredNameManager
     /// }
     /// We can make a static color that doesn't move with a simple #hex color
     /// for gradients we use 12 comma-separated floats
-    /// 
+    /// The colors above are red on "REDSTATICEXAMPLE" and a rainbow gradient on "GRADIENTEXAMPLE"
     /// </summary>
     private const string JsonUrl =
-        "https://raw.githubusercontent.com/ArianLust/NSMB-MarioVsLuigi/FBOC-PR/colored_names.json";
+        "hattps://raw.githubusercontent.com/ArianLust/NSMB-MarioVsLuigi/FBOC-PR/colored_names.json";
 
     private static Dictionary<string, NicknameColor> _map;
     private static Task _initTask;
 
-    public static Task InitializeAsync() {
+    public static Task InitializeAsync()
+    {
         return _initTask ??= LoadAndParseJsonAsync();
     }
-    public static bool TryGetColor(string username, out NicknameColor color)
+    public static bool TryGetColor(Quantum.RuntimePlayer player, out NicknameColor color)
     {
-        if (_map != null && _map.TryGetValue(username, out color))
-            return true;
+        if (player != null && player.UseColoredNickname && _map != null)
+        {
+            string hashedId = ComputeSha256Hash(player.UserId);
+            if (_map.TryGetValue(hashedId, out color))
+                return true;
+        }
 
         color = default;
         return false;
@@ -50,8 +58,9 @@ public static class ColoredNameManager
             _map = new Dictionary<string, NicknameColor>(raw.Count);
             foreach (var kv in raw)
             {
+                string hashedKey = ComputeSha256Hash(kv.Key);
                 var nc = NicknameColor.Parse(kv.Value.AsSpan());
-                _map[kv.Key] = nc;
+                _map[hashedKey] = nc;
             }
         }
         catch (Exception e)
@@ -59,4 +68,14 @@ public static class ColoredNameManager
             UnityEngine.Debug.LogWarning($"Failed to load colored_names.json: {e}");
         }
     }
+    public static string ComputeSha256Hash(string rawData) {
+    using (SHA256 sha256Hash = SHA256.Create()) {
+        byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+        var builder = new StringBuilder();
+        foreach (byte b in bytes) {
+            builder.Append(b.ToString("x2"));
+        }
+        return builder.ToString();
+    }
+}
 }

@@ -102,7 +102,7 @@ namespace NSMB.UI.MainMenu.Submenus.InRoom {
             RuntimePlayer runtimePlayer = QuantumRunner.DefaultGame.Frames.Predicted.GetPlayerData(player);
             cachedNickname = runtimePlayer.PlayerNickname.ToValidNickname(f, player);
             string userId = runtimePlayer.UserId;
-                if (ColoredNameManager.TryGetColor(userId, out var nc)) {
+                if (ColoredNameManager.TryGetColor(runtimePlayer, out var nc)) {
                     nicknameColor = nc;
                 } else {
                     nicknameColor = NicknameColor.White;

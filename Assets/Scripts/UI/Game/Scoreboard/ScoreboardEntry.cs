@@ -49,7 +49,7 @@ namespace NSMB.UI.Game.Scoreboard {
             RuntimePlayer runtimePlayer = QuantumRunner.DefaultGame.Frames.Predicted.GetPlayerData(info.PlayerRef);
             string userId = runtimePlayer?.UserId;
 
-            if (!string.IsNullOrEmpty(userId) && ColoredNameManager.TryGetColor(userId, out nicknameColor)) {
+            if (!string.IsNullOrEmpty(userId) && ColoredNameManager.TryGetColor(runtimePlayer, out nicknameColor)) {
             } else {
                 nicknameColor = NicknameColor.White;
             }
