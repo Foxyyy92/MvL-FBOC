@@ -30,7 +30,7 @@ namespace NSMB.UI.Game {
         [SerializeField] private Sprite storedItemNull;
         [SerializeField] private TMP_Text uiTeamObjective, uiMainObjective, uiCoins, uiDebug, uiLives, uiCountdown;
         [SerializeField] private Image itemReserve, itemColor, deathFade;
-        [SerializeField] private GameObject boos, reserveItemBox;
+        [SerializeField] private GameObject boos, TetrisBorder, reserveItemBox;
         [SerializeField] private Animation reserveAnimation;
 
         [SerializeField] private TMP_Text winText;
@@ -110,6 +110,7 @@ namespace NSMB.UI.Game {
 
             PlayerTrackIcon.HideAllPlayerIcons = stage.HidePlayersOnMinimap;
             boos.SetActive(stage.HidePlayersOnMinimap);
+            TetrisBorder.SetActive(stage.ShowTetrisBorder);
             StartCoroutine(UpdatePingTextCoroutine());
 
             QuantumCallback.Subscribe<CallbackUpdateView>(this, OnUpdateView);

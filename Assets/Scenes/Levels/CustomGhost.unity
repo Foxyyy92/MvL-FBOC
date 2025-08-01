@@ -12387,6 +12387,7 @@ MonoBehaviour:
   - {fileID: 249546405, guid: 897f10582e84a334a8312631ebd28a8e, type: 3}
   - {fileID: 88292509, guid: 897f10582e84a334a8312631ebd28a8e, type: 3}
   - {fileID: 1240976055, guid: 897f10582e84a334a8312631ebd28a8e, type: 3}
+  colorblindModeFrames: []
   useUnscaledDelta: 0
   sRenderer: {fileID: 1758446271}
   image: {fileID: 0}

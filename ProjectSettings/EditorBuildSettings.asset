@@ -53,6 +53,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomTetrisMadness.unity
     guid: c0dd116415210e944ab5022c8bd17d1d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Customs/CustomSharkZombie.unity
+    guid: dec0f6f03a1b79e42968044fa397f85a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Foxyyy's Customs/Joke maps/JokeGiddyHell.unity
+    guid: 90527c305fb83ef49bfe5a92338511eb
+  - enabled: 1
+    path: Assets/Scenes/Levels/Customs/CustomMushValley.unity
+    guid: 63fe922177cbaf44d97a9078c5f609e8
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b02bce592fba21b4982d8cf5e36a1459,
       type: 2}

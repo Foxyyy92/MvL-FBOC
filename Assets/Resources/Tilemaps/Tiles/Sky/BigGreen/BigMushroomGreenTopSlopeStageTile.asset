@@ -18,6 +18,7 @@ MonoBehaviour:
       Value: 338239030946693709
   Tile: {fileID: 11400000, guid: 6d86cfde48ab1084f974b3de0a9102dc, type: 2}
   CollisionData:
+    IsFullTile: 0
     Shapes:
     - Vertices:
       - X:

@@ -42,6 +42,7 @@ public unsafe class VersusStageData : AssetObject {
     [Header("-- UI")]
     public ColorRGBA UIColor = new(24, 178, 170);
     public bool HidePlayersOnMinimap;
+    public bool ShowTetrisBorder;
 
     [Header("-- Powerups")]
     public bool SpawnBigPowerups = true;
