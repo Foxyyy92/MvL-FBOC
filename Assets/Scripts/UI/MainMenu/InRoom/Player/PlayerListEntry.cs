@@ -100,16 +100,21 @@ namespace NSMB.UI.MainMenu.Submenus.InRoom {
         public unsafe void SetPlayer(Frame f, PlayerRef player) {
             this.player = player;
             RuntimePlayer runtimePlayer = QuantumRunner.DefaultGame.Frames.Predicted.GetPlayerData(player);
-            nicknameColor = NicknameColor.Parse(runtimePlayer?.NicknameColor);
             cachedNickname = runtimePlayer.PlayerNickname.ToValidNickname(f, player);
-            userId = runtimePlayer?.UserId;
+            string userId = runtimePlayer.UserId;
+                if (ColoredNameManager.TryGetColor(runtimePlayer, out var nc)) {
+                    nicknameColor = nc;
+                } else {
+                    nicknameColor = NicknameColor.White;
+            }
             nameText.color = nicknameColor.Sample();
-
+            userId = runtimePlayer?.UserId;
             playerExistsGameObject.SetActive(true);
             joinTick = QuantumUtils.GetPlayerData(f, player)->JoinTick;
             name = $"{(runtimePlayer?.PlayerNickname ?? "noname")} ({userId})";
             dropdownOptions.SetActive(false);
         }
+
 
         public void RemovePlayer() {
             player = PlayerRef.None;

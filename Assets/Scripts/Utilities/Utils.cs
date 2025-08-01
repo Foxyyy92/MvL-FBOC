@@ -273,10 +273,25 @@ namespace NSMB.Utilities {
             return (Math.Sign(byteCount) * num).ToString() + suf[place];
         }
 
-        public static Color SampleIQGradient(float time, Vector3 a, Vector3 b, Vector3 c, Vector3 d) {
-            Vector3 result = a + b.Multiply(Vector3Cos(Mathf.PI * 2 * (c * time + d)));
-            return new Color(result.x, result.y, result.z);
-        }
+        public static Color SampleLoopingLinearGradient(float time, params Vector3[] colors) {
+        /*
+        if (colors == null || colors.Length < 2)
+            {
+                Debug.LogWarning("Need at least 2 colors for gradient or the player doesn't have a gradient!");
+                return Color.white;
+            }
+        */
+    float scaledTime = time * colors.Length;
+    int indexA = Mathf.FloorToInt(scaledTime) % colors.Length;
+    int indexB = (indexA + 1) % colors.Length;
+    float t = scaledTime - indexA;
+
+    Vector3 a = colors[indexA];
+    Vector3 b = colors[indexB];
+    Vector3 result = Vector3.Lerp(a, b, t);
+
+    return new Color(result.x, result.y, result.z, 1f);
+}
 
         private static Vector3 Vector3Cos(Vector3 vec) {
             return new(Mathf.Cos(vec.x), Mathf.Cos(vec.y), Mathf.Cos(vec.z));

@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NSMB.Utilities {
@@ -17,9 +18,19 @@ namespace NSMB.Utilities {
         }
 
         public Color Sample() {
-            float time = (float) ((Time.timeAsDouble * 0.25d) % 1d);
-            return Utils.SampleIQGradient(time, this[0], this[1], this[2], this[3]);
+            float time = (float)((Time.timeAsDouble * 0.1d) % 1d);
+
+        // Gather colors
+        Vector3[] points = new Vector3[] { this[0], this[1], this[2], this[3] };
+
+        // Filter out redundant zero slots
+        List<Vector3> valid = new();
+        foreach (var p in points) {
+            if (p != Vector3.zero || valid.Count == 0) valid.Add(p);
         }
+
+        return Utils.SampleLoopingLinearGradient(time, valid.ToArray());
+    }
 
         public override string ToString() {
             return $"NicknameColor[a={this[0]} b={this[1]} c={this[2]} d={this[3]}]";

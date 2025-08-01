@@ -131,9 +131,15 @@ namespace NSMB.UI.Game {
             RuntimePlayer runtimePlayer = f.GetPlayerData(mario->PlayerRef);
             if (runtimePlayer != null) {
                 cachedNickname = runtimePlayer.PlayerNickname.ToValidNickname(f, mario->PlayerRef);
-                nicknameColor = NicknameColor.Parse(runtimePlayer.NicknameColor);
+                
+                if (!string.IsNullOrEmpty(runtimePlayer.UserId) && ColoredNameManager.TryGetColor(runtimePlayer, out var customColor)) {
+                    nicknameColor = customColor;
+                } else {
+                    nicknameColor = NicknameColor.White;
+                }
             }
         }
+
 
         private void OnMarioPlayerDied(EventMarioPlayerDied e) {
             if (e.Entity != Entity) {
