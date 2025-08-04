@@ -64,6 +64,7 @@ MonoBehaviour:
     B: 170
     A: 255
   HidePlayersOnMinimap: 0
+  ShowTetrisBorder: 0
   SpawnBigPowerups: 1
   SpawnVerticalPowerups: 1
   MainMusic:
@@ -721,8 +722,8 @@ MonoBehaviour:
   - Tile:
       Id:
         Value: 508553503855572043
-    Rotation: 65534
-    Flags: 1
+    Rotation: 0
+    Flags: 0
   - Tile:
       Id:
         Value: 508553503855572043
@@ -1356,11 +1357,6 @@ MonoBehaviour:
   - Tile:
       Id:
         Value: 508553503855572043
-    Rotation: 65534
-    Flags: 1
-  - Tile:
-      Id:
-        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -1580,7 +1576,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 0
+        Value: 316078177911819842
+    Rotation: 0
+    Flags: 0
+  - Tile:
+      Id:
+        Value: 410364468200401995
     Rotation: 0
     Flags: 0
   - Tile:
@@ -1895,12 +1896,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 0
+        Value: 391805232253762952
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 0
+        Value: 294152138064844365
     Rotation: 0
     Flags: 0
   - Tile:

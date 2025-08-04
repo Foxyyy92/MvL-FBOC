@@ -19,7 +19,7 @@ MonoBehaviour:
   ShowAuthorAndComposer: 1
   StageAuthor: Foxyyy
   MusicComposer: uhh... i dunno.
-  TranslationKey: level.custom.tetrisds
+  TranslationKey: Tetris Madness
   GroupingTranslationKey: level.header.custom
   DiscordStageImage: level-tetrisds
   Icon: {fileID: 21300000, guid: 204191df3a0fc884cb8fc1030f65465d, type: 3}

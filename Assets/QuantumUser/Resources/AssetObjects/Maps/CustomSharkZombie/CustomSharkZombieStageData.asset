@@ -19,10 +19,10 @@ MonoBehaviour:
   ShowAuthorAndComposer: 1
   StageAuthor: Foxyyy
   MusicComposer: Foxyyy
-  TranslationKey: levels.custom.CustomSharkZombie
+  TranslationKey: Shark Zombie
   GroupingTranslationKey: level.header.custom
   DiscordStageImage: level-shark-zombie
-  Icon: {fileID: 0}
+  Icon: {fileID: -1754632294, guid: 2961daeec359cc54381483f3fc509859, type: 3}
   OverrideAutomaticTilemapSettings: 0
   TileDimensions:
     X: 48
