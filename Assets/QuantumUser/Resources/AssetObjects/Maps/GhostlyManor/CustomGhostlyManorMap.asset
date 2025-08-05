@@ -22,7 +22,7 @@ MonoBehaviour:
   Scene: CustomGhostlyManor
   ScenePath: Assets/Scenes/Levels/Foxyyy's Customs/CustomGhostlyManor.unity
   SceneGuid: 9644e581d685d6c46b3291483df87a05
-  WorldSize: 64
+  WorldSize: 68
   BucketsCount: 16
   BucketsSubdivisions: 8
   BucketingAxis: 0
