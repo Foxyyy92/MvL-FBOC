@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Customs/CustomGiddySky.unity
     guid: 90b13cb3c91871744859d34986dbad80
   - enabled: 1
+    path: Assets/Scenes/Levels/Customs/CustomMushValley.unity
+    guid: 63fe922177cbaf44d97a9078c5f609e8
+  - enabled: 1
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomTetrisMadness.unity
     guid: c0dd116415210e944ab5022c8bd17d1d
   - enabled: 1
@@ -59,9 +62,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Foxyyy's Customs/Joke maps/JokeGiddyHell.unity
     guid: 90527c305fb83ef49bfe5a92338511eb
-  - enabled: 1
-    path: Assets/Scenes/Levels/Customs/CustomMushValley.unity
-    guid: 63fe922177cbaf44d97a9078c5f609e8
   - enabled: 1
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomGhostlyManor.unity
     guid: 9644e581d685d6c46b3291483df87a05
