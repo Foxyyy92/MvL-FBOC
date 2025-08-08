@@ -22,6 +22,6 @@ MonoBehaviour:
   fastNormal: {fileID: 8300000, guid: 9c286436e7d3ca44ba7309552a0f155b, type: 3}
   UnderWater: {fileID: 0}
   fastUnderWater: {fileID: 0}
-  loopStartSeconds: 13.5
-  loopEndSeconds: 60.3
+  loopStartSeconds: 16.87
+  loopEndSeconds: 75.37
   speedupFactor: 1.25
