@@ -68,6 +68,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Foxyyy's Customs/CustomCastleRooftop.unity
     guid: fd5de768792d97e41a60013ffbe43bf9
+  - enabled: 1
+    path: Assets/Scenes/Levels/CustomAquariumPark.unity
+    guid: 41beef8bba9840146b9f2332809d76bf
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b02bce592fba21b4982d8cf5e36a1459,
       type: 2}

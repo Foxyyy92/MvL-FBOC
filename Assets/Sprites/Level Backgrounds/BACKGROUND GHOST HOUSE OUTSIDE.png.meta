@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BACKGROUND GHOST HOUSE OUTSIDE_0: 3791367038529404261
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
