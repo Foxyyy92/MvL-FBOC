@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: e97a207b47083964fbef8f86054c6f48
+guid: 16c0ae6f73392a645b600d2b09aa109e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7423953345875012411
-    second: mini_0
+      213: 2739155455253627565
+    second: fades_0
+  - first:
+      213: -2891464659866080599
+    second: fades_1
+  - first:
+      213: -2223469521829819563
+    second: fades_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +78,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,40 +102,71 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mini_0
+      name: fades_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 13
-        height: 12
+        x: 68
+        y: 71
+        width: 125
+        height: 125
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c41c0604c1d8f890800000000000000
-      internalID: -7423953345875012411
+      spriteID: da247f6bf5f630620800000000000000
+      internalID: 2739155455253627565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fades_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 71
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa261426347fd7d0800000000000000
+      internalID: -2891464659866080599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fades_2
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 72
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b0d661046a421e0800000000000000
+      internalID: -2223469521829819563
       vertices: []
       indices: 
       edges: []
@@ -138,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7f924400209c49b419b125ef98cf0a60
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mini_0: -7423953345875012411
+      fades_0: 2739155455253627565
+      fades_1: -2891464659866080599
+      fades_2: -2223469521829819563
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
