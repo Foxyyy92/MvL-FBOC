@@ -40,9 +40,9 @@ namespace Quantum {
 
             FP targetSize;
             if (mario->IsPropellerFlying || mario->IsSpinnerFlying) {
-                targetSize = 8;
-            } else {
                 targetSize = 7;
+            } else {
+                targetSize = 6;
             }
 
             camera->OrthographicSize = QuantumUtils.SmoothDamp(camera->OrthographicSize, targetSize, ref camera->SizeChangeVelocity, 
