@@ -176,4 +176,6 @@ MonoBehaviour:
     - {x: 0, y: -1, z: 0}
     - {x: 1, y: -1, z: 0}
     m_RuleTransform: 0
-  siblings: []
+  siblings:
+  - {fileID: 11400000, guid: a3c0dc02cfeb5a04db115db3e9fa367b, type: 2}
+  - {fileID: 11400000, guid: aec2077533216694389b8488ed662499, type: 2}
