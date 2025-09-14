@@ -2870,11 +2870,6 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
-    Rotation: 0
-    Flags: 0
-  - Tile:
-      Id:
         Value: 0
     Rotation: 0
     Flags: 0
@@ -2895,7 +2890,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
+        Value: 0
+    Rotation: 0
+    Flags: 0
+  - Tile:
+      Id:
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -4230,11 +4230,6 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
-    Rotation: 0
-    Flags: 0
-  - Tile:
-      Id:
         Value: 0
     Rotation: 0
     Flags: 0
@@ -4255,7 +4250,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
+        Value: 0
+    Rotation: 0
+    Flags: 0
+  - Tile:
+      Id:
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -5590,11 +5590,6 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
-    Rotation: 0
-    Flags: 0
-  - Tile:
-      Id:
         Value: 0
     Rotation: 0
     Flags: 0
@@ -5615,7 +5610,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
+        Value: 0
+    Rotation: 0
+    Flags: 0
+  - Tile:
+      Id:
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -6950,11 +6950,6 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
-    Rotation: 0
-    Flags: 0
-  - Tile:
-      Id:
         Value: 0
     Rotation: 0
     Flags: 0
@@ -6975,7 +6970,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 365333375707600453
+        Value: 0
+    Rotation: 0
+    Flags: 0
+  - Tile:
+      Id:
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -9675,22 +9675,22 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 393438471761372052
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 393438471761372052
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 393438471761372052
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 393438471761372052
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -36798,32 +36798,4 @@ MonoBehaviour:
         Value: 0
     Rotation: 0
     Flags: 0
-  BigStarSpawnpoints:
-  - X:
-      RawValue: -720895
-    Y:
-      RawValue: -65536
-  - X:
-      RawValue: 425984
-    Y:
-      RawValue: -98304
-  - X:
-      RawValue: -950273
-    Y:
-      RawValue: -229375
-  - X:
-      RawValue: 753664
-    Y:
-      RawValue: -229375
-  - X:
-      RawValue: -278529
-    Y:
-      RawValue: -229375
-  - X:
-      RawValue: 933891
-    Y:
-      RawValue: -114687
-  - X:
-      RawValue: 196608
-    Y:
-      RawValue: -163839
+  BigStarSpawnpoints: []
