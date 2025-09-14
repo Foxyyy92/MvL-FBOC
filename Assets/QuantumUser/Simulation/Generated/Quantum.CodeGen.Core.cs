@@ -2157,23 +2157,27 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Koopa : Quantum.IComponent {
-    public const Int32 SIZE = 88;
+    public const Int32 SIZE = 96;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(24)]
+    [FieldOffset(32)]
     public AssetRef<PowerupAsset> SpawnPowerupWhenStomped;
     [FieldOffset(4)]
     public QBoolean DontWalkOfLedges;
     [FieldOffset(20)]
     public QBoolean IsSpiny;
-    [FieldOffset(48)]
-    public FP Speed;
-    [FieldOffset(40)]
-    public FP KickSpeed;
+    [FieldOffset(24)]
+    public QBoolean Jumping;
+    [FieldOffset(28)]
+    public QBoolean LostWings;
     [FieldOffset(56)]
+    public FP Speed;
+    [FieldOffset(48)]
+    public FP KickSpeed;
+    [FieldOffset(64)]
     public FPVector2 IceBlockInShellSize;
-    [FieldOffset(72)]
+    [FieldOffset(80)]
     public FPVector2 IceBlockOutShellSize;
-    [FieldOffset(32)]
+    [FieldOffset(40)]
     [ExcludeFromPrototype()]
     public FP CurrentSpeed;
     [FieldOffset(12)]
@@ -2197,6 +2201,8 @@ namespace Quantum {
         hash = hash * 31 + SpawnPowerupWhenStomped.GetHashCode();
         hash = hash * 31 + DontWalkOfLedges.GetHashCode();
         hash = hash * 31 + IsSpiny.GetHashCode();
+        hash = hash * 31 + Jumping.GetHashCode();
+        hash = hash * 31 + LostWings.GetHashCode();
         hash = hash * 31 + Speed.GetHashCode();
         hash = hash * 31 + KickSpeed.GetHashCode();
         hash = hash * 31 + IceBlockInShellSize.GetHashCode();
@@ -2219,6 +2225,8 @@ namespace Quantum {
         QBoolean.Serialize(&p->IsInShell, serializer);
         QBoolean.Serialize(&p->IsKicked, serializer);
         QBoolean.Serialize(&p->IsSpiny, serializer);
+        QBoolean.Serialize(&p->Jumping, serializer);
+        QBoolean.Serialize(&p->LostWings, serializer);
         AssetRef.Serialize(&p->SpawnPowerupWhenStomped, serializer);
         FP.Serialize(&p->CurrentSpeed, serializer);
         FP.Serialize(&p->KickSpeed, serializer);
@@ -3376,6 +3384,14 @@ namespace Quantum {
         return result;
       }
     }
+    /// <summary>0.875</summary>
+    public static FP _1_125 {
+      [MethodImpl(MethodImplOptions.AggressiveInlining)] get { 
+        FP result;
+        result.RawValue = 57344;
+        return result;
+      }
+    }
     /// <summary>1.18</summary>
     public static FP _1_18 {
       [MethodImpl(MethodImplOptions.AggressiveInlining)] get { 
@@ -3554,6 +3570,8 @@ namespace Quantum {
       public const Int64 SixteenOverNine = 116508;
       /// <summary>2.5</summary>
       public const Int64 _2_50 = 163840;
+      /// <summary>0.875</summary>
+      public const Int64 _1_125 = 57344;
       /// <summary>1.18</summary>
       public const Int64 _1_18 = 77332;
       /// <summary>0.85</summary>

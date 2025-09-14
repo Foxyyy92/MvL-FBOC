@@ -189,6 +189,16 @@ PrefabInstance:
       propertyPath: Prototype.Scriptable.Id.Value
       value: 378514462062875007
       objectReference: {fileID: 0}
+    - target: {fileID: 2210952625023297629, guid: 6dbe32ab0e6d5bc4c8fe9722f4c86d19,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093743753026942761, guid: 6dbe32ab0e6d5bc4c8fe9722f4c86d19,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3502658418062677356, guid: 6dbe32ab0e6d5bc4c8fe9722f4c86d19,
         type: 3}
       propertyPath: Flags
@@ -208,6 +218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: 'NetworkGuid.RawGuidValue.Array.data[1]'
       value: -6632642548860961925
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901402401622306172, guid: 6dbe32ab0e6d5bc4c8fe9722f4c86d19,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7863306663182383513, guid: 6dbe32ab0e6d5bc4c8fe9722f4c86d19, type: 3}
@@ -270,6 +285,7 @@ MonoBehaviour:
   frames:
   - {fileID: -4108787663010400821, guid: 794bc215dd02bf34ab2cfae7702bfdfd, type: 3}
   - {fileID: -1073110140, guid: 794bc215dd02bf34ab2cfae7702bfdfd, type: 3}
+  colorblindModeFrames: []
   useUnscaledDelta: 0
   sRenderer: {fileID: 5406078764588261642}
   image: {fileID: 0}

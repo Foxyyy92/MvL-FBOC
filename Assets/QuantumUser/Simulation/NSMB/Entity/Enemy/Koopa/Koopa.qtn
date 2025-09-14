@@ -1,7 +1,11 @@
+#define _1_125 0.875
+
 component Koopa {
 	AssetRef<PowerupAsset> SpawnPowerupWhenStomped;
 	bool DontWalkOfLedges;
 	bool IsSpiny;
+	bool Jumping;
+	bool LostWings;
 	FP Speed;
 	FP KickSpeed;
 	FPVector2 IceBlockInShellSize;

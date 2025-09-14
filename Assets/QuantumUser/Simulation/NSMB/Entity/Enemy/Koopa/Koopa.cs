@@ -12,6 +12,7 @@ namespace Quantum {
             CurrentSpeed = Speed;
             holdable->Holder = default;
             holdable->PreviousHolder = default;
+            LostWings = false;
 
             f.Unsafe.GetPointer<Interactable>(entity)->ColliderDisabled = false;
             f.Unsafe.GetPointer<ComboKeeper>(entity)->Combo = 0;

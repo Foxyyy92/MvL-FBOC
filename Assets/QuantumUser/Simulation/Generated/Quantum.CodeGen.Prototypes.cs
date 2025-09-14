@@ -594,6 +594,8 @@ namespace Quantum.Prototypes {
     public AssetRef<PowerupAsset> SpawnPowerupWhenStomped;
     public QBoolean DontWalkOfLedges;
     public QBoolean IsSpiny;
+    public QBoolean Jumping;
+    public QBoolean LostWings;
     public FP Speed;
     public FP KickSpeed;
     public FPVector2 IceBlockInShellSize;
@@ -608,6 +610,8 @@ namespace Quantum.Prototypes {
         result.SpawnPowerupWhenStomped = this.SpawnPowerupWhenStomped;
         result.DontWalkOfLedges = this.DontWalkOfLedges;
         result.IsSpiny = this.IsSpiny;
+        result.Jumping = this.Jumping;
+        result.LostWings = this.LostWings;
         result.Speed = this.Speed;
         result.KickSpeed = this.KickSpeed;
         result.IceBlockInShellSize = this.IceBlockInShellSize;
