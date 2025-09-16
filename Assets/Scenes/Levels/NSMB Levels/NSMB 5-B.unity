@@ -1375,11 +1375,6 @@ PrefabInstance:
       propertyPath: Prototype.Spawnpoint.Y.RawValue
       value: -122814
       objectReference: {fileID: 0}
-    - target: {fileID: 1005979406138123112, guid: db855a441c0a4594d802b7430c45cfff,
-        type: 3}
-      propertyPath: Prototype.Speed.RawValue
-      value: 73728
-      objectReference: {fileID: 0}
     - target: {fileID: 8836298984178612587, guid: db855a441c0a4594d802b7430c45cfff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1979,11 +1974,6 @@ PrefabInstance:
       propertyPath: Prototype.Spawnpoint.Y.RawValue
       value: -288433
       objectReference: {fileID: 0}
-    - target: {fileID: 1005979406138123112, guid: db855a441c0a4594d802b7430c45cfff,
-        type: 3}
-      propertyPath: Prototype.Speed.RawValue
-      value: 73728
-      objectReference: {fileID: 0}
     - target: {fileID: 8836298984178612587, guid: db855a441c0a4594d802b7430c45cfff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2303,11 +2293,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Prototype.Spawnpoint.Y.RawValue
       value: -32768
-      objectReference: {fileID: 0}
-    - target: {fileID: 1005979406138123112, guid: db855a441c0a4594d802b7430c45cfff,
-        type: 3}
-      propertyPath: Prototype.Speed.RawValue
-      value: 73728
       objectReference: {fileID: 0}
     - target: {fileID: 8836298984178612587, guid: db855a441c0a4594d802b7430c45cfff,
         type: 3}
@@ -2911,11 +2896,6 @@ PrefabInstance:
       propertyPath: Prototype.Spawnpoint.Y.RawValue
       value: -32768
       objectReference: {fileID: 0}
-    - target: {fileID: 1005979406138123112, guid: db855a441c0a4594d802b7430c45cfff,
-        type: 3}
-      propertyPath: Prototype.Speed.RawValue
-      value: 73728
-      objectReference: {fileID: 0}
     - target: {fileID: 8836298984178612587, guid: db855a441c0a4594d802b7430c45cfff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3132,11 +3112,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Prototype.Spawnpoint.Y.RawValue
       value: -65536
-      objectReference: {fileID: 0}
-    - target: {fileID: 1005979406138123112, guid: db855a441c0a4594d802b7430c45cfff,
-        type: 3}
-      propertyPath: Prototype.Speed.RawValue
-      value: 73728
       objectReference: {fileID: 0}
     - target: {fileID: 8836298984178612587, guid: db855a441c0a4594d802b7430c45cfff,
         type: 3}
@@ -21460,11 +21435,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Prototype.Spawnpoint.Y.RawValue
       value: -98304
-      objectReference: {fileID: 0}
-    - target: {fileID: 1005979406138123112, guid: db855a441c0a4594d802b7430c45cfff,
-        type: 3}
-      propertyPath: Prototype.Speed.RawValue
-      value: 73728
       objectReference: {fileID: 0}
     - target: {fileID: 8836298984178612587, guid: db855a441c0a4594d802b7430c45cfff,
         type: 3}

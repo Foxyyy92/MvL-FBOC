@@ -97,6 +97,7 @@ namespace Quantum {
 
             f.Unsafe.GetPointer<Interactable>(koopaEntity)->ColliderDisabled = true;
             enemy->IsDead = true;
+            enemy->Despawned = true;
             IsInShell = false;
             IsKicked = false;
             IsFlipped = false;

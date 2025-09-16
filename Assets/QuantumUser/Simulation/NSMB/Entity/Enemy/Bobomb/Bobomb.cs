@@ -71,6 +71,7 @@ namespace Quantum {
             f.Events.PlayComboSound(bobombEntity, combo);
 
             enemy->IsDead = true;
+            enemy->Despawned = true;
 
             // Holdable
             var holdable = f.Unsafe.GetPointer<Holdable>(bobombEntity);

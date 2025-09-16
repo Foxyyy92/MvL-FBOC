@@ -52,6 +52,7 @@ namespace Quantum {
             }
 
             enemy->IsDead = true;
+            enemy->Despawned = true;
             f.Unsafe.GetPointer<Interactable>(goombaEntity)->ColliderDisabled = true;
 
             var collider = f.Unsafe.GetPointer<PhysicsCollider2D>(goombaEntity);

@@ -708,7 +708,7 @@ MonoBehaviour:
         LostWings:
           Value: 0
         Speed:
-          RawValue: 73728
+          RawValue: 57344
         KickSpeed:
           RawValue: 327680
         IceBlockInShellSize:
@@ -1632,7 +1632,7 @@ MonoBehaviour:
         LostWings:
           Value: 0
         Speed:
-          RawValue: 73728
+          RawValue: 57344
         KickSpeed:
           RawValue: 327680
         IceBlockInShellSize:
@@ -3760,7 +3760,7 @@ MonoBehaviour:
         LostWings:
           Value: 0
         Speed:
-          RawValue: 73728
+          RawValue: 57344
         KickSpeed:
           RawValue: 327680
         IceBlockInShellSize:
@@ -3925,7 +3925,7 @@ MonoBehaviour:
         LostWings:
           Value: 0
         Speed:
-          RawValue: 73728
+          RawValue: 57344
         KickSpeed:
           RawValue: 327680
         IceBlockInShellSize:
@@ -4255,7 +4255,7 @@ MonoBehaviour:
         LostWings:
           Value: 0
         Speed:
-          RawValue: 73728
+          RawValue: 57344
         KickSpeed:
           RawValue: 327680
         IceBlockInShellSize:
@@ -4585,7 +4585,7 @@ MonoBehaviour:
         LostWings:
           Value: 0
         Speed:
-          RawValue: 73728
+          RawValue: 57344
         KickSpeed:
           RawValue: 327680
         IceBlockInShellSize:

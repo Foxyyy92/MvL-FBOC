@@ -1,3 +1,5 @@
+using Photon.Deterministic;
+
 namespace Quantum {
     public unsafe class EnemySystem : SystemMainThreadEntityFilter<Enemy, EnemySystem.Filter>, ISignalOnStageReset, ISignalOnTryLiquidSplash, ISignalOnBeforeInteraction,
         ISignalOnEnemyDespawned, ISignalOnEnemyRespawned, ISignalOnMarioPlayerMegaMushroomFootstep {
@@ -20,6 +22,36 @@ namespace Quantum {
             var physicsObject = filter.PhysicsObject;
             var collider = filter.Collider;
 
+            //Despawn Check
+            //TODO: make death not respawn them
+            var e = f.Filter<CameraController>();
+            e.NextUnsafe(out EntityRef entity, out CameraController* cam);
+            var dif = (enemy->IsActive ? transform->Position : enemy->Spawnpoint) - cam->CurrentPosition;
+            FP bounds = 7;
+            bool withinbounds = FPMath.Abs(dif.X) < bounds && FPMath.Abs(dif.Y) < bounds;
+            bool preActive = enemy->IsActive;
+            if (enemy->Despawned) {
+                if (!withinbounds) {
+                    //our spawn point is out of bounds, we can respawn if the camera goes back now
+                    enemy->Despawned = false;
+                }
+            } else {
+                enemy->IsActive = withinbounds;
+                if (!enemy->IsActive && preActive) {
+                    //Despawn Enemy, They became outside of bounds
+                    enemy->IsActive = false;
+                    enemy->IsDead = true;
+                    physicsObject->IsFrozen = true;
+                    enemy->Despawned = true;
+
+                    f.Signals.OnEnemyDespawned(filter.Entity);
+                } else if (!preActive && enemy->IsActive) {
+                    //Respawn Enemy, They Became in bounds
+                    enemy->Respawn(f, filter.Entity);
+                    enemy->FacingRight = dif.X < 0;
+                    f.Signals.OnEnemyRespawned(filter.Entity);
+                }
+            }
             if (!enemy->IsActive) {
                 return;
             }
@@ -29,6 +61,7 @@ namespace Quantum {
                 enemy->IsActive = false;
                 enemy->IsDead = true;
                 physicsObject->IsFrozen = true;
+                enemy->Despawned = true;
 
                 f.Signals.OnEnemyDespawned(filter.Entity);
                 return;

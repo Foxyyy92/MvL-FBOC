@@ -154,15 +154,14 @@ namespace Quantum {
                 }
             }
 
-            if (koopa->Jumping && physicsObject->IsTouchingGround && !koopa->IsInShell && !koopa->LostWings)
-            {
-                physicsObject->Velocity.Y = 7;
-                physicsObject->IsTouchingGround = false;
-            }
-
-            if (koopa->LostWings)
-            {
-                koopa->Speed = Constants._1_125;
+            if (koopa->Jumping) {
+                if (physicsObject->IsTouchingGround && !koopa->IsInShell && !koopa->LostWings) {
+                    physicsObject->Velocity.Y = 7;
+                    physicsObject->IsTouchingGround = false;
+                    koopa->CurrentSpeed = Constants._1_125;
+                } else if (koopa->LostWings && !koopa->IsInShell) {
+                    koopa->CurrentSpeed = koopa->Speed;
+                }
             }
             }
 

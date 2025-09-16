@@ -1817,17 +1817,20 @@ namespace Quantum {
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(24)]
     public FPVector2 Spawnpoint;
-    [FieldOffset(8)]
-    public QBoolean IgnorePlayerWhenRespawning;
-    [FieldOffset(0)]
-    public QBoolean DisableRespawning;
     [FieldOffset(12)]
+    public QBoolean IgnorePlayerWhenRespawning;
+    [FieldOffset(4)]
+    public QBoolean DisableRespawning;
+    [FieldOffset(0)]
     [ExcludeFromPrototype()]
-    public QBoolean IsActive;
+    public QBoolean Despawned;
     [FieldOffset(16)]
     [ExcludeFromPrototype()]
+    public QBoolean IsActive;
+    [FieldOffset(20)]
+    [ExcludeFromPrototype()]
     public QBoolean IsDead;
-    [FieldOffset(4)]
+    [FieldOffset(8)]
     [ExcludeFromPrototype()]
     public QBoolean FacingRight;
     public override Int32 GetHashCode() {
@@ -1836,6 +1839,7 @@ namespace Quantum {
         hash = hash * 31 + Spawnpoint.GetHashCode();
         hash = hash * 31 + IgnorePlayerWhenRespawning.GetHashCode();
         hash = hash * 31 + DisableRespawning.GetHashCode();
+        hash = hash * 31 + Despawned.GetHashCode();
         hash = hash * 31 + IsActive.GetHashCode();
         hash = hash * 31 + IsDead.GetHashCode();
         hash = hash * 31 + FacingRight.GetHashCode();
@@ -1844,6 +1848,7 @@ namespace Quantum {
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (Enemy*)ptr;
+        QBoolean.Serialize(&p->Despawned, serializer);
         QBoolean.Serialize(&p->DisableRespawning, serializer);
         QBoolean.Serialize(&p->FacingRight, serializer);
         QBoolean.Serialize(&p->IgnorePlayerWhenRespawning, serializer);
@@ -3384,11 +3389,11 @@ namespace Quantum {
         return result;
       }
     }
-    /// <summary>0.875</summary>
+    /// <summary>1.125</summary>
     public static FP _1_125 {
       [MethodImpl(MethodImplOptions.AggressiveInlining)] get { 
         FP result;
-        result.RawValue = 57344;
+        result.RawValue = 73728;
         return result;
       }
     }
@@ -3570,8 +3575,8 @@ namespace Quantum {
       public const Int64 SixteenOverNine = 116508;
       /// <summary>2.5</summary>
       public const Int64 _2_50 = 163840;
-      /// <summary>0.875</summary>
-      public const Int64 _1_125 = 57344;
+      /// <summary>1.125</summary>
+      public const Int64 _1_125 = 73728;
       /// <summary>1.18</summary>
       public const Int64 _1_18 = 77332;
       /// <summary>0.85</summary>

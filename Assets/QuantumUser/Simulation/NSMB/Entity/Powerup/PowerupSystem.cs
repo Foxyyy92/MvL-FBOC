@@ -124,6 +124,12 @@ namespace Quantum {
                 mario->InvincibilityFrames = 600;
                 f.Signals.OnMarioPlayerBecameInvincible(marioEntity);
                 return PowerupReserveResult.NoneButPlaySound;
+            } else if (newPowerup.Type == PowerupType.ExtraLife) {
+                if (mario->Lives == 0) {
+                    UnityEngine.Debug.LogWarning("Hi Foxyyy idk what to do with mario if he has no lives, so i guess i just enable them");
+                }
+                mario->Lives++;
+                return PowerupReserveResult.NoneButPlaySound;
             }
 
             PowerupState newState = newPowerup.State;
