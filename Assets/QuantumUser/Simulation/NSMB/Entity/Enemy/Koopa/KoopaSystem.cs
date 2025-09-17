@@ -105,7 +105,7 @@ namespace Quantum {
             }
 
             // Move
-            if (!QuantumUtils.Decrement(ref koopa->TurnaroundWaitFrames))
+            if (!QuantumUtils.Decrement(ref koopa->TurnaroundWaitFrames) && !(koopa->Jumping && !koopa->LostWings))
             {
                 physicsObject->Velocity.X = 0;
 
