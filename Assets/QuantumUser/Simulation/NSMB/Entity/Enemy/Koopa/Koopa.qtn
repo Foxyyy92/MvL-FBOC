@@ -1,4 +1,4 @@
-#define _1_125 1.125
+#define _1_125 1.31
 
 component Koopa {
 	AssetRef<PowerupAsset> SpawnPowerupWhenStomped;

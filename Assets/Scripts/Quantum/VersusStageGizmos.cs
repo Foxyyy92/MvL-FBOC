@@ -97,7 +97,7 @@ namespace NSMB.Quantum {
                         Gizmos.DrawIcon(worldPos.ToUnityVector3(), "Coin");
                      } else if (stageTile is PowerupTile poweruptile) {
                      var powerupasset = QuantumUnityDB.GetGlobalAsset(poweruptile.largePowerup);
-                     Gizmos.DrawIcon(worldPos.ToUnityVector3(), powerupasset.State == PowerupState.MegaMushroom ? "Mega" : powerupasset.Type == PowerupType.Starman ? "Starman" : powerupasset.State == PowerupState.MiniMushroom ? "Mini" : "Powerup");
+                     Gizmos.DrawIcon(worldPos.ToUnityVector3(), powerupasset.State == PowerupState.MegaMushroom ? "Mega" : powerupasset.Type == PowerupType.Starman ? "Starman" : powerupasset.Type == PowerupType.ExtraLife ? "ExtraLife" : powerupasset.State == PowerupState.MiniMushroom ? "Mini" : "Powerup");
                     } else if (originalTile is TileInteractionRelocator tir2) {
                         Gizmos.color = Color.cyan;
                         Gizmos.DrawLine(worldPos.ToUnityVector3(), QuantumUtils.RelativeTileToWorldRounded(stage, tir2.RelocateTo).ToUnityVector3());

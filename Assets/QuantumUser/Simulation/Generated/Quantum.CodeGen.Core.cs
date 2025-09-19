@@ -3389,11 +3389,11 @@ namespace Quantum {
         return result;
       }
     }
-    /// <summary>1.125</summary>
+    /// <summary>1.31</summary>
     public static FP _1_125 {
       [MethodImpl(MethodImplOptions.AggressiveInlining)] get { 
         FP result;
-        result.RawValue = 73728;
+        result.RawValue = 85852;
         return result;
       }
     }
@@ -3575,8 +3575,8 @@ namespace Quantum {
       public const Int64 SixteenOverNine = 116508;
       /// <summary>2.5</summary>
       public const Int64 _2_50 = 163840;
-      /// <summary>1.125</summary>
-      public const Int64 _1_125 = 73728;
+      /// <summary>1.31</summary>
+      public const Int64 _1_125 = 85852;
       /// <summary>1.18</summary>
       public const Int64 _1_18 = 77332;
       /// <summary>0.85</summary>
