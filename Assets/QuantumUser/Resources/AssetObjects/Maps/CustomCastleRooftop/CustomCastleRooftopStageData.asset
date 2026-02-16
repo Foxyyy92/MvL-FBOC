@@ -1879,12 +1879,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 498686480379902476
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 464352716246696732
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -2394,22 +2394,22 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 0
+        Value: 326340869363163953
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 408961728876919804
+        Value: 326340869363163953
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 334288837312889514
+        Value: 326340869363163953
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 0
+        Value: 326340869363163953
     Rotation: 0
     Flags: 0
   - Tile:
@@ -2919,12 +2919,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 498686480379902476
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 464352716246696732
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -3439,12 +3439,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 408961728876919804
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 334288837312889514
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -3959,12 +3959,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 498686480379902476
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 464352716246696732
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -4479,12 +4479,12 @@ MonoBehaviour:
     Flags: 0
   - Tile:
       Id:
-        Value: 384089085127954090
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
       Id:
-        Value: 389061516329946773
+        Value: 0
     Rotation: 0
     Flags: 0
   - Tile:
@@ -13078,6 +13078,10 @@ MonoBehaviour:
     Rotation: 0
     Flags: 0
   BigStarSpawnpoints:
+  - X:
+      RawValue: 917504
+    Y:
+      RawValue: -262144
   - X:
       RawValue: 344062
     Y:
