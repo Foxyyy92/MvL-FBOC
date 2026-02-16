@@ -915,10 +915,10 @@ namespace Quantum {
             } else {
                 // Start groundpound
                 // Check if high enough above ground
-                var transform = filter.Transform;
-                if (PhysicsObjectSystem.Raycast(f, stage, transform->Position, FPVector2.Down, FP._0_50, out _)) {
-                    return;
-                }
+                //var transform = filter.Transform;
+                //if (PhysicsObjectSystem.Raycast(f, stage, transform->Position, FPVector2.Down, FP._0_50, out _)) {
+                //    return;
+                //}
 
                 mario->WallslideLeft = false;
                 mario->WallslideRight = false;

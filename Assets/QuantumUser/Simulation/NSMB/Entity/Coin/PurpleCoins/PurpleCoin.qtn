@@ -1,0 +1,18 @@
+global {
+	ushort MaxPurpleCoins;
+	ushort PurpleCoins;
+}
+
+component PurpleCoin {
+	ushort CoinNumber;
+}
+
+signal OnPurpleCoinSpawnStar();
+
+synced event MarioCollectedPurpleCoin {
+	ushort CoinNumber;
+	FPVector2 Pos;
+}
+
+synced event ResetPurpleCoins {
+}

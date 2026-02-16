@@ -425,11 +425,13 @@ namespace Quantum.Prototypes {
     public string _field_used_;
     public Quantum.Prototypes.StarChasersDataPrototype StarChasers;
     public Quantum.Prototypes.CoinRunnersDataPrototype CoinRunners;
+    public Quantum.Prototypes.StarChasersDataPrototype PurpleCoinsChasers;
     partial void MaterializeUser(Frame frame, ref Quantum.GamemodeSpecificData result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Quantum.GamemodeSpecificData result, in PrototypeMaterializationContext context = default) {
         switch (_field_used_) {
           case "STARCHASERS": this.StarChasers.Materialize(frame, ref *result.StarChasers, in context); break;
           case "COINRUNNERS": this.CoinRunners.Materialize(frame, ref *result.CoinRunners, in context); break;
+          case "PURPLECOINSCHASERS": this.PurpleCoinsChasers.Materialize(frame, ref *result.PurpleCoinsChasers, in context); break;
           case "": case null: break;
           default: PrototypeValidator.UnknownUnionField(_field_used_, in context); break;
         }
@@ -870,6 +872,21 @@ namespace Quantum.Prototypes {
     public void Materialize(Frame frame, ref Quantum.Projectile result, in PrototypeMaterializationContext context = default) {
         result.Asset = this.Asset;
         result.Speed = this.Speed;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.PurpleCoin))]
+  public unsafe partial class PurpleCoinPrototype : ComponentPrototype<Quantum.PurpleCoin> {
+    public UInt16 CoinNumber;
+    partial void MaterializeUser(Frame frame, ref Quantum.PurpleCoin result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.PurpleCoin component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.PurpleCoin result, in PrototypeMaterializationContext context = default) {
+        result.CoinNumber = this.CoinNumber;
         MaterializeUser(frame, ref result, in context);
     }
   }

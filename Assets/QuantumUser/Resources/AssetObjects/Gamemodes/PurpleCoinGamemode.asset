@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668ab0c653beb1a43b55a9f63c9d71b7, type: 3}
+  m_Name: PurpleCoinGamemode
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: QuantumUser/Resources/AssetObjects/Gamemodes/PurpleCoinGamemode
+    Guid:
+      Value: 479061235690353728
+  NamePrefix: '<sprite name=Erm Idk> '
+  TranslationKey: gamemode.purplecoin
+  DescriptionTranslationKey: gamemode.purplecoin.description
+  DiscordRpcKey: gamemode-purplecoin
+  ObjectiveSymbolPrefix: P
+  AllCoinItems:
+  - Id:
+      Value: 271390802845879304
+  - Id:
+      Value: 390055422968795145
+  - Id:
+      Value: 296548766860541996
+  - Id:
+      Value: 279725308049324760
+  - Id:
+      Value: 372382251364764784
+  - Id:
+      Value: 328877894917160747
+  - Id:
+      Value: 402398838204577684
+  - Id:
+      Value: 269903407669338010
+  - Id:
+      Value: 378514462062875007
+  - Id:
+      Value: 480960334749072574
+  FallbackCoinItem:
+    Id:
+      Value: 390055422968795145
+  LooseCoinPrototype:
+    Id:
+      Value: 1464681621458001613
+  DefaultRules:
+    Stage:
+      Id:
+        Value: 438935048561577377
+    Gamemode:
+      Id:
+        Value: 479061235690353728
+    StarsToWin: 20
+    CoinsForPowerup: 8
+    Lives: 0
+    TimerMinutes: 0
+    TeamsEnabled:
+      Value: 0
+    CustomPowerupsEnabled:
+      Value: 1
+    DrawOnTimeUp:
+      Value: 0
+  BigStarPrototype:
+    Id:
+      Value: 1295981493910502871

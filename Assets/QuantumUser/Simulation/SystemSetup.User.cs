@@ -41,6 +41,7 @@ namespace Quantum {
                     new GoldBlockSystem(),
                     new WrappingObjectSystem(),
                     new BigStarSystem(),
+                    new PurpleCoinSystem(),
                     new ObjectiveCoinSystem(),
                     new HoldableObjectSystem(),
                     new IceBlockSystem(),

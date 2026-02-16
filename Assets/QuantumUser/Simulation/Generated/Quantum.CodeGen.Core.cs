@@ -1064,7 +1064,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 2888;
+    public const Int32 SIZE = 2896;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public AssetRef<Map> Map;
@@ -1093,48 +1093,52 @@ namespace Quantum {
     public BitSet10 PlayerLastConnectionState;
     [FieldOffset(1656)]
     public UInt16 BigStarSpawnTimer;
-    [FieldOffset(1704)]
+    [FieldOffset(1712)]
     public EntityRef MainBigStar;
-    [FieldOffset(1696)]
+    [FieldOffset(1704)]
     public BitSet64 UsedStarSpawns;
-    [FieldOffset(1672)]
+    [FieldOffset(1676)]
     public Int32 UsedStarSpawnCount;
-    [FieldOffset(1720)]
+    [FieldOffset(1728)]
     public GameRules Rules;
     [FieldOffset(1650)]
     public GameState GameState;
-    [FieldOffset(1664)]
-    public Int32 StartFrame;
     [FieldOffset(1668)]
+    public Int32 StartFrame;
+    [FieldOffset(1672)]
     public Int32 TotalGamesPlayed;
     [FieldOffset(1658)]
     public UInt16 GameStartFrames;
-    [FieldOffset(1660)]
+    [FieldOffset(1662)]
     public UInt16 PlayerLoadFrames;
     [FieldOffset(1652)]
     public UInt16 AutomaticStageRefreshInterval;
     [FieldOffset(1654)]
     public UInt16 AutomaticStageRefreshTimer;
-    [FieldOffset(1768)]
+    [FieldOffset(1776)]
     [FramePrinter.FixedArrayAttribute(typeof(PlayerInformation), 10)]
     private fixed Byte _PlayerInfo_[1120];
     [FieldOffset(1648)]
     public Byte RealPlayers;
     [FieldOffset(1649)]
     public Byte TotalMarios;
-    [FieldOffset(1676)]
-    public Int32 WinningTeam;
-    [FieldOffset(1684)]
-    public QBoolean HasWinner;
     [FieldOffset(1680)]
-    public PlayerRef Host;
+    public Int32 WinningTeam;
     [FieldOffset(1688)]
-    [AllocateOnComponentAdded()]
-    public QDictionaryPtr<PlayerRef, EntityRef> PlayerDatas;
+    public QBoolean HasWinner;
+    [FieldOffset(1660)]
+    public UInt16 MaxPurpleCoins;
+    [FieldOffset(1664)]
+    public UInt16 PurpleCoins;
+    [FieldOffset(1684)]
+    public PlayerRef Host;
     [FieldOffset(1692)]
     [AllocateOnComponentAdded()]
+    public QDictionaryPtr<PlayerRef, EntityRef> PlayerDatas;
+    [FieldOffset(1696)]
+    [AllocateOnComponentAdded()]
     public QListPtr<BannedPlayerInfo> BannedPlayerIds;
-    [FieldOffset(1712)]
+    [FieldOffset(1720)]
     public FP Timer;
     public FixedArray<Input> input {
       get {
@@ -1178,6 +1182,8 @@ namespace Quantum {
         hash = hash * 31 + TotalMarios.GetHashCode();
         hash = hash * 31 + WinningTeam.GetHashCode();
         hash = hash * 31 + HasWinner.GetHashCode();
+        hash = hash * 31 + MaxPurpleCoins.GetHashCode();
+        hash = hash * 31 + PurpleCoins.GetHashCode();
         hash = hash * 31 + Host.GetHashCode();
         hash = hash * 31 + PlayerDatas.GetHashCode();
         hash = hash * 31 + BannedPlayerIds.GetHashCode();
@@ -1214,7 +1220,9 @@ namespace Quantum {
         serializer.Stream.Serialize(&p->AutomaticStageRefreshTimer);
         serializer.Stream.Serialize(&p->BigStarSpawnTimer);
         serializer.Stream.Serialize(&p->GameStartFrames);
+        serializer.Stream.Serialize(&p->MaxPurpleCoins);
         serializer.Stream.Serialize(&p->PlayerLoadFrames);
+        serializer.Stream.Serialize(&p->PurpleCoins);
         serializer.Stream.Serialize(&p->StartFrame);
         serializer.Stream.Serialize(&p->TotalGamesPlayed);
         serializer.Stream.Serialize(&p->UsedStarSpawnCount);
@@ -1245,8 +1253,13 @@ namespace Quantum {
     [FieldOverlap(4)]
     [FramePrinter.PrintIf("_field_used_", Quantum.GamemodeSpecificData.COINRUNNERS)]
     private CoinRunnersData _CoinRunners;
+    [FieldOffset(4)]
+    [FieldOverlap(4)]
+    [FramePrinter.PrintIf("_field_used_", Quantum.GamemodeSpecificData.PURPLECOINSCHASERS)]
+    private StarChasersData _PurpleCoinsChasers;
     public const Int32 STARCHASERS = 1;
     public const Int32 COINRUNNERS = 2;
+    public const Int32 PURPLECOINSCHASERS = 3;
     public Int32 Field {
       get {
         return _field_used_;
@@ -1274,12 +1287,24 @@ namespace Quantum {
         }
       }
     }
+    public StarChasersData* PurpleCoinsChasers {
+      get {
+        fixed (StarChasersData* p = &_PurpleCoinsChasers) {
+          if (_field_used_ != PURPLECOINSCHASERS) {
+            Native.Utils.Clear(p, 4);
+            _field_used_ = PURPLECOINSCHASERS;
+          }
+          return p;
+        }
+      }
+    }
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 11299;
         hash = hash * 31 + _field_used_.GetHashCode();
         hash = hash * 31 + _StarChasers.GetHashCode();
         hash = hash * 31 + _CoinRunners.GetHashCode();
+        hash = hash * 31 + _PurpleCoinsChasers.GetHashCode();
         return hash;
       }
     }
@@ -1292,6 +1317,9 @@ namespace Quantum {
         serializer.Stream.Serialize(&p->_field_used_);
         if (p->_field_used_ == COINRUNNERS) {
           Quantum.CoinRunnersData.Serialize(&p->_CoinRunners, serializer);
+        }
+        if (p->_field_used_ == PURPLECOINSCHASERS) {
+          Quantum.StarChasersData.Serialize(&p->_PurpleCoinsChasers, serializer);
         }
         if (p->_field_used_ == STARCHASERS) {
           Quantum.StarChasersData.Serialize(&p->_StarChasers, serializer);
@@ -3099,6 +3127,26 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct PurpleCoin : Quantum.IComponent {
+    public const Int32 SIZE = 4;
+    public const Int32 ALIGNMENT = 2;
+    [FieldOffset(2)]
+    private fixed Byte _alignment_padding_[2];
+    [FieldOffset(0)]
+    public UInt16 CoinNumber;
+    public override Int32 GetHashCode() {
+      unchecked { 
+        var hash = 20627;
+        hash = hash * 31 + CoinNumber.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (PurpleCoin*)ptr;
+        serializer.Stream.Serialize(&p->CoinNumber);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Spinner : Quantum.IComponent {
     public const Int32 SIZE = 56;
     public const Int32 ALIGNMENT = 8;
@@ -3303,6 +3351,9 @@ namespace Quantum {
   }
   public unsafe partial interface ISignalOnProjectileHitEntity : ISignal {
     void OnProjectileHitEntity(Frame f, Frame frame, EntityRef projectile, EntityRef hitEntity);
+  }
+  public unsafe partial interface ISignalOnPurpleCoinSpawnStar : ISignal {
+    void OnPurpleCoinSpawnStar(Frame f);
   }
   public unsafe partial interface ISignalOnStageReset : ISignal {
     void OnStageReset(Frame f, QBoolean full);
@@ -3609,6 +3660,7 @@ namespace Quantum {
     private ISignalOnEntityCrushed[] _ISignalOnEntityCrushedSystems;
     private ISignalOnMarioPlayerCollectedPowerup[] _ISignalOnMarioPlayerCollectedPowerupSystems;
     private ISignalOnProjectileHitEntity[] _ISignalOnProjectileHitEntitySystems;
+    private ISignalOnPurpleCoinSpawnStar[] _ISignalOnPurpleCoinSpawnStarSystems;
     private ISignalOnStageReset[] _ISignalOnStageResetSystems;
     private ISignalOnTileChanged[] _ISignalOnTileChangedSystems;
     partial void AllocGen() {
@@ -3654,6 +3706,7 @@ namespace Quantum {
       _ISignalOnEntityCrushedSystems = BuildSignalsArray<ISignalOnEntityCrushed>();
       _ISignalOnMarioPlayerCollectedPowerupSystems = BuildSignalsArray<ISignalOnMarioPlayerCollectedPowerup>();
       _ISignalOnProjectileHitEntitySystems = BuildSignalsArray<ISignalOnProjectileHitEntity>();
+      _ISignalOnPurpleCoinSpawnStarSystems = BuildSignalsArray<ISignalOnPurpleCoinSpawnStar>();
       _ISignalOnStageResetSystems = BuildSignalsArray<ISignalOnStageReset>();
       _ISignalOnTileChangedSystems = BuildSignalsArray<ISignalOnTileChanged>();
       _ComponentSignalsOnAdded = new ComponentReactiveCallbackInvoker[ComponentTypeId.Type.Length];
@@ -3758,6 +3811,8 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<Quantum.Powerup>();
       BuildSignalsArrayOnComponentAdded<Quantum.Projectile>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Projectile>();
+      BuildSignalsArrayOnComponentAdded<Quantum.PurpleCoin>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.PurpleCoin>();
       BuildSignalsArrayOnComponentAdded<Quantum.Spinner>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Spinner>();
       BuildSignalsArrayOnComponentAdded<Quantum.StarCoin>();
@@ -4088,6 +4143,15 @@ namespace Quantum {
           }
         }
       }
+      public void OnPurpleCoinSpawnStar() {
+        var array = _f._ISignalOnPurpleCoinSpawnStarSystems;
+        for (Int32 i = 0; i < array.Length; ++i) {
+          var s = array[i];
+          if (_f.SystemIsEnabledInHierarchy((SystemBase)s)) {
+            s.OnPurpleCoinSpawnStar(_f);
+          }
+        }
+      }
       public void OnStageReset(QBoolean full) {
         var array = _f._ISignalOnStageResetSystems;
         for (Int32 i = 0; i < array.Length; ++i) {
@@ -4250,6 +4314,7 @@ namespace Quantum {
       typeRegistry.Register(typeof(Quantum.PowerupState), 1);
       typeRegistry.Register(typeof(Quantum.Projectile), Quantum.Projectile.SIZE);
       typeRegistry.Register(typeof(Ptr), Ptr.SIZE);
+      typeRegistry.Register(typeof(Quantum.PurpleCoin), Quantum.PurpleCoin.SIZE);
       typeRegistry.Register(typeof(QBoolean), QBoolean.SIZE);
       typeRegistry.Register(typeof(Quantum.QString48), Quantum.QString48.SIZE);
       typeRegistry.Register(typeof(Quantum.QStringUtf8_40), Quantum.QStringUtf8_40.SIZE);
@@ -4274,7 +4339,7 @@ namespace Quantum {
       typeRegistry.Register(typeof(Quantum._globals_), Quantum._globals_.SIZE);
     }
     static partial void InitComponentTypeIdGen() {
-      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 38)
+      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 39)
         .AddBuiltInComponents()
         .Add<Quantum.BetterPhysicsObject>(Quantum.BetterPhysicsObject.Serialize, Quantum.BetterPhysicsObject.OnAdded, Quantum.BetterPhysicsObject.OnRemoved, ComponentFlags.None)
         .Add<Quantum.BigStar>(Quantum.BigStar.Serialize, null, null, ComponentFlags.None)
@@ -4311,6 +4376,7 @@ namespace Quantum {
         .Add<Quantum.PlayerData>(Quantum.PlayerData.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Powerup>(Quantum.Powerup.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Projectile>(Quantum.Projectile.Serialize, null, null, ComponentFlags.None)
+        .Add<Quantum.PurpleCoin>(Quantum.PurpleCoin.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Spinner>(Quantum.Spinner.Serialize, Quantum.Spinner.OnAdded, Quantum.Spinner.OnRemoved, ComponentFlags.None)
         .Add<Quantum.StarCoin>(Quantum.StarCoin.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.WrappingObject>(Quantum.WrappingObject.Serialize, null, null, ComponentFlags.None)

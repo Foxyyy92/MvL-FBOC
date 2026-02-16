@@ -1,9 +1,10 @@
 using Photon.Deterministic;
 using Quantum.Physics2D;
+using UnityEditor.SceneManagement;
 
 namespace Quantum {
     [UnityEngine.Scripting.Preserve]
-    public unsafe class BigStarSystem : SystemMainThread, ISignalOnReturnToRoom, ISignalOnMarioPlayerDropObjective {
+    public unsafe class BigStarSystem : SystemMainThread, ISignalOnReturnToRoom, ISignalOnMarioPlayerDropObjective, ISignalOnPurpleCoinSpawnStar {
 
         public override bool StartEnabled => false;
 
@@ -13,10 +14,15 @@ namespace Quantum {
 
         public override void Update(Frame f) {
             VersusStageData stage = null;
+            var gamemode = f.FindAsset(f.Global->Rules.Gamemode);
 
-            if (!f.Exists(f.Global->MainBigStar) && QuantumUtils.Decrement(ref f.Global->BigStarSpawnTimer)) {
-                stage = f.FindAsset<VersusStageData>(f.Map.UserAsset);
-                HandleSpawningNewStar(f, stage);
+            if (gamemode is StarChasersGamemode) {
+                if (!f.Exists(f.Global->MainBigStar) && QuantumUtils.Decrement(ref f.Global->BigStarSpawnTimer)) {
+                    stage = f.FindAsset<VersusStageData>(f.Map.UserAsset);
+                    HandleSpawningNewStar(f, stage);
+                }
+            } else if (gamemode is PurpleCoinsGamemode) {
+
             }
 
             var allStars = f.Filter<BigStar>();
@@ -57,8 +63,13 @@ namespace Quantum {
 
                 if (hits.Count == 0) {
                     // Hit no players
-                    var gamemode = f.FindAsset(f.Global->Rules.Gamemode) as StarChasersGamemode;
-                    EntityRef newEntity = f.Create(gamemode.BigStarPrototype);
+                    var gamemode = f.FindAsset(f.Global->Rules.Gamemode);
+                    EntityRef newEntity = EntityRef.None;
+                    if (gamemode is StarChasersGamemode) {
+                        newEntity = f.Create((gamemode as StarChasersGamemode).BigStarPrototype);
+                    } else if (gamemode is PurpleCoinsGamemode) {
+                        newEntity = f.Create((gamemode as PurpleCoinsGamemode).BigStarPrototype);
+                    }
                     f.Global->MainBigStar = newEntity;
                     var newStarTransform = f.Unsafe.GetPointer<Transform2D>(newEntity);
                     var newStar = f.Unsafe.GetPointer<BigStar>(newEntity);
@@ -168,5 +179,11 @@ namespace Quantum {
                 mario->SpawnStars(f, entity, amount);
             }
         }
-    }
+
+
+        public void OnPurpleCoinSpawnStar(Frame f) {
+            VersusStageData stage = f.FindAsset<VersusStageData>(f.Map.UserAsset);
+            HandleSpawningNewStar(f, stage);
+        }
+    } 
 }

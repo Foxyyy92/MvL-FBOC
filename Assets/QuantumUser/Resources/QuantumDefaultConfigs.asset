@@ -207,10 +207,12 @@ MonoBehaviour:
   - Id:
       Value: 326486899682662279
   - Id:
+      Value: 479061235690353728
+  - Id:
       Value: 394255533064620237
   DefaultGamemode:
     Id:
-      Value: 326486899682662279
+      Value: 479061235690353728
   AllStages:
   - Id:
       Value: 438935048561577377

@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 using AssetObjectQuery = Quantum.AssetObjectQuery;
+using NSMB.Entities.World;
 
 [assembly: QuantumMapBakeAssembly]
 namespace NSMB.Quantum { 
@@ -113,6 +114,19 @@ namespace NSMB.Quantum {
                 EditorUtility.SetDirty(enemy);
             }
             LogInfo($"Baked {enemies.Length} enemies");
+
+            // --- Bake Purple Coins
+            QPrototypePurpleCoin[] purplecoins = GameObject.FindObjectsByType<QPrototypePurpleCoin>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            var PurpleCoinAnimator = purplecoins[0].GetComponentInParent<PurpleCoinAnimator>();
+            PurpleCoinAnimator.coinrenderers.Clear();
+            ushort coini = 0;
+            foreach (var purplecoin in purplecoins) {
+                purplecoin.Prototype.CoinNumber = coini;
+                PurpleCoinAnimator.coinrenderers.Add(purplecoin.gameObject.GetComponent<SpriteRenderer>());
+                EditorUtility.SetDirty(purplecoin);
+                coini++;
+            }
+            LogInfo($"Baked {purplecoins.Length} purplecoins, baked the animator too: " + PurpleCoinAnimator.coinrenderers.Count);
 
             /*
             // --- Bake Breakable Objects
