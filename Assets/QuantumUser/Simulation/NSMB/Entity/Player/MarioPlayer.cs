@@ -165,7 +165,7 @@ namespace Quantum {
 
             if ((f.Global->Rules.IsLivesEnabled && QuantumUtils.Decrement(ref Lives)) || Disconnected) {
                 f.Signals.OnMarioPlayerDropObjective(entity, 1, attacker);
-                DeathAnimationFrames = (GamemodeData.StarChasers->Stars > 0) ? (byte) 30 : (byte) 36;
+                DeathAnimationFrames = (GamemodeData.StarChasers->Stars > 0 || GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins > 0) ? (byte) 30 : (byte) 36;
             } else {
                 if (dropStars) {
                     f.Signals.OnMarioPlayerDropObjective(entity, 1, attacker);
@@ -265,7 +265,9 @@ namespace Quantum {
         public void SpawnStars(Frame f, EntityRef entity, int amount) {
             var stage = f.FindAsset<VersusStageData>(f.Map.UserAsset);
             var transform = f.Unsafe.GetPointer<Transform2D>(entity);
-            bool fastStars = amount > 2 && GamemodeData.StarChasers->Stars > 2;
+            var asset = f.FindAsset(f.Global->Rules.Gamemode);
+            var count = asset is StarChasersGamemode ? GamemodeData.StarChasers->Stars : GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins;
+            bool fastStars = amount > 2 && (count > 2);
             int starDirection = FacingRight ? 1 : 2;
 
             if (f.Global->Rules.IsLivesEnabled && Lives == 0) {
@@ -282,7 +284,7 @@ namespace Quantum {
 
             int droppedStars = 0;
             while (amount > 0) {
-                if (GamemodeData.StarChasers->Stars <= 0) {
+                if (count <= 0) {
                     break;
                 }
 
@@ -295,14 +297,23 @@ namespace Quantum {
                     };
                 }
 
-                var gamemode = f.FindAsset(f.Global->Rules.Gamemode) as StarChasersGamemode;
-                EntityRef newStarEntity = f.Create(gamemode.BigStarPrototype);
+                EntityRef newStarEntity = EntityRef.None;
+                if (asset is StarChasersGamemode) {
+                    newStarEntity = f.Create((asset as StarChasersGamemode).BigStarPrototype);
+                    if (GamemodeData.StarChasers->Stars > 0) {
+                        GamemodeData.StarChasers->Stars--;
+                    }
+                } else if (asset is PurpleCoinsGamemode) {
+                    newStarEntity = f.Create((asset as PurpleCoinsGamemode).BigStarForPurpleCoinsPrototype);
+                    if (GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins > 0) {
+                        GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins--;
+                    }
+                }
                 var newStar = f.Unsafe.GetPointer<BigStar>(newStarEntity);
                 var newStarTransform = f.Unsafe.GetPointer<Transform2D>(newStarEntity);
                 newStarTransform->Position = transform->Position;
                 newStar->InitializeMovingStar(f, stage, newStarEntity, actualStarDirection);
 
-                GamemodeData.StarChasers->Stars--;
                 amount--;
                 droppedStars++;
                 starDirection++;

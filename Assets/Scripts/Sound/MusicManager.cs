@@ -91,12 +91,14 @@ namespace NSMB.Sound {
                 speedup |= rules.IsLivesEnabled && mario->Lives == 1;
                 mega |= Settings.Instance.audioSpecialPowerupMusic.HasFlag(Enums.SpecialPowerupMusic.MegaMushroom) && mario->MegaMushroomFrames > 0;
                 invincible |= Settings.Instance.audioSpecialPowerupMusic.HasFlag(Enums.SpecialPowerupMusic.Starman) && mario->IsStarmanInvincible;
-                FrontRunning |= (gamemode is StarChasersGamemode ? (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.StarChasers->Stars && mario->GamemodeData.StarChasers->Stars != 0) : (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.CoinRunners->ObjectiveCoins && mario->GamemodeData.CoinRunners->ObjectiveCoins != 0));
+                FrontRunning |= (gamemode is StarChasersGamemode ? (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.StarChasers->Stars && mario->GamemodeData.StarChasers->Stars != 0) 
+                    : gamemode is PurpleCoinsGamemode ? (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins && mario->GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins != 0)
+                    : (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.CoinRunners->ObjectiveCoins && mario->GamemodeData.CoinRunners->ObjectiveCoins != 0));
             }
 
             speedup |= rules.IsTimerEnabled && f.Global->Timer <= 60;
 
-            if (gamemode is StarChasersGamemode) {
+            if (gamemode is StarChasersGamemode || gamemode is PurpleCoinsGamemode) {
                 speedup |= gamemode.GetFirstPlaceObjectiveCount(f) >= rules.StarsToWin * 0.8;
             }
 

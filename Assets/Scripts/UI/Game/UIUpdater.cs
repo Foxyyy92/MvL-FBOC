@@ -15,6 +15,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace NSMB.UI.Game {
@@ -28,9 +29,9 @@ namespace NSMB.UI.Game {
         [SerializeField] private CanvasGroup toggler;
         [SerializeField] private TrackIcon playerTrackTemplate, starTrackTemplate, starCoinTrackTemplate, objectiveCoinTrackTemplate;
         [SerializeField] private Sprite storedItemNull;
-        [SerializeField] private TMP_Text uiTeamObjective, uiMainObjective, uiCoins, uiDebug, uiLives, uiCountdown;
+        [SerializeField] private TMP_Text uiTeamObjective, uiMainObjective, uiCoins, uiDebug, uiLives, uiCountdown, uipurplecoins;
         [SerializeField] private Image itemReserve, itemColor, deathFade;
-        [SerializeField] private GameObject boos, TetrisBorder, reserveItemBox;
+        [SerializeField] private GameObject boos, TetrisBorder, PurpleCoinsVignette, reserveItemBox;
         [SerializeField] private Animation reserveAnimation;
 
         [SerializeField] private TMP_Text winText;
@@ -41,11 +42,11 @@ namespace NSMB.UI.Game {
         private readonly Dictionary<MonoBehaviour, TrackIcon> entityTrackIcons = new();
         private readonly Dictionary<Type, List<TrackIcon>> availablePooledTrackIcons = new();
         private readonly List<Image> backgrounds = new();
-        private GameObject teamsParent, starsParent, coinsParent, livesParent, timerParent;
+        private GameObject teamsParent, starsParent, coinsParent, livesParent, timerParent, purplecoinsParent;
         private Material timerMaterial;
 
         //private TeamManager teamManager;
-        private int cachedCoins = -1, cachedTeamObjective = -1, cachedObjective = -1, cachedLives = -1, cachedTimer = -1;
+        private int cachedCoins = -1, cachedTeamObjective = -1, cachedObjective = -1, cachedLives = -1, cachedTimer = -1, cachedPurpleCoins = -1;
         private PowerupAsset previousPowerup;
         private EntityRef previousTarget;
         private bool previousMarioExists;
@@ -89,6 +90,8 @@ namespace NSMB.UI.Game {
             foreach (MarioPlayerAnimator mario in MarioPlayerAnimator.AllMarioPlayers) {
                 OnMarioInitialized(game, f, mario);
             }
+
+            PurpleCoinsVignette.SetActive(f.FindAsset(f.Global->Rules.Gamemode) is PurpleCoinsGamemode);
         }
 
         public void Awake() {
@@ -97,12 +100,14 @@ namespace NSMB.UI.Game {
             coinsParent = uiCoins.transform.parent.gameObject;
             livesParent = uiLives.transform.parent.gameObject;
             timerParent = uiCountdown.transform.parent.gameObject;
+            purplecoinsParent = uipurplecoins.transform.parent.gameObject;
 
             backgrounds.Add(teamsParent.GetComponentInChildren<Image>());
             backgrounds.Add(starsParent.GetComponentInChildren<Image>());
             backgrounds.Add(coinsParent.GetComponentInChildren<Image>());
             backgrounds.Add(livesParent.GetComponentInChildren<Image>());
             backgrounds.Add(timerParent.GetComponentInChildren<Image>());
+            backgrounds.Add(purplecoinsParent.GetComponentInChildren<Image>());
         }
 
         public void Start() {
@@ -220,6 +225,7 @@ namespace NSMB.UI.Game {
             livesParent.SetActive(marioExists && f.Global->Rules.IsLivesEnabled);
             coinsParent.SetActive(marioExists);
             timerParent.SetActive(f.Global->Rules.IsTimerEnabled);
+            purplecoinsParent.SetActive(f.FindAsset(f.Global->Rules.Gamemode) is PurpleCoinsGamemode);
             reserveItemBox.SetActive(marioExists);
         }
 
@@ -266,6 +272,7 @@ namespace NSMB.UI.Game {
 
             //int starRequirement = rules.StarsToWin;
             int coinRequirement = rules.CoinsForPowerup;
+            int purplecoinRequirement = f.Global->MaxPurpleCoins;
             bool teamsEnabled = rules.TeamsEnabled;
             bool livesEnabled = rules.IsLivesEnabled;
             bool timerEnabled = rules.TimerMinutes > 0;
@@ -294,7 +301,7 @@ namespace NSMB.UI.Game {
                         cachedTeamObjective = teamObjective;
                         TeamAsset team = f.FindAsset(f.SimulationConfig.Teams[teamIndex]);
                         string objectiveString = "x" + cachedTeamObjective;
-                        if (gamemode is StarChasersGamemode) {
+                        if (gamemode is StarChasersGamemode || gamemode is PurpleCoinsGamemode) {
                             objectiveString += "/" + rules.StarsToWin;
                         }
                         uiTeamObjective.text = (Settings.Instance.GraphicsColorblind ? team.textSpriteColorblind : team.textSpriteNormal) + Utils.GetSymbolString(objectiveString);
@@ -304,10 +311,12 @@ namespace NSMB.UI.Game {
 
             // STARS
             int objective = Mathf.Max(0, gamemode.GetObjectiveCount(f, mario));
+
+            UnityEngine.Debug.Log("objective: " + objective);
             if (objective != cachedObjective) {
                 cachedObjective = objective;
                 string objectiveString = gamemode.ObjectiveSymbolPrefix + "x" + cachedObjective;
-                if (gamemode is StarChasersGamemode && !teamsEnabled) {
+                if ((gamemode is StarChasersGamemode || gamemode is PurpleCoinsGamemode) && !teamsEnabled) {
                     objectiveString += "/" + rules.StarsToWin;
                 }
 
@@ -325,6 +334,14 @@ namespace NSMB.UI.Game {
                 if (mario->Lives != cachedLives) {
                     cachedLives = mario->Lives;
                     uiLives.text = QuantumUnityDB.GetGlobalAsset(mario->CharacterAsset).UiString + Utils.GetSymbolString("x" + cachedLives);
+                }
+            }
+
+            // PURPLECOINS
+            if (gamemode is PurpleCoinsGamemode) {
+                if (f.Global->PurpleCoins != cachedPurpleCoins) {
+                    cachedPurpleCoins = f.Global->PurpleCoins;
+                    uipurplecoins.text = Utils.GetSymbolString("Cx" + cachedPurpleCoins + "/" + purplecoinRequirement);
                 }
             }
         }

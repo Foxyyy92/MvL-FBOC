@@ -149,10 +149,14 @@ struct CoinRunnersData {
 	int ObjectiveCoins;
 }
 
+struct PurpleCoinsData {
+	byte StarsFromPurpleCoins;
+}
+
 union GamemodeSpecificData {
 	StarChasersData StarChasers;
 	CoinRunnersData CoinRunners;
-	StarChasersData PurpleCoinsChasers;
+	PurpleCoinsData PurpleCoinsChasers;
 }
 
 enum KnockbackStrength : Byte {

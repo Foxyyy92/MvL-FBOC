@@ -699,9 +699,10 @@ namespace Quantum {
         _f.AddEvent(ev);
         return ev;
       }
-      public EventResetPurpleCoins ResetPurpleCoins() {
+      public EventResetPurpleCoins ResetPurpleCoins(QBoolean Active) {
         if (_f.IsPredicted) return null;
         var ev = _f.Context.AcquireEvent<EventResetPurpleCoins>(EventResetPurpleCoins.ID);
+        ev.Active = Active;
         _f.AddEvent(ev);
         return ev;
       }
@@ -2790,6 +2791,7 @@ namespace Quantum {
   }
   public unsafe partial class EventResetPurpleCoins : EventBase {
     public new const Int32 ID = 78;
+    public QBoolean Active;
     protected EventResetPurpleCoins(Int32 id, EventFlags flags) : 
         base(id, flags) {
     }
@@ -2807,6 +2809,7 @@ namespace Quantum {
     public override Int32 GetHashCode() {
       unchecked {
         var hash = 463;
+        hash = hash * 31 + Active.GetHashCode();
         return hash;
       }
     }

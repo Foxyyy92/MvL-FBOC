@@ -54,9 +54,10 @@ MonoBehaviour:
       Id:
         Value: 326486899682662279
     StarsToWin: 10
+    PurpleCoinsForStar: 65535
     CoinsForPowerup: 8
     Lives: 0
-    TimerSeconds: 0
+    TimerMinutes: 0
     TeamsEnabled:
       Value: 0
     CustomPowerupsEnabled:

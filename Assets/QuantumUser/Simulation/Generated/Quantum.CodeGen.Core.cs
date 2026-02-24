@@ -791,20 +791,22 @@ namespace Quantum {
     public AssetRef<Map> Stage;
     [FieldOffset(32)]
     public AssetRef<GamemodeAsset> Gamemode;
-    [FieldOffset(8)]
+    [FieldOffset(12)]
     public Int32 StarsToWin;
     [FieldOffset(0)]
     public Int32 CoinsForPowerup;
     [FieldOffset(4)]
     public Int32 Lives;
-    [FieldOffset(12)]
-    public Int32 TimerMinutes;
-    [FieldOffset(24)]
-    public QBoolean TeamsEnabled;
     [FieldOffset(16)]
-    public QBoolean CustomPowerupsEnabled;
+    public Int32 TimerMinutes;
+    [FieldOffset(28)]
+    public QBoolean TeamsEnabled;
     [FieldOffset(20)]
+    public QBoolean CustomPowerupsEnabled;
+    [FieldOffset(24)]
     public QBoolean DrawOnTimeUp;
+    [FieldOffset(8)]
+    public Int32 PurpleCoinsForStar;
     public override Int32 GetHashCode() {
       unchecked { 
         var hash = 443;
@@ -817,6 +819,7 @@ namespace Quantum {
         hash = hash * 31 + TeamsEnabled.GetHashCode();
         hash = hash * 31 + CustomPowerupsEnabled.GetHashCode();
         hash = hash * 31 + DrawOnTimeUp.GetHashCode();
+        hash = hash * 31 + PurpleCoinsForStar.GetHashCode();
         return hash;
       }
     }
@@ -824,6 +827,7 @@ namespace Quantum {
         var p = (GameRules*)ptr;
         serializer.Stream.Serialize(&p->CoinsForPowerup);
         serializer.Stream.Serialize(&p->Lives);
+        serializer.Stream.Serialize(&p->PurpleCoinsForStar);
         serializer.Stream.Serialize(&p->StarsToWin);
         serializer.Stream.Serialize(&p->TimerMinutes);
         QBoolean.Serialize(&p->CustomPowerupsEnabled, serializer);
@@ -1014,6 +1018,26 @@ namespace Quantum {
         QBoolean.Serialize(&p->Disqualified, serializer);
         Quantum.QString48.Serialize(&p->Nickname, serializer);
         Quantum.QStringUtf8_48.Serialize(&p->NicknameColor, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct PurpleCoinsData {
+    public const Int32 SIZE = 4;
+    public const Int32 ALIGNMENT = 1;
+    [FieldOffset(1)]
+    private fixed Byte _alignment_padding_[3];
+    [FieldOffset(0)]
+    public Byte StarsFromPurpleCoins;
+    public override Int32 GetHashCode() {
+      unchecked { 
+        var hash = 6983;
+        hash = hash * 31 + StarsFromPurpleCoins.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (PurpleCoinsData*)ptr;
+        serializer.Stream.Serialize(&p->StarsFromPurpleCoins);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1256,7 +1280,7 @@ namespace Quantum {
     [FieldOffset(4)]
     [FieldOverlap(4)]
     [FramePrinter.PrintIf("_field_used_", Quantum.GamemodeSpecificData.PURPLECOINSCHASERS)]
-    private StarChasersData _PurpleCoinsChasers;
+    private PurpleCoinsData _PurpleCoinsChasers;
     public const Int32 STARCHASERS = 1;
     public const Int32 COINRUNNERS = 2;
     public const Int32 PURPLECOINSCHASERS = 3;
@@ -1287,9 +1311,9 @@ namespace Quantum {
         }
       }
     }
-    public StarChasersData* PurpleCoinsChasers {
+    public PurpleCoinsData* PurpleCoinsChasers {
       get {
-        fixed (StarChasersData* p = &_PurpleCoinsChasers) {
+        fixed (PurpleCoinsData* p = &_PurpleCoinsChasers) {
           if (_field_used_ != PURPLECOINSCHASERS) {
             Native.Utils.Clear(p, 4);
             _field_used_ = PURPLECOINSCHASERS;
@@ -1319,7 +1343,7 @@ namespace Quantum {
           Quantum.CoinRunnersData.Serialize(&p->_CoinRunners, serializer);
         }
         if (p->_field_used_ == PURPLECOINSCHASERS) {
-          Quantum.StarChasersData.Serialize(&p->_PurpleCoinsChasers, serializer);
+          Quantum.PurpleCoinsData.Serialize(&p->_PurpleCoinsChasers, serializer);
         }
         if (p->_field_used_ == STARCHASERS) {
           Quantum.StarChasersData.Serialize(&p->_StarChasers, serializer);
@@ -4315,6 +4339,7 @@ namespace Quantum {
       typeRegistry.Register(typeof(Quantum.Projectile), Quantum.Projectile.SIZE);
       typeRegistry.Register(typeof(Ptr), Ptr.SIZE);
       typeRegistry.Register(typeof(Quantum.PurpleCoin), Quantum.PurpleCoin.SIZE);
+      typeRegistry.Register(typeof(Quantum.PurpleCoinsData), Quantum.PurpleCoinsData.SIZE);
       typeRegistry.Register(typeof(QBoolean), QBoolean.SIZE);
       typeRegistry.Register(typeof(Quantum.QString48), Quantum.QString48.SIZE);
       typeRegistry.Register(typeof(Quantum.QStringUtf8_40), Quantum.QStringUtf8_40.SIZE);

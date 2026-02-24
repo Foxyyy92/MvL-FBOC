@@ -68,7 +68,7 @@ namespace Quantum {
                     if (gamemode is StarChasersGamemode) {
                         newEntity = f.Create((gamemode as StarChasersGamemode).BigStarPrototype);
                     } else if (gamemode is PurpleCoinsGamemode) {
-                        newEntity = f.Create((gamemode as PurpleCoinsGamemode).BigStarPrototype);
+                        newEntity = f.Create((gamemode as PurpleCoinsGamemode).BigStarForPurpleCoinsPrototype);
                     }
                     f.Global->MainBigStar = newEntity;
                     var newStarTransform = f.Unsafe.GetPointer<Transform2D>(newEntity);
@@ -151,7 +151,12 @@ namespace Quantum {
                 return;
             }
 
-            mario->GamemodeData.StarChasers->Stars++;
+            var gamemode = f.FindAsset(f.Global->Rules.Gamemode);
+            if (gamemode is StarChasersGamemode) {
+                mario->GamemodeData.StarChasers->Stars++;
+            } else if (gamemode is PurpleCoinsGamemode) {
+                mario->GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins++;
+            }
             var stage = f.FindAsset<VersusStageData>(f.Map.UserAsset);
 
             if (star->IsStationary) {

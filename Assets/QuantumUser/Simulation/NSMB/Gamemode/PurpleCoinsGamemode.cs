@@ -4,18 +4,27 @@ using System;
 namespace Quantum {
     public unsafe class PurpleCoinsGamemode : GamemodeAsset {
 
-        public AssetRef<EntityPrototype> BigStarPrototype;
+        public AssetRef<EntityPrototype> BigStarForPurpleCoinsPrototype;
 
         public override void EnableGamemode(Frame f) {
             f.SystemEnable<BigStarSystem>();
             f.SystemEnable<PurpleCoinSystem>();
             f.Global->AutomaticStageRefreshTimer = f.Global->AutomaticStageRefreshInterval = 0;
 
+            //prob move this to a better location
+            PurpleCoinSystem.SetMaxPurpleCoins(f);
         }
 
         public override void DisableGamemode(Frame f) {
             f.SystemDisable<BigStarSystem>();
-            f.SystemEnable<PurpleCoinSystem>();
+            f.SystemDisable<PurpleCoinSystem>();
+
+            //prob move this to a better location
+            var filter = f.Filter<PurpleCoin, Interactable>();
+            while (filter.NextUnsafe(out EntityRef entity, out PurpleCoin* purplecoin, out Interactable* interactable)) {
+                interactable->ColliderDisabled = true;
+            }
+            f.Events.ResetPurpleCoins(false);
         }
 
         public override void CheckForGameEnd(Frame f) {
@@ -93,7 +102,7 @@ namespace Quantum {
             // Make a copy to not modify the `type` variable
             // Which can cause desyncs.
             GamemodeSpecificData gamemodeDataCopy = mario->GamemodeData;
-            return gamemodeDataCopy.StarChasers->Stars;
+            return gamemodeDataCopy.PurpleCoinsChasers->StarsFromPurpleCoins;
         }
 
         public override FP GetItemSpawnWeight(Frame f, CoinItemAsset item, int leaderStars, int ourStars) {

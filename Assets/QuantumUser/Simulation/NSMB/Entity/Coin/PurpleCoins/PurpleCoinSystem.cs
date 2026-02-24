@@ -13,24 +13,30 @@ namespace Quantum {
 
         public override void Update(Frame f) {
         }
+        public static void SetMaxPurpleCoins(Frame f) {
+            ushort Count = 0;
+            var filter = f.Filter<PurpleCoin>();
+            while (filter.NextUnsafe(out EntityRef entity, out PurpleCoin* purplecoin)) {
+                Count++;
+            }
 
+            if (Count < f.Global->Rules.PurpleCoinsForStar || f.Global->Rules.PurpleCoinsForStar == 0) {
+                f.Global->MaxPurpleCoins = Count;
+                Debug.Log("Not Enough Coins In The Map Or Custom Coin Count Disabled, Setting Max Purple Coins To The Amount Of Coins In The Map: " + f.Global->MaxPurpleCoins);
+            } else {
+                f.Global->MaxPurpleCoins = (ushort)f.Global->Rules.PurpleCoinsForStar;
+                Debug.Log("Max Purple Coins: " + f.Global->MaxPurpleCoins);
+            }
+        }
         private static void IncrementPurpleCoins(Frame f, EntityRef purplecoinEntity, bool isOnStage = true) {
             f.Unsafe.GetPointer<Interactable>(purplecoinEntity)->ColliderDisabled = true;
-
             f.Events.MarioCollectedPurpleCoin(f.Unsafe.GetPointer<PurpleCoin>(purplecoinEntity)->CoinNumber, f.Unsafe.GetPointer<Transform2D>(purplecoinEntity)->Position);
-
-            if (f.Global->MaxPurpleCoins == 0) {
-                //temp
-                f.Global->MaxPurpleCoins = 3;
-            } 
 
             f.Global->PurpleCoins++;
             if (f.Global->PurpleCoins >= f.Global->MaxPurpleCoins) {
                 f.Global->PurpleCoins -= f.Global->MaxPurpleCoins;
                 f.Signals.OnPurpleCoinSpawnStar();
             }
-
-            Debug.Log("Increment Purple coins: " + f.Global->PurpleCoins + " Max: " + f.Global->MaxPurpleCoins);
         }
 
         #region Interactions
@@ -45,7 +51,7 @@ namespace Quantum {
             while (filter.NextUnsafe(out EntityRef entity, out PurpleCoin* purplecoin, out Interactable* interactable)) {
                 interactable->ColliderDisabled = false;
             }
-            f.Events.ResetPurpleCoins();
+            f.Events.ResetPurpleCoins(true);
         }
 
 

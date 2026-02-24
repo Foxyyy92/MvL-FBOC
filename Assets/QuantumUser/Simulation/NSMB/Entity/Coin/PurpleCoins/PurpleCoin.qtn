@@ -15,4 +15,5 @@ synced event MarioCollectedPurpleCoin {
 }
 
 synced event ResetPurpleCoins {
+	bool Active;
 }

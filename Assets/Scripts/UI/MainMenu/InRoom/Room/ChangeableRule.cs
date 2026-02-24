@@ -191,6 +191,7 @@ namespace NSMB.UI.MainMenu.Submenus.InRoom {
                 CommandChangeRules.Rules.DrawOnTimeUp => rules.DrawOnTimeUp,
                 CommandChangeRules.Rules.CustomPowerupsEnabled => (bool) rules.CustomPowerupsEnabled,
                 CommandChangeRules.Rules.TeamsEnabled => (bool) rules.TeamsEnabled,
+                CommandChangeRules.Rules.PurpleCoinsForStar => rules.PurpleCoinsForStar,
                 _ => null
             };
 

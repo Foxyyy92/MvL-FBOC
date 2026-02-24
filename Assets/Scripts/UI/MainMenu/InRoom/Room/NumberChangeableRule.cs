@@ -12,6 +12,7 @@ namespace NSMB.UI.MainMenu.Submenus.InRoom {
         //---Serialized Variables
         [SerializeField] protected int minValue = 0, maxValue = 20, step = 1;
         [SerializeField] protected bool minimumValueIsOff;
+        [SerializeField] protected bool minimumValueIsMap;
 
         protected override void IncreaseValueInternal() {
             int intValue = (int) value;
@@ -51,17 +52,20 @@ namespace NSMB.UI.MainMenu.Submenus.InRoom {
             case CommandChangeRules.Rules.TimerMinutes:
                 cmd.TimerMinutes = (int) value;
                 break;
+            case CommandChangeRules.Rules.PurpleCoinsForStar:
+                cmd.PurpleCoinsForStar = (int) value;
+                break;
             }
 
             QuantumGame game = QuantumRunner.DefaultGame;
             int slot = game.GetLocalPlayerSlots()[game.GetLocalPlayers().IndexOf(game.Frames.Predicted.Global->Host)];
             game.SendCommand(slot, cmd);
         }
-
+        
         protected override void UpdateLabel() {
             TranslationManager tm = GlobalController.Instance.translationManager;
             if (value is int intValue) {
-                label.text = labelPrefix + ((minimumValueIsOff && intValue == minValue) ? tm.GetTranslation("ui.generic.off") : intValue);
+                label.text = labelPrefix + ((minimumValueIsOff && intValue == minValue) ? tm.GetTranslation("ui.generic.off") : ((minimumValueIsMap && intValue == minValue) ? tm.GetTranslation("ui.inroom.settings.game.map") : intValue));
             }
         }
     }

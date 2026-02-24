@@ -405,6 +405,7 @@ namespace Quantum.Prototypes {
     public QBoolean TeamsEnabled;
     public QBoolean CustomPowerupsEnabled;
     public QBoolean DrawOnTimeUp;
+    public Int32 PurpleCoinsForStar;
     partial void MaterializeUser(Frame frame, ref Quantum.GameRules result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Quantum.GameRules result, in PrototypeMaterializationContext context = default) {
         result.Stage = this.Stage;
@@ -416,6 +417,7 @@ namespace Quantum.Prototypes {
         result.TeamsEnabled = this.TeamsEnabled;
         result.CustomPowerupsEnabled = this.CustomPowerupsEnabled;
         result.DrawOnTimeUp = this.DrawOnTimeUp;
+        result.PurpleCoinsForStar = this.PurpleCoinsForStar;
         MaterializeUser(frame, ref result, in context);
     }
   }
@@ -425,7 +427,7 @@ namespace Quantum.Prototypes {
     public string _field_used_;
     public Quantum.Prototypes.StarChasersDataPrototype StarChasers;
     public Quantum.Prototypes.CoinRunnersDataPrototype CoinRunners;
-    public Quantum.Prototypes.StarChasersDataPrototype PurpleCoinsChasers;
+    public Quantum.Prototypes.PurpleCoinsDataPrototype PurpleCoinsChasers;
     partial void MaterializeUser(Frame frame, ref Quantum.GamemodeSpecificData result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Quantum.GamemodeSpecificData result, in PrototypeMaterializationContext context = default) {
         switch (_field_used_) {
@@ -887,6 +889,16 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref Quantum.PurpleCoin result, in PrototypeMaterializationContext context = default) {
         result.CoinNumber = this.CoinNumber;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.PurpleCoinsData))]
+  public unsafe partial class PurpleCoinsDataPrototype : StructPrototype {
+    public Byte StarsFromPurpleCoins;
+    partial void MaterializeUser(Frame frame, ref Quantum.PurpleCoinsData result, in PrototypeMaterializationContext context);
+    public void Materialize(Frame frame, ref Quantum.PurpleCoinsData result, in PrototypeMaterializationContext context = default) {
+        result.StarsFromPurpleCoins = this.StarsFromPurpleCoins;
         MaterializeUser(frame, ref result, in context);
     }
   }

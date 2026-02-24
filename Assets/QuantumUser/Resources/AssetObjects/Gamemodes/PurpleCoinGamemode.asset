@@ -16,11 +16,11 @@ MonoBehaviour:
     Path: QuantumUser/Resources/AssetObjects/Gamemodes/PurpleCoinGamemode
     Guid:
       Value: 479061235690353728
-  NamePrefix: '<sprite name=Erm Idk> '
-  TranslationKey: gamemode.purplecoin
+  NamePrefix: '<sprite name=> '
+  TranslationKey: gamemode.purp
   DescriptionTranslationKey: gamemode.purplecoin.description
   DiscordRpcKey: gamemode-purplecoin
-  ObjectiveSymbolPrefix: P
+  ObjectiveSymbolPrefix: S
   AllCoinItems:
   - Id:
       Value: 271390802845879304
@@ -41,7 +41,7 @@ MonoBehaviour:
   - Id:
       Value: 378514462062875007
   - Id:
-      Value: 480960334749072574
+      Value: 492912032831386046
   FallbackCoinItem:
     Id:
       Value: 390055422968795145
@@ -55,7 +55,7 @@ MonoBehaviour:
     Gamemode:
       Id:
         Value: 479061235690353728
-    StarsToWin: 20
+    StarsToWin: 10
     CoinsForPowerup: 8
     Lives: 0
     TimerMinutes: 0
@@ -65,6 +65,7 @@ MonoBehaviour:
       Value: 1
     DrawOnTimeUp:
       Value: 0
-  BigStarPrototype:
+    PurpleCoinsForStar: 0
+  BigStarForPurpleCoinsPrototype:
     Id:
       Value: 1295981493910502871

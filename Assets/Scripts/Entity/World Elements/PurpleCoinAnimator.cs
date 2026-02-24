@@ -38,7 +38,7 @@ namespace NSMB.Entities.World {
 
         public void OnStageReset(EventResetPurpleCoins e) {
             foreach (var coin in coinrenderers) {
-                coin.enabled = true;
+                coin.enabled = e.Active;
             }
         }
 
