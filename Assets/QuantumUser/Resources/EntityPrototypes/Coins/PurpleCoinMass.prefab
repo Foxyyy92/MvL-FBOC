@@ -101,10 +101,10 @@ MonoBehaviour:
   coinrenderers: []
   speed: 9
   Sprites:
-  - {fileID: 595918852289861335, guid: f4b7221be8b79c94c9c8919163014cb0, type: 3}
-  - {fileID: 845948447533366988, guid: f4b7221be8b79c94c9c8919163014cb0, type: 3}
-  - {fileID: -5313328981683241401, guid: f4b7221be8b79c94c9c8919163014cb0, type: 3}
-  - {fileID: -8417162070665421395, guid: f4b7221be8b79c94c9c8919163014cb0, type: 3}
+  - {fileID: -1277691020, guid: 15656361d7330ce4e8695dba75f0f6c6, type: 3}
+  - {fileID: 132750483, guid: 15656361d7330ce4e8695dba75f0f6c6, type: 3}
+  - {fileID: -1228235138, guid: 15656361d7330ce4e8695dba75f0f6c6, type: 3}
+  - {fileID: 935179065, guid: 15656361d7330ce4e8695dba75f0f6c6, type: 3}
 --- !u!1001 &602801806258199164
 PrefabInstance:
   m_ObjectHideFlags: 0

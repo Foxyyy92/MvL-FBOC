@@ -608,7 +608,7 @@ Transform:
   m_GameObject: {fileID: 133657841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -638,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 1435431862184428454, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -16.5
       objectReference: {fileID: 0}
     - target: {fileID: 1435431862184428454, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 5327661004347306627, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
       propertyPath: Prototype.Spawnpoint.X.RawValue
-      value: -65536
+      value: -1081344
       objectReference: {fileID: 0}
     - target: {fileID: 5327661004347306627, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
@@ -1316,7 +1316,7 @@ Transform:
   m_GameObject: {fileID: 356705692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: -1.25, z: 0}
+  m_LocalPosition: {x: -3.5, y: -1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1469,7 +1469,7 @@ Transform:
   m_GameObject: {fileID: 402974982}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.8, z: 0}
+  m_LocalPosition: {x: -15.5, y: -2.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2229,8 +2229,14 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 9137760402819614512, guid: 296a283c7c3313e4ea14391be065c1ac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1277691020, guid: 15656361d7330ce4e8695dba75f0f6c6,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2382,7 +2388,7 @@ Transform:
   m_GameObject: {fileID: 859204836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2470,8 +2476,14 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9137760402819614512, guid: 296a283c7c3313e4ea14391be065c1ac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1277691020, guid: 15656361d7330ce4e8695dba75f0f6c6,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2589,7 +2601,7 @@ Transform:
   m_GameObject: {fileID: 1092027738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: -1.75, z: 0}
+  m_LocalPosition: {x: 0.5, y: -1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2616,7 +2628,7 @@ PrefabInstance:
     - target: {fileID: 1435431862184428454, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.75
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1435431862184428454, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
@@ -2671,7 +2683,7 @@ PrefabInstance:
     - target: {fileID: 5327661004347306627, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
       propertyPath: Prototype.Spawnpoint.X.RawValue
-      value: 966656
+      value: -49152
       objectReference: {fileID: 0}
     - target: {fileID: 5327661004347306627, guid: acafae0748a6d984ca08e285f836acaf,
         type: 3}
@@ -4387,7 +4399,7 @@ Transform:
   m_GameObject: {fileID: 1292545024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4457,13 +4469,25 @@ PrefabInstance:
     - target: {fileID: 1813551529167937055, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1868911915224380296, guid: b5fc8ba475f05b142ae0ce8c28c48593,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1277691020, guid: 15656361d7330ce4e8695dba75f0f6c6,
+        type: 3}
     - target: {fileID: 3265635266455852584, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3284653570326838207, guid: b5fc8ba475f05b142ae0ce8c28c48593,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1277691020, guid: 15656361d7330ce4e8695dba75f0f6c6,
+        type: 3}
     - target: {fileID: 4103083669109391550, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4484,6 +4508,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6429944579377698139, guid: b5fc8ba475f05b142ae0ce8c28c48593,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1277691020, guid: 15656361d7330ce4e8695dba75f0f6c6,
+        type: 3}
     - target: {fileID: 6485027860537669836, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: Prototype.CoinNumber
@@ -4497,7 +4527,7 @@ PrefabInstance:
     - target: {fileID: 8572227882836430078, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15.5
       objectReference: {fileID: 0}
     - target: {fileID: 8572227882836430078, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
@@ -4633,8 +4663,14 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9137760402819614512, guid: 296a283c7c3313e4ea14391be065c1ac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1277691020, guid: 15656361d7330ce4e8695dba75f0f6c6,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9412,7 +9448,7 @@ PrefabInstance:
     - target: {fileID: 8010249587145537842, guid: da972f64d20815e4487e3000ae7ce690,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.499
+      value: -24.999
       objectReference: {fileID: 0}
     - target: {fileID: 8010249587145537842, guid: da972f64d20815e4487e3000ae7ce690,
         type: 3}
@@ -14963,7 +14999,7 @@ Transform:
   m_GameObject: {fileID: 2095651722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.980314, y: -2.377397, z: -3.4952552}
+  m_LocalPosition: {x: 7.4803143, y: -2.377397, z: -3.4952552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
