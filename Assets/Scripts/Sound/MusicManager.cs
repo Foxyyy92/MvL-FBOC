@@ -90,6 +90,7 @@ namespace NSMB.Sound {
 
                 speedup |= rules.IsLivesEnabled && mario->Lives == 1;
                 mega |= Settings.Instance.audioSpecialPowerupMusic.HasFlag(Enums.SpecialPowerupMusic.MegaMushroom) && mario->MegaMushroomFrames > 0;
+                UnderWater |= f.Unsafe.GetPointer<PhysicsObject>(entity)->IsUnderwater;
                 invincible |= Settings.Instance.audioSpecialPowerupMusic.HasFlag(Enums.SpecialPowerupMusic.Starman) && mario->IsStarmanInvincible;
                 FrontRunning |= (gamemode is StarChasersGamemode ? (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.StarChasers->Stars && mario->GamemodeData.StarChasers->Stars != 0) 
                     : gamemode is PurpleCoinsGamemode ? (gamemode.GetFirstPlaceObjectiveCount(f) == mario->GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins && mario->GamemodeData.PurpleCoinsChasers->StarsFromPurpleCoins != 0)
@@ -114,8 +115,10 @@ namespace NSMB.Sound {
                 musicPlayer.Play(f.FindAsset(stage.MegaMushroomMusic));
             } else if (invincible) {
                 musicPlayer.Play(f.FindAsset(stage.InvincibleMusic));
+            } else if (UnderWater) {
+                musicPlayer.Play(f.FindAsset(gamemode is PurpleCoinsGamemode ? stage.UnderwaterPurpMusic : stage.UnderwaterMusic));
             } else {
-                musicPlayer.Play(f.FindAsset(stage.GetCurrentMusic(f)));
+                musicPlayer.Play(f.FindAsset(stage.GetCurrentMusic(f, gamemode is PurpleCoinsGamemode)));
             }
 
             musicPlayer.FastMusic = speedup;

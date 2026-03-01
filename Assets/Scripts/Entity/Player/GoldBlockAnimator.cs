@@ -14,7 +14,7 @@ namespace NSMB.Entities.CoinItems {
         //---Serialized Variables
         [SerializeField] private new Animation animation;
         [SerializeField] private CharacterPoseData[] poseData;
-        [SerializeField] private GameObject flyingModel, helmetModel, coinPrefab;
+        [SerializeField] private GameObject flyingModel, helmetModel, coinPrefab, purplecoinPrefab;
         [SerializeField] private SkinnedMeshRenderer helmetMeshRenderer;
         [SerializeField] private AudioSource sfx;
         [SerializeField] private GameObject helmetPropellerParent, helmetPropellerBlades;
@@ -24,6 +24,8 @@ namespace NSMB.Entities.CoinItems {
         [SerializeField] private float lostViaDamageInitialAngularVelocity = 600f, lostViaDamageAngularDeceleration = 600f;
         [SerializeField] private float lostViaDamageDespawnTime = 0.75f;
         [SerializeField] private Vector3 lostViaDamageRotationOffset;
+
+        [SerializeField] private AudioClip purplecoinsound;
 
         //---Private Variables
         private MarioPlayerAnimator marioPlayerAnimator;
@@ -196,10 +198,14 @@ namespace NSMB.Entities.CoinItems {
             }
 
             if (!IsReplayFastForwarding) {
-                sfx.pitch = Random.Range(1.35f, 1.45f);
-                sfx.Play();
+                if (e.IsPurp) {
+                    sfx.PlayOneShot(purplecoinsound);
+                } else {
+                    sfx.pitch = Random.Range(1.35f, 1.45f);
+                    sfx.Play();
+                }
             }
-            GameObject particle = Instantiate(coinPrefab, helmetModel.transform.position + (Vector3.up * 0.25f), Quaternion.identity);
+            GameObject particle = Instantiate(e.IsPurp ? purplecoinPrefab : coinPrefab, helmetModel.transform.position + (Vector3.up * 0.25f), Quaternion.identity);
             Destroy(particle, 0.3f);
         }
 

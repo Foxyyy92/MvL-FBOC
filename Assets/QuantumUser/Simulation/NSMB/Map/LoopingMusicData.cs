@@ -4,13 +4,10 @@ using UnityEngine;
 public class LoopingMusicData : AssetObject {
 
 #if QUANTUM_UNITY
-    public UnityEngine.AudioClip FrontRunning;
-    public UnityEngine.AudioClip fastFrontRunning;
-    public UnityEngine.AudioClip Normal;
-    public UnityEngine.AudioClip fastNormal;
-    [Header("---Not Functional, Not Required---")]
-    public UnityEngine.AudioClip UnderWater;
-    public UnityEngine.AudioClip fastUnderWater;
+    public AudioClip FrontRunning;
+    public AudioClip fastFrontRunning;
+    public AudioClip Normal;
+    public AudioClip fastNormal;
     [Space]
 #endif
     public float loopStartSeconds;

@@ -34,16 +34,31 @@ namespace Quantum {
                     }
                 }
 
-                if (goldBlock->Timer >= 40) {
-                    var mario = f.Unsafe.GetPointer<MarioPlayer>(goldBlock->AttachedTo);
-                    mario->GamemodeData.CoinRunners->ObjectiveCoins++;
-                    f.Events.GoldBlockGeneratedObjectiveCoin(entity);
-                    f.Events.MarioPlayerObjectiveCoinsChanged(goldBlock->AttachedTo);
-                    goldBlock->Timer = 0;
-                    if (--goldBlock->ObjectiveCoinsRemaining == 0) {
-                        f.Events.GoldBlockRanOutOfCoins(entity);
-                        f.Destroy(entity);
-                        return;
+                if (f.FindAsset(f.Global->Rules.Gamemode) is CoinRunnersGamemode) {
+                    if (goldBlock->Timer >= 40) {
+                        var mario = f.Unsafe.GetPointer<MarioPlayer>(goldBlock->AttachedTo);
+                        mario->GamemodeData.CoinRunners->ObjectiveCoins++;
+                        f.Events.GoldBlockGeneratedObjectiveCoin(entity, false);
+                        f.Events.MarioPlayerObjectiveCoinsChanged(goldBlock->AttachedTo);
+                        goldBlock->Timer = 0;
+                        if (--goldBlock->ObjectiveCoinsRemaining == 0) {
+                            f.Events.GoldBlockRanOutOfCoins(entity);
+                            f.Destroy(entity);
+                            return;
+                        }
+                    }
+                } else {
+                    if (goldBlock->Timer >= 80) {
+                        var mario = f.Unsafe.GetPointer<MarioPlayer>(goldBlock->AttachedTo);
+                        PurpleCoinSystem.IncrementPurpleCoins(f, EntityRef.None);
+                        f.Events.GoldBlockGeneratedObjectiveCoin(entity, true);
+                        //f.Events.MarioPlayerObjectiveCoinsChanged(goldBlock->AttachedTo);
+                        goldBlock->Timer = 0;
+                        if (--goldBlock->ObjectiveCoinsRemaining == 0) {
+                            f.Events.GoldBlockRanOutOfCoins(entity);
+                            f.Destroy(entity);
+                            return;
+                        }
                     }
                 }
                 transform->Position = f.Unsafe.GetPointer<Transform2D>(goldBlock->AttachedTo)->Position + FPVector2.Up;
@@ -101,12 +116,16 @@ namespace Quantum {
                 return;
             }
             if (mario->CurrentPowerupState == PowerupState.MegaMushroom) {
-                // Break into 10 coins
-                var transform = f.Unsafe.GetPointer<Transform2D>(contact.Entity);
-                ObjectiveCoinSystem.SpawnObjectiveCoins(f, transform->Position, 10, 0, false);
-                f.Events.GoldBlockBrokenByMega(contact.Entity);
-                f.Destroy(contact.Entity);
-                keepContacts = false;
+                if (f.FindAsset(f.Global->Rules.Gamemode) is CoinRunnersGamemode) {
+                    // Break into 10 coins
+                    var transform = f.Unsafe.GetPointer<Transform2D>(contact.Entity);
+                    ObjectiveCoinSystem.SpawnObjectiveCoins(f, transform->Position, 10, 0, false);
+                    f.Events.GoldBlockBrokenByMega(contact.Entity);
+                    f.Destroy(contact.Entity);
+                    keepContacts = false;
+                } else {
+                    //idk what it should do
+                }
                 return;
             }
             if (f.Unsafe.TryGetPointer(goldBlockEntity, out CoinItem* coinItem) && coinItem->SpawnAnimationFrames > 0) {
@@ -185,8 +204,18 @@ namespace Quantum {
 
         private static int GetCoinsInGoldBlock(Frame f, MarioPlayer* mario) {
             var gamemode = f.FindAsset(f.Global->Rules.Gamemode);
-            int firstPlaceCoins = gamemode.GetFirstPlaceObjectiveCount(f);
-            return FPMath.CeilToInt(25 + (firstPlaceCoins - mario->GamemodeData.CoinRunners->ObjectiveCoins) / Constants._2_50);
+            if (gamemode is CoinRunnersGamemode) {
+                int firstPlaceCoins = gamemode.GetFirstPlaceObjectiveCount(f);
+                return FPMath.CeilToInt(25 + (firstPlaceCoins - mario->GamemodeData.CoinRunners->ObjectiveCoins) / Constants._2_50);
+            } else {
+                //10 stars, 50 coins == 50
+                //15 stars, 50 coins == 75
+                //50 coins == 
+                //6 coins == 
+                //1 coin == 
+                //100 coins == 
+                return FPMath.CeilToInt(15 + (f.Global->MaxPurpleCoins/2));
+            }
         }
     }
 }

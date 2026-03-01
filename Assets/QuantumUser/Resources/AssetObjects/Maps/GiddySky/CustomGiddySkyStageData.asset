@@ -70,6 +70,15 @@ MonoBehaviour:
   MainMusic:
   - Id:
       Value: 268893564826353048
+  UnderwaterMusic:
+    Id:
+      Value: 0
+  PurpMusic:
+    Id:
+      Value: 393789283230116145
+  UnderwaterPurpMusic:
+    Id:
+      Value: 0
   InvincibleMusic:
     Id:
       Value: 289056355789154037

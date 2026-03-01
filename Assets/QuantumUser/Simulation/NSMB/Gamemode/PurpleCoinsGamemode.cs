@@ -9,6 +9,7 @@ namespace Quantum {
         public override void EnableGamemode(Frame f) {
             f.SystemEnable<BigStarSystem>();
             f.SystemEnable<PurpleCoinSystem>();
+            f.SystemEnable<GoldBlockSystem>();
             f.Global->AutomaticStageRefreshTimer = f.Global->AutomaticStageRefreshInterval = 0;
 
             //prob move this to a better location
@@ -18,6 +19,7 @@ namespace Quantum {
         public override void DisableGamemode(Frame f) {
             f.SystemDisable<BigStarSystem>();
             f.SystemDisable<PurpleCoinSystem>();
+            f.SystemDisable<GoldBlockSystem>();
 
             //prob move this to a better location
             var filter = f.Filter<PurpleCoin, Interactable>();

@@ -36,6 +36,7 @@ namespace Quantum {
             bool lives = rules.IsLivesEnabled;
             bool big = stage.SpawnBigPowerups;
             bool vertical = stage.SpawnVerticalPowerups;
+            FP PurpleCoinsBonusChance = FPMath.Clamp(f.Global->Rules.PurpleCoinsForStar, 0, 10)/2; //chance is higher with more coins
 
             bool canSpawnMega = true;
 
@@ -75,7 +76,7 @@ namespace Quantum {
                     continue;
                 }
 
-                totalChance += GetItemSpawnWeight(f, coinItem, leaderObjectiveCount, ourObjectiveCount);
+                totalChance += GetItemSpawnWeight(f, coinItem, leaderObjectiveCount, ourObjectiveCount) * (coinItem.OnlyIfNotSetToMapCoins ? PurpleCoinsBonusChance : 1);
             }
 
             FP rand = mario->RNG.Next(0, totalChance);
@@ -94,7 +95,7 @@ namespace Quantum {
                     continue;
                 }
 
-                FP chance = GetItemSpawnWeight(f, coinItem, leaderObjectiveCount, ourObjectiveCount);
+                FP chance = GetItemSpawnWeight(f, coinItem, leaderObjectiveCount, ourObjectiveCount) * (coinItem.OnlyIfNotSetToMapCoins ? PurpleCoinsBonusChance : 1);
 
                 if (rand < chance) {
                     return coinItem;

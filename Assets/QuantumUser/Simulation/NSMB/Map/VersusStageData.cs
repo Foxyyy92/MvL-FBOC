@@ -50,6 +50,9 @@ public unsafe class VersusStageData : AssetObject {
 
     [Header("-- Music")]
     public AssetRef<LoopingMusicData>[] MainMusic;
+    public AssetRef<LoopingMusicData> UnderwaterMusic;
+    public AssetRef<LoopingMusicData> PurpMusic;
+    public AssetRef<LoopingMusicData> UnderwaterPurpMusic;
     public AssetRef<LoopingMusicData> InvincibleMusic;
     public AssetRef<LoopingMusicData> MegaMushroomMusic;
 
@@ -57,8 +60,8 @@ public unsafe class VersusStageData : AssetObject {
     [HideInInspector] public StageTileInstance[] TileData;
     [HideInInspector] public FPVector2[] BigStarSpawnpoints;
 
-    public AssetRef<LoopingMusicData> GetCurrentMusic(Frame f) {
-        return MainMusic[f.Global->TotalGamesPlayed % MainMusic.Length];
+    public AssetRef<LoopingMusicData> GetCurrentMusic(Frame f, bool IsPurp) {
+        return IsPurp ? PurpMusic : MainMusic[f.Global->TotalGamesPlayed % MainMusic.Length];
     }
 
     public FPVector2 GetWorldSpawnpointForPlayer(int playerIndex, int totalPlayers) {

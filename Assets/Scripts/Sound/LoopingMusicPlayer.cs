@@ -81,7 +81,7 @@ namespace NSMB.Sound {
 
                 Update();
             }
-            get => _fastMusic && CurrentMusicSong && (CurrentMusicSong.fastNormal || CurrentMusicSong.fastFrontRunning || CurrentMusicSong.fastUnderWater);
+            get => _fastMusic && CurrentMusicSong && (CurrentMusicSong.fastNormal || CurrentMusicSong.fastFrontRunning);
         }
         private bool _Frontrunning;
         public bool Frontrunning {
@@ -103,7 +103,7 @@ namespace NSMB.Sound {
 
                 Update();
             }
-            get => _Frontrunning && CurrentMusicSong && (CurrentMusicSong.fastNormal || CurrentMusicSong.fastFrontRunning || CurrentMusicSong.fastUnderWater);
+            get => _Frontrunning && CurrentMusicSong && (CurrentMusicSong.fastNormal || CurrentMusicSong.fastFrontRunning);
         }
 
 
@@ -131,9 +131,6 @@ namespace NSMB.Sound {
             if (_Frontrunning) {
                 //Frontrunning
                 return (allowfast && song.fastFrontRunning) ? song.fastFrontRunning : song.FrontRunning;
-            } else if (false && song.UnderWater != null) {
-                //Underwater
-                return (allowfast && song.fastUnderWater) ? song.fastUnderWater : song.UnderWater;
             } else {
                 //Normal
                 return (allowfast && song.fastNormal) ? song.fastNormal : song.Normal;

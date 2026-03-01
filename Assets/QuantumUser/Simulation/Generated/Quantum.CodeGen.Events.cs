@@ -426,9 +426,10 @@ namespace Quantum {
         _f.AddEvent(ev);
         return ev;
       }
-      public EventGoldBlockGeneratedObjectiveCoin GoldBlockGeneratedObjectiveCoin(EntityRef GoldBlock) {
+      public EventGoldBlockGeneratedObjectiveCoin GoldBlockGeneratedObjectiveCoin(EntityRef GoldBlock, QBoolean IsPurp) {
         var ev = _f.Context.AcquireEvent<EventGoldBlockGeneratedObjectiveCoin>(EventGoldBlockGeneratedObjectiveCoin.ID);
         ev.GoldBlock = GoldBlock;
+        ev.IsPurp = IsPurp;
         _f.AddEvent(ev);
         return ev;
       }
@@ -1787,6 +1788,7 @@ namespace Quantum {
   public unsafe partial class EventGoldBlockGeneratedObjectiveCoin : EventBase {
     public new const Int32 ID = 40;
     public EntityRef GoldBlock;
+    public QBoolean IsPurp;
     protected EventGoldBlockGeneratedObjectiveCoin(Int32 id, EventFlags flags) : 
         base(id, flags) {
     }
@@ -1805,6 +1807,7 @@ namespace Quantum {
       unchecked {
         var hash = 239;
         hash = hash * 31 + GoldBlock.GetHashCode();
+        hash = hash * 31 + IsPurp.GetHashCode();
         return hash;
       }
     }

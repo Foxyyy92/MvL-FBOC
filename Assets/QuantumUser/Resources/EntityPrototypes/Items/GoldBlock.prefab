@@ -507,6 +507,8 @@ MonoBehaviour:
   helmetModel: {fileID: 8073507591713077683}
   coinPrefab: {fileID: 4355208377719065490, guid: a5e50807db195de4ba93181847f681df,
     type: 3}
+  purplecoinPrefab: {fileID: 4355208377719065490, guid: 2f2f6da148ba3ed48b9c849a474f73dc,
+    type: 3}
   helmetMeshRenderer: {fileID: 6099990347301812746}
   sfx: {fileID: 1841460531188503477}
   helmetPropellerParent: {fileID: 4759575354969238020}
@@ -517,6 +519,7 @@ MonoBehaviour:
   lostViaDamageAngularDeceleration: 1200
   lostViaDamageDespawnTime: 0.66
   lostViaDamageRotationOffset: {x: 0, y: 0.06, z: 0}
+  purplecoinsound: {fileID: 8300000, guid: 9843cf1b673e44544a9ae12292aaf15d, type: 3}
 --- !u!114 &8561459730482369782
 MonoBehaviour:
   m_ObjectHideFlags: 0

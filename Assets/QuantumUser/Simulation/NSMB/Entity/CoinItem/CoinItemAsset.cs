@@ -9,5 +9,6 @@ public class CoinItemAsset : AssetObject {
     public bool BigPowerup, VerticalPowerup, CustomPowerup, LivesOnlyPowerup;
     public bool CanSpawnFromBlock = true;
     public bool OnlyOneCanExist = false;
+    public bool OnlyIfNotSetToMapCoins = false;
 
 }

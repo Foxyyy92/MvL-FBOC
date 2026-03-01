@@ -2,6 +2,7 @@ using Quantum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using UnityEngine;
 
 namespace NSMB.Sound {
@@ -39,7 +40,13 @@ namespace NSMB.Sound {
             }
 
             // Main music
-            PreloadMusic(f.FindAsset(stage.GetCurrentMusic(f)));
+            PreloadMusic(f.FindAsset(stage.GetCurrentMusic(f, false)));
+            PreloadMusic(f.FindAsset(stage.GetCurrentMusic(f, true)));
+            if (stage.UnderwaterMusic != null) {
+                //Only Preload If The Stage Has Any
+                PreloadMusic(f.FindAsset(stage.UnderwaterPurpMusic));
+                PreloadMusic(f.FindAsset(stage.UnderwaterMusic));
+            }
             PreloadMusic(f.FindAsset(stage.MegaMushroomMusic));
             PreloadMusic(f.FindAsset(stage.InvincibleMusic));
         }
@@ -49,10 +56,6 @@ namespace NSMB.Sound {
             PreloadClip(musicData.fastNormal);
             PreloadClip(musicData.FrontRunning);
             PreloadClip(musicData.fastFrontRunning);
-            if (musicData.UnderWater != null) {
-                PreloadClip(musicData.UnderWater);
-                PreloadClip(musicData.fastUnderWater);
-            }
         }
 
         private void PreloadClip(AudioClip clip) {

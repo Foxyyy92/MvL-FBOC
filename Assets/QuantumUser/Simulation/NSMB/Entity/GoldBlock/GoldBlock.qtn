@@ -11,6 +11,7 @@ event MarioPlayerPickedUpGoldBlock {
 
 event GoldBlockGeneratedObjectiveCoin {
 	EntityRef GoldBlock;
+	bool IsPurp;
 }
 
 event GoldBlockRanOutOfCoins {

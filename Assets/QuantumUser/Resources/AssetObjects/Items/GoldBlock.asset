@@ -30,3 +30,4 @@ MonoBehaviour:
   LivesOnlyPowerup: 0
   CanSpawnFromBlock: 0
   OnlyOneCanExist: 1
+  OnlyIfNotSetToMapCoins: 1

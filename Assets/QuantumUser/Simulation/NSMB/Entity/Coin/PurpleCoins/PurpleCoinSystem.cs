@@ -28,9 +28,11 @@ namespace Quantum {
                 Debug.Log("Max Purple Coins: " + f.Global->MaxPurpleCoins);
             }
         }
-        private static void IncrementPurpleCoins(Frame f, EntityRef purplecoinEntity, bool isOnStage = true) {
-            f.Unsafe.GetPointer<Interactable>(purplecoinEntity)->ColliderDisabled = true;
-            f.Events.MarioCollectedPurpleCoin(f.Unsafe.GetPointer<PurpleCoin>(purplecoinEntity)->CoinNumber, f.Unsafe.GetPointer<Transform2D>(purplecoinEntity)->Position);
+        public static void IncrementPurpleCoins(Frame f, EntityRef purplecoinEntity) {
+            if (purplecoinEntity != EntityRef.None) {
+                f.Unsafe.GetPointer<Interactable>(purplecoinEntity)->ColliderDisabled = true;
+                f.Events.MarioCollectedPurpleCoin(f.Unsafe.GetPointer<PurpleCoin>(purplecoinEntity)->CoinNumber, f.Unsafe.GetPointer<Transform2D>(purplecoinEntity)->Position);
+            }
 
             f.Global->PurpleCoins++;
             if (f.Global->PurpleCoins >= f.Global->MaxPurpleCoins) {
