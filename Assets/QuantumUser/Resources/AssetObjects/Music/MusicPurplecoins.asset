@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075af0e881e112348abe562216ddc298, type: 3}
-  m_Name: MusicPurplecoins
+  m_Name: MusicPurpleCoins
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Resources/AssetObjects/Music/MusicPurplecoins
+    Path: QuantumUser/Resources/AssetObjects/Music/MusicPurpleCoins
     Guid:
       Value: 393789283230116145
-  FrontRunning: {fileID: 8300000, guid: b1f89af2560095241aeae24d24c5fe6a, type: 3}
-  fastFrontRunning: {fileID: 8300000, guid: d8d742b0b719be944a76e5ceba4ce2e9, type: 3}
-  Normal: {fileID: 8300000, guid: b1f89af2560095241aeae24d24c5fe6a, type: 3}
-  fastNormal: {fileID: 8300000, guid: d8d742b0b719be944a76e5ceba4ce2e9, type: 3}
-  loopStartSeconds: 0
-  loopEndSeconds: 999
+  FrontRunning: {fileID: 8300000, guid: 0e23f2ea453bbd24cbeb439ef3a8f8d6, type: 3}
+  fastFrontRunning: {fileID: 8300000, guid: 9baf58528f0e2184a83ecd4cfb6b86cc, type: 3}
+  Normal: {fileID: 8300000, guid: 0e23f2ea453bbd24cbeb439ef3a8f8d6, type: 3}
+  fastNormal: {fileID: 8300000, guid: 9baf58528f0e2184a83ecd4cfb6b86cc, type: 3}
+  loopStartSeconds: 1.62
+  loopEndSeconds: 92.43
   speedupFactor: 1.25
