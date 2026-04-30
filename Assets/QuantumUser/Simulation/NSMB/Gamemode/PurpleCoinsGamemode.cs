@@ -18,15 +18,16 @@ namespace Quantum {
 
         public override void DisableGamemode(Frame f) {
             f.SystemDisable<BigStarSystem>();
-            f.SystemDisable<PurpleCoinSystem>();
             f.SystemDisable<GoldBlockSystem>();
 
             //prob move this to a better location
             var filter = f.Filter<PurpleCoin, Interactable>();
             while (filter.NextUnsafe(out EntityRef entity, out PurpleCoin* purplecoin, out Interactable* interactable)) {
                 interactable->ColliderDisabled = true;
+                //f.Destroy(entity);
             }
             f.Events.ResetPurpleCoins(false);
+            f.SystemDisable<PurpleCoinSystem>();
         }
 
         public override void CheckForGameEnd(Frame f) {
