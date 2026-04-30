@@ -288,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -382,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -476,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 12
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -691,7 +691,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 17
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1698,7 +1698,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 3
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1879,7 +1879,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2144,7 +2144,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 4
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2238,7 +2238,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2987,7 +2987,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9137760402819614512, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
@@ -3081,7 +3081,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3328,7 +3328,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9137760402819614512, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
@@ -5350,7 +5350,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5475,7 +5475,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 18
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5509,7 +5509,7 @@ PrefabInstance:
     - target: {fileID: 1813551529167937055, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 19
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1868911915224380296, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
@@ -5520,7 +5520,7 @@ PrefabInstance:
     - target: {fileID: 3265635266455852584, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 13
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3284653570326838207, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
@@ -5557,12 +5557,17 @@ PrefabInstance:
     - target: {fileID: 6485027860537669836, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8572227882836430048, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
       propertyPath: m_Name
       value: PurpleCoinMass
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572227882836430048, guid: b5fc8ba475f05b142ae0ce8c28c48593,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572227882836430078, guid: b5fc8ba475f05b142ae0ce8c28c48593,
         type: 3}
@@ -5775,7 +5780,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 21
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9137760402819614512, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
@@ -10575,7 +10580,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10669,7 +10674,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 16
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10948,7 +10953,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 2
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11160,7 +11165,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 11
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16637,7 +16642,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 22
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16884,7 +16889,7 @@ PrefabInstance:
     - target: {fileID: 9082469973240834727, guid: 296a283c7c3313e4ea14391be065c1ac,
         type: 3}
       propertyPath: Prototype.CoinNumber
-      value: 20
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
