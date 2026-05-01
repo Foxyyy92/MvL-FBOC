@@ -49,11 +49,16 @@ namespace Quantum {
 
         #region Signals
         public void OnStageReset(Frame f, QBoolean full) {
+            bool IsPurpleCoins = f.FindAsset(f.Global->Rules.Gamemode) is PurpleCoinsGamemode;
             var filter = f.Filter<PurpleCoin, Interactable>();
             while (filter.NextUnsafe(out EntityRef entity, out PurpleCoin* purplecoin, out Interactable* interactable)) {
-                interactable->ColliderDisabled = false;
+                interactable->ColliderDisabled = !IsPurpleCoins;
             }
-            f.Events.ResetPurpleCoins(true);
+            if (IsPurpleCoins) {
+                f.Events.ResetPurpleCoins(true);
+            } else if (full) {
+                f.Events.ResetPurpleCoins(false);
+            }
         }
 
 

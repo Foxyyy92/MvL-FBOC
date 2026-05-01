@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MusicPurpleCoins
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Resources/AssetObjects/Music/MusicPurpleCoins
+    Path: QuantumUser/Resources/AssetObjects/Music/MusicPurplecoins
     Guid:
       Value: 393789283230116145
   FrontRunning: {fileID: 8300000, guid: 0e23f2ea453bbd24cbeb439ef3a8f8d6, type: 3}

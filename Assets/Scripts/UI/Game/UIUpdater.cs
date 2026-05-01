@@ -312,7 +312,6 @@ namespace NSMB.UI.Game {
             // STARS
             int objective = Mathf.Max(0, gamemode.GetObjectiveCount(f, mario));
 
-            UnityEngine.Debug.Log("objective: " + objective);
             if (objective != cachedObjective) {
                 cachedObjective = objective;
                 string objectiveString = gamemode.ObjectiveSymbolPrefix + "x" + cachedObjective;
